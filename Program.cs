@@ -6,7 +6,10 @@ namespace Algorithm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // 剑指offer
+            Permutation.Solution s = new Permutation.Solution();
+
+            s.Test();
         }
     }
 }
