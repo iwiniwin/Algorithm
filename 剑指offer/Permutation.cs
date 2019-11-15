@@ -24,17 +24,46 @@ using System.Collections.Generic;
 namespace Permutation {
     class Solution {
 
-        // public List<string> Permutation(string str)
-        // {
-        //     // write code here
-        // }
-
-        public void Print(List<string> list) {
-
+        public void PermutationImpl(string pre, string str, HashSet<string> set)
+        {
+            if (str.Length == 1) {
+                set.Add(pre + str);
+                return;
+            }
+            for(int i = 0; i < str.Length; i ++) {
+                PermutationImpl(pre + str[i], str.Remove(i, 1), set);
+            }
         }
 
+        public List<string> Permutation(string str)
+        {
+            HashSet<string> set = new HashSet<string>();
+            PermutationImpl("", str, set);
+            List<string> list = new List<string>(set);
+            list.Sort();
+            return list;
+        }
+
+        public void Print(List<string> list) {
+            foreach (string item in list)
+            {
+                Console.WriteLine(item);
+            }
+        }
+/*
+a   bac
+    b ac ca
+    a bc cb
+    c ba ab
+b   aac
+a   abc
+    a bc cb
+    b ac da 
+    c ab ba
+c   aba
+*/
         public void Test() {
-            Console.WriteLine("ffff");
+            Print(Permutation("aba"));
         }
     }
 }
