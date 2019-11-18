@@ -83,11 +83,13 @@ namespace Permutation {
                 return;
             }
             HashSet<char> set = new HashSet<char>();
-            for(int i = index; i < chars.Length && !set.Contains(chars[i]); i ++){
-                set.Add(chars[i]);
-                Swap(chars, i, index);
-                PermutationImpl2(chars, index + 1, list);
-                Swap(chars, index, i);
+            for(int i = index; i < chars.Length; i ++){
+                if (!set.Contains(chars[i])){
+                    set.Add(chars[i]);
+                    Swap(chars, i, index);
+                    PermutationImpl2(chars, index + 1, list);
+                    Swap(chars, index, i);
+                }
             }
         }
         public List<string> Permutation2(string str)
@@ -133,8 +135,8 @@ a   abc
 c   aba
 */
         public void Test() {
-            Print(Permutation("aba"));
-            Print(Permutation2(""));
+            // Print(Permutation("abc"));
+            Print(Permutation2("abac"));
         }
     }
 }
