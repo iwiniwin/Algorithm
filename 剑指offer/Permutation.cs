@@ -103,40 +103,66 @@ namespace Permutation {
             return list;
         }
 
-        /*
-        abc
-
-        bac
-        cba
-
-        bac
-        acb
-
-        cba
-        acb
-
+        /*解法3，字典序全排列算法
+        基本思路：
+        顾名思义就是按照字典的顺序（a-z, 1-9）列出所有的排列。
+        对于数字串1234
+        我们可以知道其最小排列为1234（从左到右依次递增）
+        其最大排列为4321（从右到左依次递增）
+        对于给定字符串1342，下一个恰好比它大的是1423 字典序算法的重点就是如何求得这个下一个刚刚比它大的排列
+        我们已经知道从右到左依次递增的排列是最大的，那么越满足这个条件的排列就是越大的
+        从右到左，我们找到第一个不满足这个条件的数（即左边的数比右边的数小），记下它的位置，将这个不符合条件
+        的数和右边比它大的数中的最小数进行交换，然后将这个位置右边的数进行翻转即可（因为这个位置的数值已经比
+        原字符串大了，所以这个位置右边的数应该是最小的）
+        
+        字符串1342的求解下一个恰好比它大的字符串的过程如下
+        1. 从右到左找到第一个不满足递增规律的数，即3
+        2. 将3和它右边比它大的数中的最小数即4进行交换，得到1432
+        3. 然后将4之后的字符串翻转，得到1423
         */
+        public void Reverse(char[] chars, int index){
+            for(int i = index; i <= (index + (chars.Length- 1 - index)/2); i ++){
+                Swap(chars, i, chars.Length - 1 - i + index);
+            }
+        }
+        public List<string> Permutation3(string str)
+        {
+            List<string> list = new List<string>();
+            if (str != null && str.Length > 0){
+                char[] chars = str.ToCharArray();
+                Array.Sort(chars);
+                list.Add(new string(chars));
+                while(true)
+                {
+                    int i = chars.Length - 1;
+                    while(i > 0 && chars[i - 1] >= chars[i]){
+                        i --;
+                    }
+                    if(i == 0) break;
+                    int j = i;
+                    while(j < chars.Length && chars[j] > chars[i - 1]){
+                        j ++ ;
+                    }
+                    Swap(chars, i - 1, j - 1);
+                    Reverse(chars, i);
+                    list.Add(new string(chars));
+                }
+            }
+            return list;
+        }
+
+
         public void Print(List<string> list) {
             foreach (string item in list)
             {
                 Console.WriteLine(item);
             }
         }
-/*
-a   bac
-    b ac ca
-    a bc cb
-    c ba ab
-b   aac
-a   abc
-    a bc cb
-    b ac da 
-    c ab ba
-c   aba
-*/
+
         public void Test() {
             // Print(Permutation("abc"));
-            Print(Permutation2("abac"));
+            // Print(Permutation2("aba"));
+            // Print(Permutation3("abac"));
         }
     }
 }
