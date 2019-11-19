@@ -67,20 +67,54 @@ namespace MoreThanHalfNum {
         }
 
         /*解法3
-        阵地攻守
+        基本思路：
+        类似于阵地攻守，
+        第一个数字作为第一个士兵，守阵地 count = 1
+        遇到相同数字：count++
+        遇到不同数字：count--，即遇到敌人
+        当遇到count = 0的情况，这表示该士兵阵亡，使用下一个数字代替
+        如果一个元素的数量超过数组长度的一半，则它的数量应该比其他剩余元素数量之和还要多，则剩下的那个数字就是该元素
+        最后再加一次循环，判断该元素数量是否查过数组长度的一半即可
         */
         public int MoreThanHalfNum_Solution3(int[] numbers)
         {
+            if (numbers != null && numbers.Length > 0){
+                int count = 0;
+                int num = 0;
+                foreach(int i in numbers){
+                    if (count == 0){
+                        num = i;
+                        count = 1;
+                    }else
+                    {
+                        if(i == num){
+                            count ++;
+                        }else{
+                            count --;
+                        }
+                    }
+                }
+                count = 0;
+                foreach (int i in numbers)
+                {
+                    if (i == num) {
+                        count ++;
+                    }
+                }
+                if (count > numbers.Length / 2) {
+                    return num;
+                }
+            }
             return 0;
         }
 
         public void Test() {
             int[] numbers = new int[]{1,2,3,2,2,2,5,4,2};
-            // int[] numbers = null;
             // numbers = null;
-            numbers = new int[]{1, 3, 3};
+            // numbers = new int[]{0, 1, 0};
             // Console.WriteLine(MoreThanHalfNum_Solution(numbers));
-            Console.WriteLine(MoreThanHalfNum_Solution2(numbers));
+            // Console.WriteLine(MoreThanHalfNum_Solution2(numbers));
+            // Console.WriteLine(MoreThanHalfNum_Solution3(numbers));
         }
     }
 }
