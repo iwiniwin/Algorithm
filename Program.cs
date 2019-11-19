@@ -8,7 +8,8 @@ namespace Algorithm
         {
             // 剑指offer
             // Permutation.Solution s = new Permutation.Solution();
-            MoreThanHalfNum.Solution s = new MoreThanHalfNum.Solution();
+            // MoreThanHalfNum.Solution s = new MoreThanHalfNum.Solution();
+            GetLeastNumbers.Solution s = new GetLeastNumbers.Solution();
 
             s.Test();
         }
