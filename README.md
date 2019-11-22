@@ -12,7 +12,7 @@
 ## 剑指Offer
 
 <table><tbody>
-<tr><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/Permutation.cs">字符串的排列</a></td width="25%" align="center"><td><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/MoreThanHalfNum.cs">数组中出现次数超过一半的数字</a></td><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/GetLeastNumbers.cs">最小的K个数</a></td><td width="25%" align="center"></td></tr>
+<tr><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/Permutation.cs">字符串的排列</a></td width="25%" align="center"><td><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/MoreThanHalfNum.cs">数组中出现次数超过一半的数字</a></td><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/GetLeastNumbers.cs">最小的K个数</a></td><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FindGreatestSumOfSubArray.cs">连续子数组的最大和</a></td></tr>
 </tbody></table>
 
 ## 程序员代码面试指南
