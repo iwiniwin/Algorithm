@@ -42,8 +42,37 @@ namespace NumberOf1Between1AndN {
             return count;
         }
 
+        /// <summary>
+        /// 解法2，数学归纳法
+        /// 首先来看每个数字的个位是1的情况
+        /// 以0-9为一个阶段会包含一个1，包含x个完整阶段就包含x个1。
+        /// 对非完整阶段，比如6，显然如果这个数小于1就包含0个，大于等于1就包含1个
+        /// 因此公式是：n / 10 * 1 + (n % 10) < 1 ? 0 : 1 
+        /// 再来看十位
+        /// 以0-99为一个阶段，十位上会包含10个1（10 - 19）
+        /// 对于非完整阶段，假设为m，如果m小于10就是0个，m大于等于10且小于19就是m - 10 + 1，m大于19就是10
+        /// 再来看百位
+        /// 以0-999为一个阶段，百位上会包含100个1（100 - 199）
+        /// 对于非完整阶段，假设为m，如果m小于100就是0个，m大于等于100且小于199就是m - 100 + 1，m大于199就是100
+        /// 千位，万位等等以此类推，总结公式就是
+        /// 以i表示位数
+        /// count(i) = n / (i * 10) * i + f(n % (i * 10))
+        /// f(mod) = if(mod < i) return 0 elseif mod < (2 * i -1)  return mod - i + 1 else return i
+        /// 对于f(mod)中的if else同样可以再进行归纳
+        /// f(mod) = (0和mod - i + 1中的较大值)和i中的较小值
+        /// </summary>
+        public int NumberOf1Between1AndN_Solution2(int n)
+        {
+            int count = 0;
+            for(int i = 1; i <= n; i = i * 10){
+                count += n / (i * 10) * i + Math.Min(Math.Max(0, n % (i * 10) - i + 1), i);
+            }
+            return count;
+        }
+
         public void Test() {
             Console.WriteLine(NumberOf1Between1AndN_Solution(11));
+            Console.WriteLine(NumberOf1Between1AndN_Solution2(1));
         }
 
     }
