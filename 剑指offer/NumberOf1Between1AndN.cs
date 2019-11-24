@@ -21,13 +21,29 @@ using System;
 namespace NumberOf1Between1AndN {
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 逐一考察1~n的每一个数里有多少个1。每个数字可以通过对10求余来判断最后一位是否为1
+        /// 时间复杂度是n*ln(n)
+        /// </summary>
         public int NumberOf1Between1AndN_Solution(int n)
         {
-            return 0;
+            int count = 0;
+            for(int i = 1; i < n + 1; i ++){
+                int m = i;
+                while(m > 0){
+                    if(m % 10 == 1){
+                        count ++;
+                    }
+                    m = m / 10;
+                }
+            }
+            return count;
         }
 
         public void Test() {
-            Console.WriteLine(NumberOf1Between1AndN_Solution(5));
+            Console.WriteLine(NumberOf1Between1AndN_Solution(11));
         }
 
     }
