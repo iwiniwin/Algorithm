@@ -13,16 +13,61 @@
 
 <table><tbody>
 
-<tr><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/Permutation.cs">字符串的排列</a></td width="25%" align="center"><td><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/MoreThanHalfNum.cs">数组中出现次数超过一半的数字</a></td><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/GetLeastNumbers.cs">最小的K个数</a></td><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FindGreatestSumOfSubArray.cs">连续子数组的最大和</a></td></tr>
+<tr>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/Permutation.cs">字符串的排列</a>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/MoreThanHalfNum.cs">数组中出现次数超过一半的数字</a>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/GetLeastNumbers.cs">最小的K个数</a>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FindGreatestSumOfSubArray.cs">连续子数组的最大和</a>
+</td>
+</tr>
 
-<tr><td width="25%" align="center"><a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/NumberOf1Between1AndN.cs">整数中1出现的次数</a></td width="25%" align="center"><td></td><td width="25%" align="center"></td><td width="25%" align="center"></td></tr>
+
+<tr>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/NumberOf1Between1AndN.cs">整数中1出现的次数</a>
+</td>
+
+<td width="25%" align="center">
+</td>
+
+<td width="25%" align="center">
+</td>
+
+<td width="25%" align="center">
+</td>
+
+</tr>
 
 </tbody></table>
 
 ## 程序员代码面试指南
 
-<table><tbody>
+<table style="width:100%"><tbody>
 
-<tr><td width="25%" align="center"><a href=https://github.com/iwiniwin/Algorithm/blob/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BB%A3%E7%A0%81%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/NumberOf1From1ToN.cs">1到n中1的出现次数</a></td width="25%" align="center"><td></td><td width="25%" align="center"></td><td width="25%" align="center"></td></tr>
+<tr>
+<td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BB%A3%E7%A0%81%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/NumberOf1From1ToN.cs">1到n中1的出现次数</a>
+</td>
+
+<td width="25%" align="center">
+
+</td>
+
+<td width="25%" align="center">
+
+</td>
+
+<td width="25%" align="center">
+
+</td>
+
+</tr>
 
 </tbody></table>
