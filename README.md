@@ -7,7 +7,7 @@
 
 **《剑指Offer》以及《程序员代码面试指南：IT名企算法与数据结构题目最优解》算法题目集合**
 
-本仓库是基于dotnet的控制台程序，C#实现，包含每道题目的完整描述，AC代码，以及解题思路，所有题目均可直接运行以查看输出结果。
+本仓库是基于 .net core 的控制台程序，C#实现，包含每道题目的完整描述，AC代码，以及解题思路，所有题目均可直接运行以查看输出结果。
 
 ## 剑指Offer
 
@@ -58,7 +58,7 @@
 </td>
 
 <td width="25%" align="center">
-
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BB%A3%E7%A0%81%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/PrintMinString.cs">拼接所有的字符串产生字典序最小的字符串</a>
 </td>
 
 <td width="25%" align="center">

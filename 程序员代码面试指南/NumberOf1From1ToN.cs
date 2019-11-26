@@ -29,6 +29,7 @@ namespace NumberOf1From1ToN {
         /// <summary>
         /// 注意这里需要使用long类型，因为1<=N<=pow(10, 13)，超出了int类型的范围
         /// </summary>
+ 
         public long NumberOf1From1ToN(long n){
             long count = 0;
             for(long i = 1; i <= n; i = i *10){
