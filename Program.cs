@@ -13,10 +13,11 @@ namespace Algorithm
             // new FindGreatestSumOfSubArray.Solution().Test();
             // new NumberOf1Between1AndN.Solution().Test();
             // new PrintMinNumber.Solution().Test();
+            new GetUglyNumber.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
-            PrintMinString.Solution.Test();
+            // PrintMinString.Solution.Test();
         }
     }
 }
