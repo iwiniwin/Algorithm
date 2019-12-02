@@ -43,6 +43,7 @@
 </td>
 
 <td width="25%" align="center">
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FirstNotRepeatingChar.cs">第一个只出现一次的字符</a>
 </td>
 
 </tr>
