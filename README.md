@@ -53,7 +53,7 @@
 <a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/InversePairs.cs">数组中的逆序对</a>
 </td>
 <td width="25%" align="center">
-
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FindFirstCommonNode.cs">两个链表的第一个公共结点</a>
 </td>
 <td width="25%" align="center">
 
