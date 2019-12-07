@@ -53,6 +53,28 @@ namespace FindFirstCommonNode {
             return null;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 使用两个指针p1, p2，分别遍历两个链表一遍
+        /// 如果两个链表长度相同：
+        ///     如果有公共节点，则第一遍就可以找到公共节点
+        ///     如果没有公共节点，则两个指针同时指向null，结束循环
+        /// 如果两个链表长度不相同：
+        ///     如果有公共节点，则两个链表构成Y型结构，即a+n和b+n(n表示公共部分)，则遍历到a+n+b和b+n+a的位置，一定是公共节点
+        ///     如果没有公共节点，则两个指针分别走到a+b和b+a，同时指向null，结束循环
+        /// </summary>
+
+        public ListNode FindFirstCommonNode2(ListNode pHead1, ListNode pHead2)
+        {
+            ListNode p1 = pHead1, p2 = pHead2; 
+            while(p1 != p2){
+                p1 = (p1 == null) ? pHead2 : p1.next;
+                p2 = (p2 == null) ? pHead1 : p2.next;
+            }
+            return p1;
+        }
+
         public void Test() {
             ListNode p1 = new ListNode(1);
             p1.next = new ListNode(2);
@@ -64,7 +86,8 @@ namespace FindFirstCommonNode {
 
             p1.next.next = p2.next;
 
-            ListNode ret = FindFirstCommonNode(p1, p2);
+            // ListNode ret = FindFirstCommonNode(p1, p2);
+            ListNode ret = FindFirstCommonNode2(p1, p2);
             if(ret != null){
                 Console.WriteLine(ret.val);
             }else{
