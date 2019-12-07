@@ -75,6 +75,45 @@ namespace FindFirstCommonNode {
             return p1;
         }
 
+        /// <summary>
+        /// 解法3
+        /// 基本思路：
+        /// 如果两个链表有公共节点，则有相同的尾部，即构成Y型结构
+        /// 先计算出两个链表的长度差，然后让较长的链表先走长度差个元素，然后两个链表再一起走，寻找公共节点
+        /// </summary>
+
+        public int GetListLength(ListNode head){
+            int count = 0;
+            while(head != null){
+                count ++;
+                head = head.next;
+            }
+            return count;
+        }
+
+        public ListNode FindFirstCommonNode3(ListNode pHead1, ListNode pHead2)
+        {
+            int len1 = GetListLength(pHead1);
+            int len2 = GetListLength(pHead2);
+            while(len1 > len2){
+                pHead1 = pHead1.next;
+                len1 --;
+            }
+            while(len2 > len1){
+                pHead2 = pHead2.next;
+                len2 --;
+            }
+            while(len1 > 0){
+                if(pHead1 == pHead2){
+                    return pHead1;
+                }
+                pHead1 = pHead1.next;
+                pHead2 = pHead2.next;
+                len1 --;
+            }
+            return null;
+        }
+
         public void Test() {
             ListNode p1 = new ListNode(1);
             p1.next = new ListNode(2);
@@ -88,6 +127,7 @@ namespace FindFirstCommonNode {
 
             // ListNode ret = FindFirstCommonNode(p1, p2);
             ListNode ret = FindFirstCommonNode2(p1, p2);
+            // ListNode ret = FindFirstCommonNode3(p1, p2);
             if(ret != null){
                 Console.WriteLine(ret.val);
             }else{
