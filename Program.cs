@@ -16,7 +16,8 @@ namespace Algorithm
             // new GetUglyNumber.Solution().Test();
             // new FirstNotRepeatingChar.Solution().Test();
             // new InversePairs.Solution().Test();
-            new FindFirstCommonNode.Solution().Test();
+            // new FindFirstCommonNode.Solution().Test();
+            new GetNumberOfK.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
