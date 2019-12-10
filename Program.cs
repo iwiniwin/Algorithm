@@ -17,7 +17,8 @@ namespace Algorithm
             // new FirstNotRepeatingChar.Solution().Test();
             // new InversePairs.Solution().Test();
             // new FindFirstCommonNode.Solution().Test();
-            new GetNumberOfK.Solution().Test();
+            // new GetNumberOfK.Solution().Test();
+            new TreeDepth.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
