@@ -16,6 +16,7 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace TreeDepth {
 
     public class TreeNode
@@ -47,16 +48,46 @@ namespace TreeDepth {
             return left > right ? left : right;
         }
 
+        /// <summary>
+        /// 解法2，非递归，层次遍历
+        /// 基本思路：
+        /// 利用一个辅助队列，队列中依次保存二叉树每一层的所有节点。保存了多少次，就是该二叉树的深度。
+        /// 每次都是将队列中上一层的所有节点弹出，替换为他们的左右子节点
+        /// </summary>
+
+        public int TreeDepth2(TreeNode pRoot){
+            if(pRoot == null){
+                return 0;
+            }
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(pRoot);
+            int depth = 0;
+            while(queue.Count > 0){
+                for(int i = 0; i < queue.Count; i ++){
+                    TreeNode cur = queue.Dequeue();
+                    if (cur.left != null){
+                        queue.Enqueue(cur.left);
+                    }
+                    if (cur.right != null){
+                        queue.Enqueue(cur.right);
+                    }
+                }
+                depth ++;
+            }
+            return depth;
+        }
+
         public void Test() {
             TreeNode node = new TreeNode(1);
             // node = null;
             node.left = new TreeNode(2);
             node.left.left = new TreeNode(3);
             node.right = new TreeNode(4);
-            node.right.right = new TreeNode(5);
-            node.right.right.right = new TreeNode(6);
+            // node.right.right = new TreeNode(5);
+            // node.right.right.right = new TreeNode(6);
 
-            Console.WriteLine(TreeDepth(node));
+            // Console.WriteLine(TreeDepth(node));
+            Console.WriteLine(TreeDepth2(node));
         }
     }
 }
