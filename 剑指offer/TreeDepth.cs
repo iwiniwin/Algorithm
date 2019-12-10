@@ -31,13 +31,30 @@ namespace TreeDepth {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1，递归
+        /// 基本思路：
+        /// 递归遍历二叉树的左右子节点，树的深度等于其左右子树深度中的最大值加1
+        /// </summary>
+
         public int TreeDepth(TreeNode pRoot)
         {
-            return 0;
+            if(pRoot == null){
+                return 0;
+            }
+            int left = TreeDepth(pRoot.left) + 1;
+            int right = TreeDepth(pRoot.right) + 1;
+            return left > right ? left : right;
         }
 
         public void Test() {
             TreeNode node = new TreeNode(1);
+            // node = null;
+            node.left = new TreeNode(2);
+            node.left.left = new TreeNode(3);
+            node.right = new TreeNode(4);
+            node.right.right = new TreeNode(5);
+            node.right.right.right = new TreeNode(6);
 
             Console.WriteLine(TreeDepth(node));
         }
