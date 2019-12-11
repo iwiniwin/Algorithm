@@ -63,7 +63,8 @@ namespace TreeDepth {
             queue.Enqueue(pRoot);
             int depth = 0;
             while(queue.Count > 0){
-                for(int i = 0; i < queue.Count; i ++){
+                int count = queue.Count;
+                for(int i = 0; i < count; i ++){
                     TreeNode cur = queue.Dequeue();
                     if (cur.left != null){
                         queue.Enqueue(cur.left);
