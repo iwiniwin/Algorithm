@@ -19,7 +19,8 @@ namespace Algorithm
             // new FindFirstCommonNode.Solution().Test();
             // new GetNumberOfK.Solution().Test();
             // new TreeDepth.Solution().Test();
-            new IsBalanced.Solution().Test();
+            // new IsBalanced.Solution().Test();
+            new FindNumsAppearOnce.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
