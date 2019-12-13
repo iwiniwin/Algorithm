@@ -17,18 +17,51 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace FindNumsAppearOnce {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 遍历数组，统计每个数字出现的次数，然后返回出现次数等于1的数字
+        /// </summary>
+
         public void FindNumsAppearOnce(int[] array, int[] num1, int[] num2)
         {
-            // write code here
+            if(array == null){
+                return;
+            }
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for(int i = 0; i < array.Length; i ++){
+                if(dic.ContainsKey(array[i])){
+                    dic[array[i]] ++;
+                }else{
+                    dic[array[i]] = 1;
+                }
+            }
+            bool flag = false;
+            foreach(KeyValuePair<int, int> pair in dic){
+                if(pair.Value == 1){
+                    if (!flag){
+                        num1[0] = pair.Key;
+                        flag = true;
+                    }else{
+                        num2[0] = pair.Key;
+                    }
+                }
+            }
         }
 
         public void Test() {
 
             int[] array = new int[]{};
+            // array = null;
+            // array = new int[]{1, 2, 3, 3, 2, 4, 4, 5};
+            // array = new int[]{1, 2, 2, 1, 3, 4, 4, 5, 6, 5};
+            array = new int[]{1, 2};
+
 
             int[] num1 = new int[1];
             int[] num2 = new int[1];
