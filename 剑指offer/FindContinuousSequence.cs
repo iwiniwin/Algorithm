@@ -58,6 +58,31 @@ namespace FindContinuousSequence {
             return lists;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 通过数列的平均值以及长度可以推导出数列
+        /// 已知数列的和为sum，假设数列的长度为n
+        /// 则n为奇数时，sum = 平均值 * n，即满足条件 sum % n == 0
+        /// n为偶数时，sum = 平均值（为一个小数xx.5） * n，即 sum / n == xx.5
+        /// 小数部分是0.5，说明余数是除数的一半，进一步得到 sum % n = n / 2
+        /// 再来看n的取值范围，根据求和公式（1 + n） * n / 2 = sum 得到 n < sqrt(2 * sum)
+        /// </summary>
+
+        public List<List<int>> FindContinuousSequence2(int sum) {
+            List<List<int>> lists = new List<List<int>>();
+            for(int n = (int)Math.Sqrt(2 * sum); n >= 2; n --){
+                if((n & 1) == 1 && sum % n == 0 || sum % n * 2 == n){
+                    List<int> list = new List<int>();
+                    for(int i = sum / n - (n - 1) / 2, j = 0; j < n; i ++,j ++){
+                        list.Add(i);
+                    } 
+                    lists.Add(list);
+                }
+            }
+            return lists;
+        }
+
         public void Print(List<List<int>> lists) {
             foreach(List<int> list in lists){
                 foreach(int i in list){
@@ -73,7 +98,9 @@ namespace FindContinuousSequence {
             // sum = 102;
             // sum = 1;
 
-            List<List<int>> lists = FindContinuousSequence(sum);
+            // List<List<int>> lists = FindContinuousSequence(sum);
+            List<List<int>> lists = FindContinuousSequence2(sum);
+
             Print(lists);
         }
     }
