@@ -27,16 +27,34 @@ namespace FindContinuousSequence {
 
     class Solution {
 
-        public List<List<int>> FindContinuousSequence(int sum)
-        {
-            List<int> list = new List<int>();
-            list.Add(1);
-            list.Add(2);
-            list.Add(33);
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 利用双指针，构造一个“窗口”，计算这个窗口内的元素之和（公式：(首+尾)*个数/2 ）
+        /// 如果和等于sum，则将窗口内的元素加入到列表中，同时窗口整体右移，寻找下一个和等于sum的窗口
+        /// 如果和小于sum，则right指针右移，增大窗口内的元素之和
+        /// 如果和大于sum，则left指针右移，减小窗口内的元素之和
+        /// </summary>
 
+        public List<List<int>> FindContinuousSequence(int sum) {
             List<List<int>> lists = new List<List<int>>();
-            lists.Add(list);
-            lists.Add(list);
+            int left =  1, right = 2;
+            while(left < right && right < sum){
+                int cur = (left + right) * (right - left + 1) / 2;
+                if(cur == sum){
+                    List<int> list = new List<int>();
+                    for(int i = left; i <= right; i ++){
+                        list.Add(i);
+                    }
+                    lists.Add(list);
+                    left ++;
+                    right ++;
+                }else if(cur < sum){
+                    right ++;
+                }else{
+                    left ++;
+                }
+            }
             return lists;
         }
 
@@ -52,6 +70,8 @@ namespace FindContinuousSequence {
         public void Test() {
 
             int sum = 100;
+            // sum = 102;
+            // sum = 1;
 
             List<List<int>> lists = FindContinuousSequence(sum);
             Print(lists);
