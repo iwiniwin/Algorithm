@@ -21,7 +21,8 @@ namespace Algorithm
             // new TreeDepth.Solution().Test();
             // new IsBalanced.Solution().Test();
             // new FindNumsAppearOnce.Solution().Test();
-            new FindContinuousSequence.Solution().Test();
+            // new FindContinuousSequence.Solution().Test();
+            new FindNumbersWithSum.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
