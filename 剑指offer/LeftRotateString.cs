@@ -21,9 +21,21 @@ namespace LeftRotateString {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 利用对字符串的长度求余，处理左移位数大于字符串长度的情况
+        /// 小于字符串长度的左移，通过分割字符串后调转位置得到
+        /// </summary>
+
         public string LeftRotateString(string str, int n)
         {
-            return "test";
+            if(str == null || str.Length == 0){
+                return str;
+            }
+            int index = n % str.Length;
+            char[] array = str.ToCharArray();
+            return new string(array, index, str.Length - index) + new string(array, 0, index);
         }
 
         public void Test() {
