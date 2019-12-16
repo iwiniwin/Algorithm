@@ -22,7 +22,8 @@ namespace Algorithm
             // new IsBalanced.Solution().Test();
             // new FindNumsAppearOnce.Solution().Test();
             // new FindContinuousSequence.Solution().Test();
-            new FindNumbersWithSum.Solution().Test();
+            // new FindNumbersWithSum.Solution().Test();
+            new LeftRotateString.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
