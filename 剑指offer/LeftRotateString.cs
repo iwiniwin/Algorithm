@@ -38,13 +38,48 @@ namespace LeftRotateString {
             return new string(array, index, str.Length - index) + new string(array, 0, index);
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 同样利用对字符串的长度求余，处理左移位数大于字符串长度的情况
+        /// 对于小于字符串长度的左移，利用 XY的翻转 = YX = （Y的翻转 + X的翻转）的翻转 得到
+        /// </summary>
+
+        public void Reverse(char[] array, int i, int j){
+            for(int m = i, n = j; m < n; m ++, n --){
+                char temp = array[m];
+                array[m] = array[n];
+                array[n] = temp;
+            }
+        }
+
+        public string LeftRotateString2(string str, int n)
+        {
+            if(str == null || str.Length == 0){
+                return str;
+            }
+            int index = n % str.Length;
+            char[] array = str.ToCharArray();
+            Reverse(array, 0, index - 1);
+            Reverse(array, index, array.Length - 1);
+            Reverse(array, 0, array.Length - 1);
+            return new string(array);
+        }
+
         public void Test() {
 
             string str = "abcXYZdef";
+            // str = null;
+            // str = "";
 
             int n = 3;
+            // n = 0;
+            // n = 1;
+            // n = 9;
+            // n = 10;
 
             Console.WriteLine(LeftRotateString(str, n));
+            // Console.WriteLine(LeftRotateString2(str, n));
         }
     }
 }
