@@ -83,7 +83,7 @@
 <a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/LeftRotateString.cs">左旋转字符串</a>
 </td>
 <td width="25%" align="center">
-
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/ReverseSentence.cs">翻转单词顺序列</a>
 </td>
 <td width="25%" align="center">
 
