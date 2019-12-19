@@ -25,7 +25,8 @@ namespace Algorithm
             // new FindNumbersWithSum.Solution().Test();
             // new LeftRotateString.Solution().Test();
             // new ReverseSentence.Solution().Test();
-            new IsContinuous.Solution().Test();
+            // new IsContinuous.Solution().Test();
+            new LastRemaining.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
