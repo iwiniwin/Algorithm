@@ -24,16 +24,104 @@ namespace IsContinuous {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 先将数组进行排序，同时计算0的个数
+        /// 遍历排序后的数组，要满足，不能有相同元素，不连续元素用0足够补
+        /// </summary>
+
+        public void Swap(int[] array, int i, int j){
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+
         public bool IsContinuous(int[] numbers)
         {
+            if (numbers == null || numbers.Length == 0){
+                return false;
+            }
+
+            int count = 0;
+            for(int i = 0; i < numbers.Length; i ++){
+                int index = i;
+                for(int j = i + 1; j < numbers.Length; j ++){
+                    if (numbers[j] < numbers[index]){
+                        index = j;
+                    }
+                }
+                if(numbers[index] == 0){
+                    count ++;
+                }
+                Swap(numbers, i, index);
+            }
+
+            for(int i = count; i < numbers.Length - 1; i ++){
+                int minus = numbers[i + 1] - numbers[i];
+                if(minus != 1){
+                    if(minus == 0){
+                        return false;
+                    }else if((minus - 1) <= count){
+                        count -= (minus - 1);
+                    }else{
+                        return false;
+                    }
+                }
+            }
             return true;
+        }
+
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 满足如下条件的牌可以组成顺子：
+        /// 1. 除0以外，没有重复的牌
+        /// 2. 除0以外，统计最大牌和最小牌，最大牌-最小牌的差值要小于牌的总数
+        /// </summary>
+
+        public bool IsContinuous2(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0){
+                return false;
+            }
+            int[] array = new int[14];
+            int max = -1, min = 14;
+            for(int i = 0; i < numbers.Length; i ++){
+                array[numbers[i]] ++;
+                if(numbers[i] == 0){
+                    continue;
+                }
+                if(array[numbers[i]] > 1){
+                    return false;
+                }
+                if(numbers[i] > max){
+                    max = numbers[i];
+                }
+                if(numbers[i] < min){
+                    min = numbers[i];
+                }
+            }
+            if(max - min < numbers.Length){
+                return true;
+            }
+            return false;
         }
 
         public void Test() {
 
-            int[] numbers = new int[]{1, 2, 3, 4, 5};
+            int[] numbers = new int[]{1, 3, 0, 0, 5};
+            // numbers = null;
+            // numbers = new int[]{};
+            // numbers = new int[]{0};
+            // numbers = new int[]{1, 2, 3, 0, 6};
+            // numbers = new int[]{1, 2, 3, 0, 6, 0};
+            // numbers = new int[]{1, 2, 3, 4, 4};
+            // numbers = new int[]{1, 2, 3, 4, 4, 0, 0};
+            // numbers = new int[]{1, 2, 3, 4, 6};
 
-            Console.WriteLine(IsContinuous(numbers));
+            // Console.WriteLine(IsContinuous(numbers));
+            Console.WriteLine(IsContinuous2(numbers));
         }
     }
 }
