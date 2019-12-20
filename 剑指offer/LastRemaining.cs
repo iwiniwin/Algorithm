@@ -27,15 +27,48 @@ namespace LastRemaining {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 使用array数组记录每个编号是否被移除 0表示未移除 -1表示移除
+        /// while循环不断遍历array数组，直到所有元素值都为-1，表示全部被移除
+        /// 最后一个被移除的元素就是要找的小朋友
+        /// </summary>
+
         public int LastRemaining_Solution(int n, int m)
         {
-            return -1;
+            int[] array = new int[n];
+            int count = 0, temp = 0;
+            int index = 0;
+            while(count < n){
+                if(index == n){
+                    index = 0;
+                }
+                if(array[index] == 0){
+                    if(temp == m - 1){
+                        array[index] = -1;
+                        temp = 0;
+                        count ++;
+                    }else{
+                        temp ++;
+                    }
+                }
+                index ++;
+            }
+            return index - 1;
         }
+
 
         public void Test() {
 
             int n = 1;
+            // n = 0;
+            // n = 5;
+            // n = 6;
+
             int m = 1;
+            // m = 2;
+            // m = 3;
 
             Console.WriteLine(LastRemaining_Solution(n, m));
         }
