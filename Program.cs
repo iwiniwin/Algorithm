@@ -28,7 +28,8 @@ namespace Algorithm
             // new IsContinuous.Solution().Test();
             // new LastRemaining.Solution().Test();
             // new Sum.Solution().Test();
-            new Add.Solution().Test();
+            // new Add.Solution().Test();
+            new StrToInt.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
