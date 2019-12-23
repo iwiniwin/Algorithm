@@ -19,16 +19,24 @@ namespace Sum {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 使用递归代替循环，使用逻辑与的短路特性来终止递归
+        /// </summary>
+
         public int Sum_Solution(int n)
         {
-            // write code here
-            return 5;
+            bool ret = n > 1 && ((n +=Sum_Solution(n - 1)) > 1);
+            return n;
         }
 
 
         public void Test() {
 
             int n = 3;
+            n = 1;
+            n = 5;
 
             Console.WriteLine(Sum_Solution(n));
         }
