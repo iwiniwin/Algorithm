@@ -26,7 +26,8 @@ namespace Algorithm
             // new LeftRotateString.Solution().Test();
             // new ReverseSentence.Solution().Test();
             // new IsContinuous.Solution().Test();
-            new LastRemaining.Solution().Test();
+            // new LastRemaining.Solution().Test();
+            new Sum.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
