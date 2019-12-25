@@ -43,6 +43,30 @@ namespace Duplicate {
             return false;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 不使用辅助数组，利用原数组保存遍历的信息
+        /// 当一个数字被访问后，将该数字作为下标位置上的数减去数组的长度（使这个数一定小于0）
+        /// 之后再遇到相同的数字时，发现对应的下标位置上的数已经小于0，则说明出现了重复元素
+        /// </summary>
+
+        public bool Duplicate2(int[] numbers, int[] duplication)
+        {
+            if (numbers == null){
+                return false;
+            }
+            for(int i = 0; i < numbers.Length; i ++){
+                int num = numbers[i] < 0 ? numbers[i] + numbers.Length : numbers[i];
+                if(numbers[num] < 0){
+                    duplication[0] = num;
+                    return true;
+                }
+                numbers[num] -= numbers.Length;
+            }
+            return false;
+        }
+
         public void Test() {
 
             int[] numbers = new int[]{2,3,1,0,2,5,3};
@@ -53,7 +77,8 @@ namespace Duplicate {
 
             int[] duplication = new int[1];
 
-            Console.WriteLine(Duplicate(numbers, duplication));
+            // Console.WriteLine(Duplicate(numbers, duplication));
+            Console.WriteLine(Duplicate2(numbers, duplication));
             
             Console.WriteLine(duplication[0]);
         }
