@@ -30,7 +30,8 @@ namespace Algorithm
             // new Sum.Solution().Test();
             // new Add.Solution().Test();
             // new StrToInt.Solution().Test();
-            new Duplicate.Solution().Test();
+            // new Duplicate.Solution().Test();
+            new Multiply.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
