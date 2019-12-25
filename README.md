@@ -104,7 +104,7 @@
 <a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/StrToInt.cs">把字符串转换成整数</a>
 </td>
 <td width="25%" align="center">
-
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/Duplicate.cs">数组中重复的数字</a>
 </td>
 </tr>
 

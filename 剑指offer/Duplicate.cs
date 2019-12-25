@@ -22,17 +22,40 @@ namespace Duplicate {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 利用长度为n的辅助数组记录每个数字的出现次数
+        /// </summary>
+
         public bool Duplicate(int[] numbers, int[] duplication)
         {
-            return true;
+            if (numbers == null){
+                return false;
+            }
+            int[] array = new int[numbers.Length];
+            for(int i = 0; i < numbers.Length; i ++){
+                if(++ array[numbers[i]] > 1){
+                    duplication[0] = numbers[i];
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void Test() {
 
-            int[] numbers = new int[]{};
-            int[] duplication = new int[]{};
+            int[] numbers = new int[]{2,3,1,0,2,5,3};
+            // numbers = null;
+            // numbers = new int[]{};
+            // numbers = new int[]{0};
+            // numbers = new int[]{0, 0};
+
+            int[] duplication = new int[1];
 
             Console.WriteLine(Duplicate(numbers, duplication));
+            
+            Console.WriteLine(duplication[0]);
         }
     }
 }
