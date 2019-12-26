@@ -19,9 +19,27 @@ namespace Multiply {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 对于每个元素B[i]
+        /// 先计算i左边的元素乘积 B[i] = B[0] * B[1] * B[2] * ... * B[i - 1]
+        /// 再计算i右边的元素乘积 B[i] = B[i + 1] * B[i + 2] * ... * B[n - 1]
+        /// 再把两边的乘积相乘
+        /// </summary>
+
         public int[] Multiply(int[] A)
         {
-            int[] B = new int[]{6, 6};
+            if (A == null) return A;
+            int[] B = new int[A.Length];
+            int ret = 1;
+            for(int i = 0; i < A.Length; ret *= A[i ++]){
+                B[i] = ret;
+            }
+            ret = 1;
+            for(int i = A.Length - 1; i >= 0; ret *= A[i --]) {
+                B[i] *= ret;
+            }
             return B;
         }
 
@@ -35,6 +53,9 @@ namespace Multiply {
         public void Test() {
 
             int[] A = new int[]{1, 2, 3, 4};
+            // A = new int[]{1, 2, 3, 4, 5};
+            // A = new int[]{0};
+            // A = new int[]{0, 1};
 
             Print(Multiply(A));
         }
