@@ -32,7 +32,8 @@ namespace Algorithm
             // new StrToInt.Solution().Test();
             // new Duplicate.Solution().Test();
             // new Multiply.Solution().Test();
-            new Match.Solution().Test();
+            // new Match.Solution().Test();
+            new IsNumeric.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
