@@ -17,6 +17,7 @@ class Solution
 }
 */
 using System;
+using System.Text.RegularExpressions;
 namespace IsNumeric {
 
     class Solution {
@@ -27,8 +28,8 @@ namespace IsNumeric {
         /// 根据数值字符串标准判断，每个字符满足如下条件
         /// 1. 字符是'0'-'9'
         /// 2. 字符是'+'或'-'，只能出现在首位或'e'/'E'的后面
-        /// 2. 字符是'e'/'E'，只能出现一次，且不能在首尾
-        /// 2. 字符是'.'，只能出现一次，且不能在首位（可以在尾部），且不能在'e'/'E'之后出现
+        /// 3. 字符是'e'/'E'，只能出现一次，且不能在首尾
+        /// 4. 字符是'.'，只能出现一次，且不能在首位（可以在尾部），且不能在'e'/'E'之后出现
         /// </summary>
 
         public bool IsNumeric(char[] str)
@@ -53,6 +54,21 @@ namespace IsNumeric {
             return true;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 使用正则表达式进行匹配
+        /// </summary>
+
+        public bool IsNumeric2(char[] str)
+        {
+            return Regex.IsMatch(new string(str), @"^[+-]?\d*(\.\d+)?([eE][+-]?\d+)?$");
+        }
+
+        /// <summary>
+        /// TODO 状态迁移表解法
+        /// </summary>
+
         public void Test() {
 
             char[] str = new char[]{'1', '.', '2', '.', '3'};
@@ -63,8 +79,10 @@ namespace IsNumeric {
             // str = new char[]{'1', '2', 'e'};
             // str = new char[]{'1', '2', 'e', '+', '4', '.', '3'};
             // str = new char[]{'1', 'a', '3', '.', '4'};
+            // str = new char[]{'-', '.', '1', '2'};
 
-            Console.WriteLine(IsNumeric(str));
+            // Console.WriteLine(IsNumeric(str));
+            Console.WriteLine(IsNumeric2(str));
         }
     }
 }
