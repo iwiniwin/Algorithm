@@ -60,6 +60,10 @@ namespace Match {
             return MatchImpl(str, 0, pattern, 0);
         }
 
+        /// <summary>
+        /// TODO 动态规划解法
+        /// </summary>
+
         public void Test() {
 
             char[] str = new char[]{'a', 'a', 'a'};
