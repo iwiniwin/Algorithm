@@ -34,7 +34,8 @@ namespace Algorithm
             // new Multiply.Solution().Test();
             // new Match.Solution().Test();
             // new IsNumeric.Solution().Test();
-            new FirstAppearingOnce.Solution().Test();
+            // new FirstAppearingOnce.Solution().Test();
+            new EntryNodeOfLoop.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
