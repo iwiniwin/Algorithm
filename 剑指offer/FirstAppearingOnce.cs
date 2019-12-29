@@ -57,14 +57,46 @@ namespace FirstAppearingOnce {
             }
         }
 
+
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 使用长度为128的数组记录只出现1次的字符的出现顺序，出现大于1次的字符对应的值都为-1，未出现的对应为0
+        /// 遍历数组，找到数组中元素值最小且大于0的，就是第一个不重复的字符
+        /// </summary>
+
+        int[] array2 = new int[128];
+        int index = 0;
+        public char FirstAppearingOnce2()
+        {
+            int min = int.MaxValue;
+            char c = '#';
+            for(int i = 0; i < array2.Length; i ++){
+                if(array2[i] > 0 && array2[i] < min){
+                    min = array2[i];
+                    c = (char)i;
+                }
+            }
+            return c; 
+        }
+
+        public void Insert2(char c)
+        {
+            if(array2[c] == 0){
+                array2[c] = ++index;
+            }else{
+                array2[c] = -1;
+            }
+        }
+
         public void Test() {
             // Insert('.');
             Insert('g');
             Insert('o');
-            Insert('o');
-            Insert('g');
-            Insert('l');
-            Insert('e');
+            // Insert('o');
+            // Insert('g');
+            // Insert('l');
+            // Insert('e');
             
             Console.WriteLine(FirstAppearingOnce());
         }
