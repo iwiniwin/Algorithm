@@ -119,7 +119,7 @@
 <a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/IsNumeric.cs">表示数值的字符串</a>
 </td>
 <td width="25%" align="center">
-
+<a href="https://github.com/iwiniwin/Algorithm/blob/master/%E5%89%91%E6%8C%87offer/FirstAppearingOnce.cs">字符流中第一个不重复的字符</a>
 </td>
 </tr>
 
