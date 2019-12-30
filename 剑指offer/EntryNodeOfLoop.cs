@@ -125,6 +125,43 @@ namespace EntryNodeOfLoop {
             return null;
         }
 
+        /// <summary>
+        /// 解法4
+        /// 基本思路：
+        /// 首先判断链表是否包含换环，利用快慢指针找到相遇点
+        /// 假设链表起点到环的入口点距离为a，环的入口点到相遇点距离为b（顺时针），相遇点到环的入口点距离为c（顺时针）
+        /// 定义快指针走两步，慢指针走一步，所以快指针走过的路程是慢指针的2倍
+        /// 则快指针走过的距离为 x = a + n（b + c）+ b
+        /// 慢指针走过的距离为 y = a + b
+        /// 由 x = 2y 得 a + n（b + c）+ b = 2 * (a + b)
+        /// 进一步推导得到 a = (n - 1) *（b + c）+ c
+        /// 表示从链表起点到环入口点的距离 = (n - 1)环长 + 相遇点到环入口点的长度(c)
+        /// 因此两个指针分别从链表起点和相遇点开始移动，一定会在环入口点相遇
+        /// </summary>
+
+        public ListNode EntryNodeOfLoop4(ListNode pHead)
+        {
+            ListNode p = pHead, q = pHead;
+            bool hasRing = false;
+            while(q != null && q.next != null){
+                p = p.next;
+                q = q.next.next;
+                if(p == q){
+                    hasRing = true;
+                    break;
+                }
+            }
+            if(hasRing){
+                p = pHead;
+                while(p != q){
+                    p = p.next;
+                    q = q.next;
+                }
+                return p;
+            }
+            return null;
+        }
+
         public void Test() {
             
             ListNode pHead = new ListNode(1);
@@ -132,12 +169,13 @@ namespace EntryNodeOfLoop {
             pHead.next = new ListNode(2);
             pHead.next.next = new ListNode(3);
             pHead.next.next.next = new ListNode(4);
-            // pHead.next.next.next = pHead.next.next;
+            pHead.next.next.next = pHead.next.next;
 
             
             // ListNode node = EntryNodeOfLoop(pHead);
             // ListNode node = EntryNodeOfLoop2(pHead);
-            ListNode node = EntryNodeOfLoop3(pHead);
+            // ListNode node = EntryNodeOfLoop3(pHead);
+            ListNode node = EntryNodeOfLoop4(pHead);
 
             if(node == null){
                 Console.WriteLine("null");
