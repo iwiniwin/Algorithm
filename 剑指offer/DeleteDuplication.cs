@@ -31,12 +31,41 @@ namespace DeleteDuplication {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 利用left指针指向确定不重复的元素
+        /// 利用right指针查找重复的元素
+        /// 如果right指针没有找到重复的元素，则两个指针同时右移一位，查找剩余的元素
+        /// 如果有找到重复的元素，则将left的next直接指向right.next，以移除重复的元素
+        /// 构造了一个head节点，为了方便处理头元素可能是重复元素需要移除的情况
+        /// </summary>
+
         public ListNode DeleteDuplication(ListNode pHead)
         {
-            return pHead;
+            ListNode head = new ListNode(0);
+            head.next = pHead;
+            ListNode left = head, right = head.next;
+            while(right != null){
+                while(right.next != null && right.next.val == right.val){
+                    right = right.next;
+                }
+                if(left.next == right){
+                    left = left.next;
+                    right = right.next;
+                }else{
+                    left.next = right.next;
+                    right = left == null ? null : left.next;
+                }
+            }
+            return head.next; 
         }
 
         public void Print(ListNode node) {
+            if (node == null){
+                Console.WriteLine("null");
+                return;
+            }
             while(node != null) {
                 Console.WriteLine(node.val);
                 node = node.next;
@@ -44,10 +73,16 @@ namespace DeleteDuplication {
         }
 
         public void Test() {
-            
-            ListNode pHead = new ListNode(1);
-            pHead.next = new ListNode(2);
-            
+            ListNode pHead = null;
+            pHead = new ListNode(1);
+            // pHead.next = new ListNode(1);
+            pHead.next = new ListNode(3);
+            pHead.next.next = new ListNode(3);
+            pHead.next.next.next = new ListNode(3);
+            pHead.next.next.next.next = new ListNode(4);
+            pHead.next.next.next.next.next = new ListNode(4);
+            pHead.next.next.next.next.next.next = new ListNode(5);
+
             Print(DeleteDuplication(pHead));
         }
     }
