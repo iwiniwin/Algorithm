@@ -37,7 +37,8 @@ namespace Algorithm
             // new FirstAppearingOnce.Solution().Test();
             // new EntryNodeOfLoop.Solution().Test();
             // new DeleteDuplication.Solution().Test();
-            new GetNext.Solution().Test();
+            // new GetNext.Solution().Test();
+            new IsSymmetrical.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
