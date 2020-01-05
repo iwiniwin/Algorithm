@@ -16,6 +16,7 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace IsSymmetrical {
 
     public class TreeNode
@@ -58,6 +59,43 @@ namespace IsSymmetrical {
             return true;
         }
 
+        /// <summary>
+        /// 解法2，BFS
+        /// 基本思路：
+        /// 广度优先搜索，每次左子树和右子树成对入队，成对出队
+        /// 出队时，比较这一对，记为left，right
+        /// 1. 都为空，继续
+        /// 2. 一个为空一个不为空，返回false
+        /// 3. 都不为空，比较val，不相等返回false
+        /// 4. val相等，继续入队(left.left，right.right), (left.right, right.left)
+        /// </summary>
+
+        public bool IsSymmetrical2(TreeNode pRoot)
+        {
+            if(pRoot == null){
+                return true;
+            }
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(pRoot.left);
+            queue.Enqueue(pRoot.right);
+            while(queue.Count > 0){
+                TreeNode left = queue.Dequeue();
+                TreeNode right = queue.Dequeue();
+                if(left == null && right == null){
+                    continue;
+                }
+                if(left != null && right != null && left.val == right.val){
+                    queue.Enqueue(left.left);
+                    queue.Enqueue(right.right);
+                    queue.Enqueue(left.right);
+                    queue.Enqueue(right.left);
+                }else{
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void Test() {
             TreeNode pRoot = null;
             pRoot = new TreeNode(0);
@@ -68,7 +106,8 @@ namespace IsSymmetrical {
             pRoot.right.right = new TreeNode(2);
             pRoot.right.left = new TreeNode(3);
 
-            Console.WriteLine(IsSymmetrical(pRoot));
+            // Console.WriteLine(IsSymmetrical(pRoot));
+            Console.WriteLine(IsSymmetrical2(pRoot));
         }
     }
 }
