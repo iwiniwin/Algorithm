@@ -96,6 +96,40 @@ namespace IsSymmetrical {
             return true;
         }
 
+        /// <summary>
+        /// 解法3，DFS
+        /// 基本思路：
+        /// 深度优先搜索，基本思路与BFS类似，只是使用栈保存成对的节点
+        /// </summary>
+
+        public bool IsSymmetrical3(TreeNode pRoot)
+        {
+            if(pRoot == null){
+                return true;
+            }
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.Push(pRoot.left);
+            stack.Push(pRoot.right);
+            while(stack.Count > 0){
+                TreeNode left = stack.Pop();
+                TreeNode right = stack.Pop();
+                if(left == null && right == null){
+                    continue;
+                }
+                if(left == null || right == null){
+                    return false;
+                }
+                if(left.val != right.val){
+                    return false;
+                }
+                stack.Push(left.left);
+                stack.Push(right.right);
+                stack.Push(left.right);
+                stack.Push(right.left);
+            }
+            return true;
+        }
+
         public void Test() {
             TreeNode pRoot = null;
             pRoot = new TreeNode(0);
@@ -107,7 +141,8 @@ namespace IsSymmetrical {
             pRoot.right.left = new TreeNode(3);
 
             // Console.WriteLine(IsSymmetrical(pRoot));
-            Console.WriteLine(IsSymmetrical2(pRoot));
+            // Console.WriteLine(IsSymmetrical2(pRoot));
+            Console.WriteLine(IsSymmetrical3(pRoot));
         }
     }
 }
