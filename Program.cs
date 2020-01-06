@@ -39,7 +39,9 @@ namespace Algorithm
             // new DeleteDuplication.Solution().Test();
             // new GetNext.Solution().Test();
             // new IsSymmetrical.Solution().Test();
-            new PrintTree.Solution().Test();
+            // new PrintTree.Solution().Test();
+            new PrintTree2.Solution().Test();
+
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
