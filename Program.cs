@@ -38,7 +38,8 @@ namespace Algorithm
             // new EntryNodeOfLoop.Solution().Test();
             // new DeleteDuplication.Solution().Test();
             // new GetNext.Solution().Test();
-            new IsSymmetrical.Solution().Test();
+            // new IsSymmetrical.Solution().Test();
+            new PrintTree.Solution().Test();
 
             // 程序员代码面试指南
             // NumberOf1From1ToN.Solution.Test();
