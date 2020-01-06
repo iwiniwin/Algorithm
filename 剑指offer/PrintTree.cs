@@ -68,6 +68,47 @@ namespace PrintTree {
             return lists;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 层次遍历，利用两个栈，分别存储奇数行的节点和偶数行的节点
+        /// 利用栈的后进先出特性，实现奇数行从左到右，偶数行从右到左
+        /// </summary>
+
+        public List<List<int>> Print2(TreeNode pRoot)
+        {
+            List<List<int>> lists = new List<List<int>>();
+            Stack<TreeNode> oddStack = new Stack<TreeNode>();
+            oddStack.Push(pRoot);
+            Stack<TreeNode> evenStack = new Stack<TreeNode>();
+            while(oddStack.Count > 0 || evenStack.Count > 0){
+                List<int> list = new List<int>();
+                if(oddStack.Count > 0){
+                    while(oddStack.Count > 0){
+                        TreeNode node = oddStack.Pop();
+                        if(node != null){
+                            list.Add(node.val);
+                            evenStack.Push(node.left);
+                            evenStack.Push(node.right);
+                        }
+                    }
+                }else{
+                    while(evenStack.Count > 0){
+                        TreeNode node = evenStack.Pop();
+                        if(node != null){
+                            list.Add(node.val);
+                            oddStack.Push(node.right);
+                            oddStack.Push(node.left);
+                        }
+                    }
+                }
+                if(list.Count > 0){
+                    lists.Add(list);
+                }
+            }
+            return lists;
+        }
+
         public void Dump(List<List<int>> lists) {
             foreach(List<int> list in lists){
                 foreach(int i in list){
@@ -89,7 +130,8 @@ namespace PrintTree {
             pRoot.right.right.left = new TreeNode(7);
             pRoot.right.right.right = new TreeNode(8);
             
-            Dump(Print(pRoot));
+            // Dump(Print(pRoot));
+            Dump(Print2(pRoot));
         }
     }
 }
