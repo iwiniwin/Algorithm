@@ -60,6 +60,32 @@ namespace PrintTree2 {
             return lists;
         }
 
+        /// <summary>
+        /// 解法2，递归
+        /// 基本思路：
+        /// 对二叉树进行先序遍历，即先根节点，再左节点，再右节点。保证每一层是从左到右顺序。
+        /// 递归时利用depth记录二叉树的深度，即通过depth判断节点应该被加入到哪一层（lists[depth - 1]）
+        /// </summary>
+
+        public void Print2Impl(TreeNode node, int depth, List<List<int>> lists){
+            if(node == null){
+                return;
+            }
+            if(depth > lists.Count){
+                lists.Add(new List<int>());
+            }
+            lists[depth - 1].Add(node.val);
+            Print2Impl(node.left, depth + 1, lists);
+            Print2Impl(node.right, depth + 1, lists);
+        }
+
+        public List<List<int>> Print2(TreeNode pRoot)
+        {
+            List<List<int>> lists = new List<List<int>>();
+            Print2Impl(pRoot, 1, lists);
+            return lists;
+        }
+
         public void Dump(List<List<int>> lists) {
             foreach(List<int> list in lists){
                 foreach(int i in list){
@@ -81,7 +107,8 @@ namespace PrintTree2 {
             pRoot.right.right.left = new TreeNode(7);
             pRoot.right.right.right = new TreeNode(8);
             
-            Dump(Print(pRoot));
+            // Dump(Print(pRoot));
+            Dump(Print2(pRoot));
         }
     }
 }
