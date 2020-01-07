@@ -31,9 +31,32 @@ namespace PrintTree2 {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1，层次遍历
+        /// 基本思路：
+        /// 利用一个辅助队列，队列中依次保存二叉树每一层的所有节点。
+        /// </summary>
+
         public List<List<int>> Print(TreeNode pRoot)
         {
             List<List<int>> lists = new List<List<int>>();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(pRoot);
+            while(queue.Count > 0){
+                int count = queue.Count;
+                List<int> list = new List<int>();
+                for(int i = 0; i < count; i ++){
+                    TreeNode node = queue.Dequeue();
+                    if(node != null){
+                        list.Add(node.val);
+                        queue.Enqueue(node.left);
+                        queue.Enqueue(node.right);
+                    }
+                }
+                if(list.Count > 0){
+                    lists.Add(list);
+                }
+            }
             return lists;
         }
 
