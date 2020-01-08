@@ -43,18 +43,68 @@ namespace SerializeTree {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1，层次遍历
+        /// 基本思路：
+        /// 序列化，利用一个辅助队列，遍历树，队列中依次保存二叉树每一层的所有节点
+        /// 空节点使用'#'表示，节点之间通过'!'分隔
+        /// 反序列化，与序列化相同的遍历方式构造树
+        /// </summary>
+
         public string Serialize(TreeNode root)
         {
-            return null;
+            StringBuilder builder = new StringBuilder();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            while(queue.Count > 0){
+                int count = queue.Count;
+                for(int i = 0; i < count; i ++){
+                    TreeNode node = queue.Dequeue();
+                    if(node == null){
+                        builder.Append("#");
+                    }else{
+                        builder.Append(node.val);
+                        queue.Enqueue(node.left);
+                        queue.Enqueue(node.right);
+                    }
+                    builder.Append("!");
+                }
+            }
+            return builder.ToString();
         }
 
         public TreeNode Deserialize(string str)
         {
-            return null;
-        }
+            if (str == null) return null;
+            string[] arr = str.Split("!");
+            if (arr.Length <= 0 || arr[0] == "#") return null;
+            TreeNode root = new TreeNode(int.Parse(arr[0]));
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            int index = 0;
+            while(queue.Count > 0){
+                int count = queue.Count;
+                for(int i = 0; i < count; i ++){
+                    TreeNode node = queue.Dequeue();
+                    if(++index >= arr.Length){
+                        return root;
+                    }
+                    if(arr[index] != "#"){
+                        node.left = new TreeNode(int.Parse(arr[index]));
+                        queue.Enqueue(node.left);
+                    }
 
-        public void Print(TreeNode node) {
+                    if(++index >= arr.Length){
+                        return root;
+                    }
 
+                    if(arr[index] != "#"){
+                        node.right = new TreeNode(int.Parse(arr[index]));
+                        queue.Enqueue(node.right);
+                    }
+                }
+            }
+            return root;
         }
 
         public void Test() {
@@ -68,20 +118,16 @@ namespace SerializeTree {
             pRoot.right.right = new TreeNode(6);
             pRoot.right.right.left = new TreeNode(7);
             pRoot.right.right.right = new TreeNode(8);
+            pRoot.right.right.right.left = new TreeNode(9);
             
             string str = Serialize(pRoot);
             Console.WriteLine(str);
 
             TreeNode node = Deserialize(str);
-            Print(node);
-
-            Console.WriteLine("-------------------------------");
 
             str = Serialize(node);
             Console.WriteLine(str);
 
-            node = Deserialize(str);
-            Print(node);
         }
     }
 }
