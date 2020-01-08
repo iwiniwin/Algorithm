@@ -40,7 +40,8 @@ namespace Algorithm
             // new GetNext.Solution().Test();
             // new IsSymmetrical.Solution().Test();
             // new PrintTree.Solution().Test();
-            new PrintTree2.Solution().Test();
+            // new PrintTree2.Solution().Test();
+            new SerializeTree.Solution().Test();
 
 
             // 程序员代码面试指南
