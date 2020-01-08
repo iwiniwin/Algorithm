@@ -107,6 +107,41 @@ namespace SerializeTree {
             return root;
         }
 
+        /// <summary>
+        /// 解法2，先序遍历
+        /// 基本思路：
+        /// 先序遍历，递归，序列化字符串
+        /// 利用int[]数组，引用类型，记录index值，按照先序遍历规则反序列化字符串
+        /// </summary>
+
+        public string Serialize2(TreeNode root)
+        {
+            if(root == null){
+                return "#!";
+            }
+            return root.val + "!" + Serialize2(root.left) + Serialize2(root.right);
+        }
+
+        public TreeNode Deserialize2Impl(string[] arr, int[] indices) {
+            if(arr[indices[0]] == "#"){
+                return null;
+            }
+            TreeNode node = new TreeNode(int.Parse(arr[indices[0]]));
+            indices[0] ++;
+            node.left = Deserialize2Impl(arr, indices);
+            indices[0] ++;
+            node.right = Deserialize2Impl(arr, indices);
+            return node;
+        }
+
+        public TreeNode Deserialize2(string str)
+        {
+            if(str == null || str.Length == 0) {
+                return null;
+            }
+            return Deserialize2Impl(str.Split("!"), new int[]{0});
+        }
+
         public void Test() {
             TreeNode pRoot = null;
             pRoot = new TreeNode(0);
@@ -120,12 +155,15 @@ namespace SerializeTree {
             pRoot.right.right.right = new TreeNode(8);
             pRoot.right.right.right.left = new TreeNode(9);
             
-            string str = Serialize(pRoot);
+            // string str = Serialize(pRoot);
+            string str = Serialize2(pRoot);
             Console.WriteLine(str);
 
-            TreeNode node = Deserialize(str);
+            // TreeNode node = Deserialize(str);
+            TreeNode node = Deserialize2(str);
 
-            str = Serialize(node);
+            // str = Serialize(node);
+            str = Serialize2(node);
             Console.WriteLine(str);
 
         }
