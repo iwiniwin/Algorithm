@@ -149,7 +149,7 @@
 <a href="%E5%89%91%E6%8C%87offer/SerializeTree.cs">序列化二叉树</a>
 </td>
 <td width="25%" align="center">
-
+<a href="%E5%89%91%E6%8C%87offer/KthNode.cs">二叉搜索树的第k个结点</a>
 </td>
 </tr>
 
