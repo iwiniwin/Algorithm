@@ -42,7 +42,8 @@ namespace Algorithm
             // new PrintTree.Solution().Test();
             // new PrintTree2.Solution().Test();
             // new SerializeTree.Solution().Test();
-            new KthNode.Solution().Test();
+            // new KthNode.Solution().Test();
+            new GetMedian.Solution().Test();
 
 
             // 程序员代码面试指南

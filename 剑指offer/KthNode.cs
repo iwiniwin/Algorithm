@@ -24,7 +24,6 @@ class Solution
     它的左，右子树也分别为二叉搜索树
 */
 using System;
-using System.Text;
 using System.Collections.Generic;
 namespace KthNode {
 
