@@ -70,6 +70,34 @@ namespace KthNode {
             return null;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 中序遍历的非递归实现，利用辅助栈，优先入栈左节点，再入栈 出栈节点的右节点
+        /// 每次出栈，相当于找到一个节点，找到的第k个节点即为第k小的节点
+        /// </summary>
+
+        public TreeNode KthNode2(TreeNode pRoot, int k)
+        {
+            if(pRoot == null) return null;
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.Push(pRoot);
+            TreeNode node = pRoot.left;
+            while(stack.Count > 0 || node != null){
+                if(node == null){
+                    node = stack.Pop();
+                    if(--k == 0){
+                        return node;
+                    }
+                    node = node.right;
+                }else{
+                    stack.Push(node);
+                    node = node.left;
+                }
+            }
+            return null;
+        }
+
         public void Test() {
             TreeNode pRoot = null;
             pRoot = new TreeNode(5);
@@ -79,8 +107,9 @@ namespace KthNode {
             pRoot.left.right = new TreeNode(4);
             pRoot.right.left = new TreeNode(6);
             pRoot.right.right = new TreeNode(8);
-            
-            TreeNode node = KthNode(pRoot, 1);
+
+            // TreeNode node = KthNode(pRoot, 1);
+            TreeNode node = KthNode2(pRoot, 5);
             if(node == null){
                 Console.WriteLine("null");
             }else{
