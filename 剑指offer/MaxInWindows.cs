@@ -20,6 +20,7 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace MaxInWindows {
 
     class Solution {
@@ -49,6 +50,34 @@ namespace MaxInWindows {
             return ret;
         }
 
+        /// <summary>
+        /// 解法2，双端队列
+        /// 基本思路：
+        /// 利用双端队列的首部记录每个窗口的最大值
+        /// 每新增一个元素
+        /// 1. 从队列首部开始判断，每个元素是否已经超出窗口范围，是的话移除
+        /// 2. 从队列尾部开始判断，新增的元素是否比队列内的元素大，是的话移除（保证队列首部一定是最大值）
+        /// 3. 将新增的元素从尾部加入队列
+        /// </summary>
+
+        public int[] MaxInWindows2(int[] num, int size)
+        {
+            if(num == null || size <= 0 || num.Length < size){
+                return new int[]{};
+            }
+            int[] ret = new int[num.Length - size + 1];
+            LinkedList<int> list = new LinkedList<int>();
+            for(int i = 0; i < num.Length; i ++){
+                while(list.Count > 0 && i - size >= list.First.Value) list.RemoveFirst();
+                while(list.Count > 0 && num[i] >= num[list.Last.Value]) list.RemoveLast();
+                list.AddLast(i);
+                if(i - size + 1 >= 0){
+                    ret[i - size + 1] = num[list.First.Value];
+                }
+            }
+            return ret;
+        }
+
         public void Print(int[] num) {
             if(num == null){
                 Console.WriteLine("null");
@@ -65,7 +94,8 @@ namespace MaxInWindows {
 
             int size = 3;
 
-            Print(MaxInWindows(num, size));
+            // Print(MaxInWindows(num, size));
+            Print(MaxInWindows2(num, size));
         }
     }
 }
