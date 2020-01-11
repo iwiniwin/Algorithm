@@ -44,7 +44,8 @@ namespace Algorithm
             // new SerializeTree.Solution().Test();
             // new KthNode.Solution().Test();
             // new GetMedian.Solution().Test();
-            new MaxInWindows.Solution().Test();
+            // new MaxInWindows.Solution().Test();
+            new HasPath.Solution().Test();
 
 
             // 程序员代码面试指南
