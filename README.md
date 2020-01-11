@@ -153,6 +153,21 @@
 </td>
 </tr>
 
+<tr>
+<td width="25%" align="center">
+<a href="%E5%89%91%E6%8C%87offer/GetMedian.cs">数据流中的中位数</a>
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+</tr>
+
 </tbody></table>
 
 ## 程序员代码面试指南
