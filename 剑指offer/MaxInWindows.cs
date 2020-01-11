@@ -24,12 +24,36 @@ namespace MaxInWindows {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 最直观的解法，针对每一个size大小的窗口，都重新计算出最大值
+        /// 但效率不高，没有利用好前面窗口已经算出的最大值
+        /// </summary>
+
         public int[] MaxInWindows(int[] num, int size)
         {
-            return new int[]{1, 2, 3};
+            if(num == null || num.Length < size || size <= 0) {
+                return new int[]{};
+            }
+            int[] ret = new int[num.Length - size + 1];
+            for(int i = 0; i < num.Length - size + 1; i ++){
+                int max = num[i];
+                for(int j = 1; j < size; j ++){
+                    if(num[i + j] > max){
+                        max = num[i + j];
+                    }
+                }
+                ret[i] = max;
+            }
+            return ret;
         }
 
         public void Print(int[] num) {
+            if(num == null){
+                Console.WriteLine("null");
+                return;
+            }
             foreach(int i in num){
                 Console.WriteLine(i);
             }
@@ -37,7 +61,7 @@ namespace MaxInWindows {
 
         public void Test() {
 
-            int[] num = new int[]{};
+            int[] num = new int[]{2,3,4,2,6,2,5,1};
 
             int size = 3;
 
