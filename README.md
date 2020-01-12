@@ -164,7 +164,7 @@
 <a href="%E5%89%91%E6%8C%87offer/HasPath.cs">矩阵中的路径</a>
 </td>
 <td width="25%" align="center">
-
+<a href="%E5%89%91%E6%8C%87offer/MovingCount.cs">机器人的运动范围</a>
 </td>
 </tr>
 

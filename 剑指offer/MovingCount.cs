@@ -24,16 +24,56 @@ namespace MovingCount {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 利用递归，从0，0点，开始向上下左右开始搜索
+        /// 利用flag数组记录搜索过的节点，置为true。
+        /// 利用count统计进入的格子个数
+        /// 注意，这里在回溯的时候是不用将标记还原的
+        /// </summary>
+
+        int count = 0;
+
+        public int Calc(int num) {
+            int sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num /= 10;
+            }
+            return sum;
+        }
+
+        public void MovingCountImpl(int threshold, int rows, int cols, int row, int col, bool[,] flag) {
+
+            if(row < 0 || row >= rows || col < 0 || col >= cols || flag[row, col]){
+                return;
+            }
+
+            if(Calc(row) + Calc(col) > threshold){
+                return;
+            }
+            count ++;
+            flag[row, col] = true;
+            MovingCountImpl(threshold, rows, cols, row, col + 1, flag);
+            MovingCountImpl(threshold, rows, cols, row, col - 1, flag);
+            MovingCountImpl(threshold, rows, cols, row + 1, col, flag);
+            MovingCountImpl(threshold, rows, cols, row - 1, col, flag);
+        }
+
         public int MovingCount(int threshold, int rows, int cols)
         {
-            return 1;
+            bool[,] flag = new bool[rows, cols];
+            count = 0;
+            MovingCountImpl(threshold, rows, cols, 0, 0, flag);
+            return count;
         }
     
         public void Test() {
 
-            int threshold = 0;
-            int rows = 0;
-            int cols = 0;
+            int threshold = 9;
+            int rows = 100;
+            int cols = 100;
 
             Console.WriteLine(MovingCount(threshold, rows, cols));
         }
