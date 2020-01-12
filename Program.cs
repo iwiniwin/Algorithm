@@ -45,7 +45,8 @@ namespace Algorithm
             // new KthNode.Solution().Test();
             // new GetMedian.Solution().Test();
             // new MaxInWindows.Solution().Test();
-            new HasPath.Solution().Test();
+            // new HasPath.Solution().Test();
+            new MovingCount.Solution().Test();
 
 
             // 程序员代码面试指南
