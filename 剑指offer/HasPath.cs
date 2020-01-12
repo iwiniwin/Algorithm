@@ -24,9 +24,54 @@ namespace HasPath {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 将matrix字符串转换为多维数组，分别以数组的每个元素为起点，判断路径是否存在
+        /// 从起点开始按上下左右的顺序搜索，已经经过的元素标记为-1
+        /// 如果此路不通，则回溯到上一层，并还原标记位
+        /// </summary>
+
+        public bool HasPathImpl(int[,] arr, int row, int col, string path, int index) {
+            if(index >= path.Length){
+                return true;
+            }
+            if(row < 0 || row >= arr.GetLength(0) || col < 0 || col >= arr.GetLength(1)){
+                return false;
+            }
+            if(arr[row, col] == path[index]){
+                int temp = arr[row, col];
+                arr[row, col] = -1;
+                bool ret = HasPathImpl(arr, row, col + 1, path, index + 1) || HasPathImpl(arr, row, col - 1, path, index + 1)
+                    || HasPathImpl(arr, row + 1, col, path, index + 1) || HasPathImpl(arr, row - 1, col, path, index + 1);
+                arr[row, col] = temp;
+                return ret;
+            }
+            return false;
+        }
+
         public bool HasPath(string matrix, int rows, int cols, string path)
         {
-            return true;
+            int[,] arr = new int[rows, cols];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    arr[i, j] = matrix[i * cols + j];
+                }
+            }
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    bool ret = HasPathImpl(arr, i, j, path, 0);
+                    if(ret){
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     
         public void Test() {
@@ -35,6 +80,7 @@ namespace HasPath {
             int rows = 3;
             int cols = 4;
             string path = "bcced";
+            // path = "abcb";
 
             Console.WriteLine(HasPath(matrix, rows, cols, path));
         }

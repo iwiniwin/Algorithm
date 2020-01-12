@@ -161,7 +161,7 @@
 <a href="%E5%89%91%E6%8C%87offer/MaxInWindows.cs">滑动窗口的最大值</a>
 </td>
 <td width="25%" align="center">
-
+<a href="%E5%89%91%E6%8C%87offer/HasPath.cs">矩阵中的路径</a>
 </td>
 <td width="25%" align="center">
 
