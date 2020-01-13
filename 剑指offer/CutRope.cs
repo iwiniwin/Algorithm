@@ -28,14 +28,47 @@ namespace CutRope {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 找规律，先列出n的前几项
+        /// 2  1 * 1
+        /// 3  1 * 2
+        /// 4  2 * 2
+        /// 5  2 * 3
+        /// 6  3 * 3
+        /// 7  2 * 2 * 3
+        /// 8  2 * 3 * 3
+        /// 9  3 * 3 * 3
+        /// 10 2 * 2 * 3 * 3
+        /// 11 2 * 3 * 3 * 3
+        /// 可以发现除了特殊的n=2, n=3以外，其他值都是由2和3组成
+        /// 问题在于如何确定2和3的个数
+        /// 观察发现，2, 3的个数与 n / 3, n % 3 有关
+        /// 2的个数要么是0个或1个或2个，不会是3个，因为当可以2 * 2 * 2 时应该用 3 * 3 表示
+        /// 进一步总结可得n % 3 = 0 时 2的个数是0，3的个数是n/3
+        /// n % 3 = 1时 2的个数是2，3的个数n/3 - 1
+        /// 否则2的个数是1，3的个数是n/3
+        /// </summary>
+
         public int CutRope(int number)
         {
-            return 1;
+            if(number == 2 || number == 3) return number - 1;
+            int mod = number % 3;
+            int div = number / 3;
+            if(mod == 0) return (int)Math.Pow(3, div);
+            else if(mod == 1) return 2 * 2 * (int)Math.Pow(3, div - 1);
+            else return 2 * (int)Math.Pow(3, div); 
         }
     
         public void Test() {
 
-            int number = 0;
+            int number = 2;
+            number = 3;
+            // number = 5;
+            // number = 6;
+            // number = 7;
+            // number = 30;
 
             Console.WriteLine(CutRope(number));
         }
