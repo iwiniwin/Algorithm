@@ -22,6 +22,11 @@ class Solution
         // write code here
     }
 }
+
+补充：
+动态规划求解问题的特征：
+1. 求问题的最优解，整体的最优解依赖于子问题的最优解
+2. 从上往下分析问题，从下往上求解问题
 */
 using System;
 namespace CutRope {
@@ -80,6 +85,32 @@ namespace CutRope {
             return ret * number;
         }
 
+        /// <summary>
+        /// 解法3，动态规划
+        /// 基本思路：
+        /// 对于除n = 2和n = 3的特殊情况以外，使用dp数组记录前面的计算结果
+        /// 求解n的最大乘积时，通过遍历每一种分段情况（分段从2开始，因为分出1的段的情况一定不是最大乘积），
+        /// 取每种分段情况中乘积最大的为结果
+        /// 再利用dp中的记录值，避免重复的计算
+        /// </summary>
+
+        public int CutRope3(int number)
+        {
+            if(number == 2 || number == 3) return number - 1;
+            int[] dp = new int[number + 1];
+            dp[2] = 2;
+            dp[3] = 3;
+            int res =  0;
+            for (int i = 4; i < number + 1; i++)
+            {
+                for(int j = 2; j < i / 2 + 1; j ++){
+                   res = Math.Max(dp[i - j] * dp[j], res);
+                }
+                dp[i] = res;
+            }
+            return dp[number];
+        }
+
 
     
         public void Test() {
@@ -92,7 +123,8 @@ namespace CutRope {
             // number = 30;
 
             // Console.WriteLine(CutRope(number));
-            Console.WriteLine(CutRope2(number));
+            // Console.WriteLine(CutRope2(number));
+            Console.WriteLine(CutRope3(number));
         }
     }
 }
