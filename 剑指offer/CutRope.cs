@@ -60,17 +60,39 @@ namespace CutRope {
             else if(mod == 1) return 2 * 2 * (int)Math.Pow(3, div - 1);
             else return 2 * (int)Math.Pow(3, div); 
         }
+
+        /// <summary>
+        /// 解法2，贪婪算法
+        /// 基本思路：
+        /// 根据解法1列出的n的前几项，可以发现，对于每个大于4的值来说，都希望分出更多的3
+        /// 比如5 希望分成 2 * 3
+        /// 比如8 希望分成 5 * 3，再分成 2 * 3 * 3
+        /// </summary>
+
+        public int CutRope2(int number)
+        {
+            if(number == 2 || number == 3) return number - 1;
+            int ret = 1;
+            while(number > 4){
+                ret *= 3;
+                number -= 3;
+            }
+            return ret * number;
+        }
+
+
     
         public void Test() {
 
             int number = 2;
-            number = 3;
+            // number = 3;
             // number = 5;
             // number = 6;
             // number = 7;
             // number = 30;
 
-            Console.WriteLine(CutRope(number));
+            // Console.WriteLine(CutRope(number));
+            Console.WriteLine(CutRope2(number));
         }
     }
 }
