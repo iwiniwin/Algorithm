@@ -7,6 +7,7 @@ namespace Algorithm
         static void Main(string[] args)
         {
             // 剑指offer
+            new Find.Solution().Test();
             // new Permutation.Solution().Test();
             // new MoreThanHalfNum.Solution().Test();
             // new GetLeastNumbers.Solution().Test();
@@ -47,7 +48,8 @@ namespace Algorithm
             // new MaxInWindows.Solution().Test();
             // new HasPath.Solution().Test();
             // new MovingCount.Solution().Test();
-            new CutRope.Solution().Test();
+            // new CutRope.Solution().Test();
+            
 
 
             // 程序员代码面试指南
