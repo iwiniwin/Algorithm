@@ -15,6 +15,21 @@
 
 <tr>
 <td width="25%" align="center">
+<a href="%E5%89%91%E6%8C%87offer/Find.cs">二维数组中的查找</a>
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
 <a href="%E5%89%91%E6%8C%87offer/Permutation.cs">字符串的排列</a>
 </td>
 <td width="25%" align="center">
