@@ -7,7 +7,8 @@ namespace Algorithm
         static void Main(string[] args)
         {
             // 剑指offer
-            new Find.Solution().Test();
+            // new Find.Solution().Test();
+            new ReplaceSpace.Solution().Test();
             // new Permutation.Solution().Test();
             // new MoreThanHalfNum.Solution().Test();
             // new GetLeastNumbers.Solution().Test();
