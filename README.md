@@ -24,7 +24,7 @@
 <a href="%E5%89%91%E6%8C%87offer/ReplaceSpace.cs">替换空格</a>
 </td>
 <td width="25%" align="center">
-从尾到头打印链表
+<a href="%E5%89%91%E6%8C%87offer/PrintListFromTailToHead.cs">从尾到头打印链表</a>
 </td>
 <td width="25%" align="center">
 重建二叉树

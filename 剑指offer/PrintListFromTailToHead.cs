@@ -31,10 +31,36 @@ namespace PrintListFromTailToHead {
 
     class Solution {
 
-        // 返回从尾到头的列表值序列
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// while循环从头遍历整个链表，将每个元素插入到List中
+        /// 因为要求是从尾到头，所以每次插入时利用Insert函数不断将元素插入到第一的位置
+        /// </summary>
         public List<int> PrintListFromTailToHead(ListNode listNode)
         {
-            return null;
+            List<int> list = new List<int>();
+            while(listNode != null){
+                list.Insert(0, listNode.val);
+                listNode = listNode.next;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 和解法1类似，遍历每个元素后通过Add函数添加到List中，最后统一调用一次Reverse方法进行翻转
+        /// </summary>
+        public List<int> PrintListFromTailToHead2(ListNode listNode)
+        {
+            List<int> list = new List<int>();
+            while(listNode != null){
+                list.Add(listNode.val);
+                listNode = listNode.next;
+            }
+            list.Reverse();
+            return list;
         }
 
         public void Print(List<int> list){
@@ -51,8 +77,12 @@ namespace PrintListFromTailToHead {
         public void Test() {
 
             ListNode node = new ListNode(0);
+            // node = null;
+            node.next = new ListNode(3);
+            node.next.next = new ListNode(1);
 
-            Print(PrintListFromTailToHead(node));
+            // Print(PrintListFromTailToHead(node));
+            Print(PrintListFromTailToHead2(node));
         }
     }
 }
