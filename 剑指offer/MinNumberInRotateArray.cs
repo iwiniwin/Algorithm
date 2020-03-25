@@ -41,15 +41,45 @@ namespace MinNumberInRotateArray {
             return rotateArray.Length == 0 ? 0 : rotateArray[rotateArray.Length - 1];
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 对于有序数组的查找问题，首先想到的就是二分查找。
+        /// 本题是非递减数组的旋转数组，仍具有一定的顺序性，所以稍微修改一下二分查找仍然可以解题
+        /// 根据旋转性，首先可以确定的是我们要找的最小值一定是小于等于数组首元素的，所以先将首元素，设置为目标元素
+        /// 不断通过二分查找查找比目标元素小的元素，当找到元素比目标元素小时，将该元素设置为新的目标元素
+        /// 最终会找到数组的最小值
+        /// 二分查找介绍 https://www.cnblogs.com/iwiniwin/p/10793650.html
+        /// </summary>
+
+        public int MinNumberInRotateArray2(int[] rotateArray){
+            if(rotateArray.Length == 0) return 0;
+            int left = 0, right = rotateArray.Length - 1;
+            int target = rotateArray[left];
+            while(left <= right){
+                int middle = (right + left) / 2;
+                if(rotateArray[middle] < target){
+                    target = rotateArray[middle];
+                    right = middle;
+                }else{
+                    left = middle + 1;
+                }
+            }
+            return target;
+        }
+
         public void Test() {
 
             int[] rotateArray = new int[]{1, 2, 3, 4, 0};
             rotateArray = new int[]{};
             rotateArray = new int[]{3, 4, 5, 5, 5, 6, 6, 1, 1, 2};
-            rotateArray = new int[]{3, 4, 5, 5, 2, 2};
-            rotateArray = new int[]{1, 2, 1};
+            // rotateArray = new int[]{3, 4, 5, 5, 2, 2};
+            // rotateArray = new int[]{1, 2, 1};
+            // rotateArray = new int[]{1, 0};
+            // rotateArray = new int[]{1};
 
-            Console.WriteLine(MinNumberInRotateArray(rotateArray));
+            // Console.WriteLine(MinNumberInRotateArray(rotateArray));
+            Console.WriteLine(MinNumberInRotateArray2(rotateArray));
         }
     }
 }
