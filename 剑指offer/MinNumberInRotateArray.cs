@@ -46,26 +46,28 @@ namespace MinNumberInRotateArray {
         /// 基本思路：
         /// 对于有序数组的查找问题，首先想到的就是二分查找。
         /// 本题是非递减数组的旋转数组，仍具有一定的顺序性，所以稍微修改一下二分查找仍然可以解题
-        /// 根据旋转性，首先可以确定的是我们要找的最小值一定是小于等于数组首元素的，所以先将首元素，设置为目标元素
-        /// 不断通过二分查找查找比目标元素小的元素，当找到元素比目标元素小时，将该元素设置为新的目标元素
-        /// 最终会找到数组的最小值
+        /// 旋转数组可以看成是由左右两个递增数组组成
+        /// 通过将right指向的元素与middle指向的元素比较
+        /// 如果小于，则说明middle处于左边的递增数组，left = middle + 1，搜寻范围右移
+        /// 如果大于，则说明middle处于右边的递增数组，right = middle，搜寻范围左移
+        /// 如果等于，此时并不能判断到底处于左边还是右边，可以看成是顺序性丢失了，此时right -- ，二分查找退化为普通顺序遍历
         /// 二分查找介绍 https://www.cnblogs.com/iwiniwin/p/10793650.html
         /// </summary>
 
         public int MinNumberInRotateArray2(int[] rotateArray){
             if(rotateArray.Length == 0) return 0;
             int left = 0, right = rotateArray.Length - 1;
-            int target = rotateArray[left];
-            while(left <= right){
+            while(left < right){
                 int middle = (right + left) / 2;
-                if(rotateArray[middle] < target){
-                    target = rotateArray[middle];
+                if(rotateArray[right] < rotateArray[middle]){
+                    left = middle + 1;
+                }else if(rotateArray[right] > rotateArray[middle]){
                     right = middle;
                 }else{
-                    left = middle + 1;
+                    right --;
                 }
             }
-            return target;
+            return rotateArray[left];
         }
 
         public void Test() {
@@ -77,6 +79,8 @@ namespace MinNumberInRotateArray {
             // rotateArray = new int[]{1, 2, 1};
             // rotateArray = new int[]{1, 0};
             // rotateArray = new int[]{1};
+            // rotateArray = new int[]{10,1,10,10,10};
+            rotateArray = new int[]{10,10,10,1,10,10};
 
             // Console.WriteLine(MinNumberInRotateArray(rotateArray));
             Console.WriteLine(MinNumberInRotateArray2(rotateArray));
