@@ -11,7 +11,8 @@ namespace Algorithm
             // new ReplaceSpace.Solution().Test();
             // new PrintListFromTailToHead.Solution().Test();
             // new ReConstructBinaryTree.Solution().Test();
-            new SimulateQueueWithStack.Solution().Test();
+            // new SimulateQueueWithStack.Solution().Test();
+            new MinNumberInRotateArray.Solution().Test();
             // new Permutation.Solution().Test();
             // new MoreThanHalfNum.Solution().Test();
             // new GetLeastNumbers.Solution().Test();
