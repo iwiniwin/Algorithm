@@ -36,7 +36,7 @@
 <a href="%E5%89%91%E6%8C%87offer/SimulateQueueWithStack.cs">用两个栈实现队列</a>
 </td>
 <td width="25%" align="center">
-旋转数组的最小数字
+<a href="%E5%89%91%E6%8C%87offer/MinNumberInRotateArray.cs">旋转数组的最小数字</a>
 </td>
 <td width="25%" align="center">
 斐波那契数列

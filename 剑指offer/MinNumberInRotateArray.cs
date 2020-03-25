@@ -22,14 +22,32 @@ namespace MinNumberInRotateArray {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 对于非减数组来说，数组左边的元素一定小于等于数组右边的元素。
+        /// 当对非减数组进行旋转后（把数组最开始的元素搬到末尾），
+        /// 则在遍历过程中可能会出现左边的元素反而小于右边的元素，当第一次出现这种情况时，
+        /// 一定是原非减数组的开头，即整个数组的最小元素。
+        /// </summary>
+
         public int MinNumberInRotateArray(int[] rotateArray)
         {
-            return 0;
+            for(int i = 0; i < rotateArray.Length - 1; i ++){
+                if(rotateArray[i] > rotateArray[i + 1]){
+                    return rotateArray[i + 1];
+                }
+            }
+            return rotateArray.Length == 0 ? 0 : rotateArray[rotateArray.Length - 1];
         }
 
         public void Test() {
 
-            int[] rotateArray = new int[]{};
+            int[] rotateArray = new int[]{1, 2, 3, 4, 0};
+            rotateArray = new int[]{};
+            rotateArray = new int[]{3, 4, 5, 5, 5, 6, 6, 1, 1, 2};
+            rotateArray = new int[]{3, 4, 5, 5, 2, 2};
+            rotateArray = new int[]{1, 2, 1};
 
             Console.WriteLine(MinNumberInRotateArray(rotateArray));
         }
