@@ -35,9 +35,9 @@ namespace Algorithm
             // new LeftRotateString.Solution().Test();                            // 左旋转字符串
             // new ReverseSentence.Solution().Test();                             // 翻转单词顺序列
             // new IsContinuous.Solution().Test();                                // 扑克牌顺子
-            // new LastRemaining.Solution().Test();                               //	孩子们的游戏(圆圈中最后剩下的数)
+            // new LastRemaining.Solution().Test();                               // 孩子们的游戏(圆圈中最后剩下的数)
             // new Sum.Solution().Test();                                         // 求1+2+3+...+n
-            // new Add.Solution().Test();                                         //	不用加减乘除做加法
+            // new Add.Solution().Test();                                         // 不用加减乘除做加法
             // new StrToInt.Solution().Test();                                    // 把字符串转换成整数
             // new Duplicate.Solution().Test();                                   // 数组中重复的数字
             // new Multiply.Solution().Test();                                    // 构建乘积数组
@@ -45,7 +45,7 @@ namespace Algorithm
             // new IsNumeric.Solution().Test();                                   // 表示数值的字符串
             // new FirstAppearingOnce.Solution().Test();                          // 字符流中第一个不重复的字符
             // new EntryNodeOfLoop.Solution().Test();                             // 链表中环的入口结点
-            // new DeleteDuplication.Solution().Test();                           //	删除链表中重复的结点
+            // new DeleteDuplication.Solution().Test();                           // 删除链表中重复的结点
             // new GetNext.Solution().Test();                                     // 二叉树的下一个结点
             // new IsSymmetrical.Solution().Test();                               // 对称的二叉树
             // new PrintTree.Solution().Test();                                   // 按之字形顺序打印二叉树
