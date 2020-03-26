@@ -6,61 +6,9 @@ namespace Algorithm
     {
         static void Main(string[] args)
         {
-            // 剑指offer
-            // new Find.Solution().Test();
-            // new ReplaceSpace.Solution().Test();
-            // new PrintListFromTailToHead.Solution().Test();
-            // new ReConstructBinaryTree.Solution().Test();
-            // new SimulateQueueWithStack.Solution().Test();
-            // new MinNumberInRotateArray.Solution().Test();
-            new Fibonacci.Solution().Test();
-            // new Permutation.Solution().Test();
-            // new MoreThanHalfNum.Solution().Test();
-            // new GetLeastNumbers.Solution().Test();
-            // new FindGreatestSumOfSubArray.Solution().Test();
-            // new NumberOf1Between1AndN.Solution().Test();
-            // new PrintMinNumber.Solution().Test();
-            // new GetUglyNumber.Solution().Test();
-            // new FirstNotRepeatingChar.Solution().Test();
-            // new InversePairs.Solution().Test();
-            // new FindFirstCommonNode.Solution().Test();
-            // new GetNumberOfK.Solution().Test();
-            // new TreeDepth.Solution().Test();
-            // new IsBalanced.Solution().Test();
-            // new FindNumsAppearOnce.Solution().Test();
-            // new FindContinuousSequence.Solution().Test();
-            // new FindNumbersWithSum.Solution().Test();
-            // new LeftRotateString.Solution().Test();
-            // new ReverseSentence.Solution().Test();
-            // new IsContinuous.Solution().Test();
-            // new LastRemaining.Solution().Test();
-            // new Sum.Solution().Test();
-            // new Add.Solution().Test();
-            // new StrToInt.Solution().Test();
-            // new Duplicate.Solution().Test();
-            // new Multiply.Solution().Test();
-            // new Match.Solution().Test();
-            // new IsNumeric.Solution().Test();
-            // new FirstAppearingOnce.Solution().Test();
-            // new EntryNodeOfLoop.Solution().Test();
-            // new DeleteDuplication.Solution().Test();
-            // new GetNext.Solution().Test();
-            // new IsSymmetrical.Solution().Test();
-            // new PrintTree.Solution().Test();
-            // new PrintTree2.Solution().Test();
-            // new SerializeTree.Solution().Test();
-            // new KthNode.Solution().Test();
-            // new GetMedian.Solution().Test();
-            // new MaxInWindows.Solution().Test();
-            // new HasPath.Solution().Test();
-            // new MovingCount.Solution().Test();
-            // new CutRope.Solution().Test();
-            
-
-
-            // 程序员代码面试指南
-            // NumberOf1From1ToN.Solution.Test();
-            // PrintMinString.Solution.Test();
+            CodingInterviewsProgram.Test();            // 剑指offer
+            // SortProgram.Test();                     // 排序算法      
+            // InterviewGuideProgram.Test();           // 程序员代码面试指南
         }
     }
 }
