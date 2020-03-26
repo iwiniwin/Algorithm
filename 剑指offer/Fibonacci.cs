@@ -22,12 +22,21 @@ namespace Fibonacci {
 
         public int Fibonacci(int n)
         {
-            return 0;
+            if(n == 0 || n == 1){
+                return n;
+            }
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
         }
 
         public void Test() {
 
-            int n = 1;
+            int n = 0; // 0
+            n = 1; // 1
+            n = 2; // 1
+            n = 3; // 2
+            n = 4; // 3
+
+            n = 39;
 
             Console.WriteLine(Fibonacci(n));
         }
