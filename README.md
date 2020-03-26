@@ -47,7 +47,7 @@
 <a href="%E5%89%91%E6%8C%87offer/Fibonacci.cs">斐波那契数列</a>
 </td>
 <td width="25%" align="center">
-跳台阶
+<a href="%E5%89%91%E6%8C%87offer/JumpFloor.cs">跳台阶</a>
 </td>
 </tr>
 
