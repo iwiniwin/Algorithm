@@ -293,37 +293,37 @@
 
 <tr>
 <td width="25%" align="center">
-简单插入排序
+简单插入排序（Simple Insertion Sort）
 </td>
 <td width="25%" align="center">
-希尔排序
+希尔排序（Shell Sort）
 </td>
 <td width="25%" align="center">
-冒泡排序
+冒泡排序（Bubble Sort）
 </td>
 <td width="25%" align="center">
-快速排序
-</td>
-</tr>
-
-<tr>
-<td width="25%" align="center">
-简单选择排序
-</td>
-<td width="25%" align="center">
-堆排序
-</td>
-<td width="25%" align="center">
-归并排序
-</td>
-<td width="25%" align="center">
-基数排序
+快速排序（Quick Sort）
 </td>
 </tr>
 
 <tr>
 <td width="25%" align="center">
-计数排序
+简单选择排序（Simple Selection Sort）
+</td>
+<td width="25%" align="center">
+堆排序（Heap Sort）
+</td>
+<td width="25%" align="center">
+归并排序（Merge Sort）
+</td>
+<td width="25%" align="center">
+基数排序（Radix Sort）
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+计数排序（Count Sort）
 </td>
 <td width="25%" align="center">
 
