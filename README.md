@@ -5,12 +5,17 @@
 [![forks](https://img.shields.io/github/forks/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/network/members)
 [![PRs Welcome](https://badgen.net/badge/PRs/welcome/green)](http://makeapullrequest.com) -->
 
-**《剑指Offer》以及《程序员代码面试指南：IT名企算法与数据结构题目最优解》算法题目集合**
+**《剑指Offer》以及《程序员代码面试指南：IT名企算法与数据结构题目最优解》算法题目集合以及常用算法实现汇总**
 
-本仓库是基于 .net core 的控制台程序，C#实现，包含每道题目的完整描述，AC代码，以及解题思路，所有题目均可直接运行以查看输出结果。
+本仓库是基于 .net core 的控制台程序，C#实现，包含每道题目的完整描述，AC代码，以及解题思路，所有题目均可直接运行以查看输出结果。常用算法汇总中每个算法同样有测试用例，可运行。
+
+#### 目录
+* [剑指offer](#剑指offer)  
+* [排序算法](#排序算法)  
+* [程序员代码面试指南](#程序员代码面试指南)  
 
 #### 说明
-* 对应题目均可以在牛客网[《剑指Offer》](https://www.nowcoder.com/ta/coding-interviews)题库中找到（共67题）
+* 剑指Offer对应题目均可以在牛客网[《剑指Offer》](https://www.nowcoder.com/ta/coding-interviews)题库中找到（共67题）
 * 下面表格中可以跳转的是已完成的题目，无法跳转的表示还尚待补充
 
 ## 剑指Offer
@@ -278,6 +283,58 @@
 </tr>
 
 
+
+</tbody></table>
+
+
+## 排序算法
+
+<table style="width:100%"><tbody>
+
+<tr>
+<td width="25%" align="center">
+简单插入排序
+</td>
+<td width="25%" align="center">
+希尔排序
+</td>
+<td width="25%" align="center">
+冒泡排序
+</td>
+<td width="25%" align="center">
+快速排序
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+简单选择排序
+</td>
+<td width="25%" align="center">
+堆排序
+</td>
+<td width="25%" align="center">
+归并排序
+</td>
+<td width="25%" align="center">
+基数排序
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+计数排序
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+<td width="25%" align="center">
+
+</td>
+</tr>
 
 </tbody></table>
 
