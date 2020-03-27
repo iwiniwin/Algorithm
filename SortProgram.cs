@@ -10,7 +10,8 @@ namespace Algorithm
     {
         public static void Test()
         {
-            new BubbleSort.Solution().Test();                                     // 冒泡排序
+            // new BubbleSort.Solution().Test();                                  // 冒泡排序
+            new QuickSort.Solution().Test();                                   // 冒泡排序
         }
     }
 }
