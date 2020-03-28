@@ -12,7 +12,8 @@ namespace Algorithm
         {
             // new BubbleSort.Solution().Test();                                  // 冒泡排序
             // new QuickSort.Solution().Test();                                   // 冒泡排序
-            new SimpleInsertionSort.Solution().Test();                         // 简单插入排序
+            // new SimpleInsertionSort.Solution().Test();                         // 简单插入排序
+            new ShellSort.Solution().Test();                                   // 希尔排序
         }
     }
 }
