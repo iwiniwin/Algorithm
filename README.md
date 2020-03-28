@@ -296,7 +296,8 @@
 <a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/SimpleInsertionSort.cs">简单插入排序（Simple Insertion Sort）</a>
 </td>
 <td width="25%" align="center">
-希尔排序（Shell Sort）
+
+<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/ShellSort.cs">希尔排序（Shell Sort）</a>
 </td>
 <td width="25%" align="center">
 <a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/BubbleSort.cs">冒泡排序（Bubble Sort）</a>
