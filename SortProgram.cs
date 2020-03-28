@@ -11,7 +11,8 @@ namespace Algorithm
         public static void Test()
         {
             // new BubbleSort.Solution().Test();                                  // 冒泡排序
-            new QuickSort.Solution().Test();                                   // 冒泡排序
+            // new QuickSort.Solution().Test();                                   // 冒泡排序
+            new SimpleInsertionSort.Solution().Test();                         // 简单插入排序
         }
     }
 }
