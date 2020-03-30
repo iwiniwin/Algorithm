@@ -309,7 +309,7 @@
 
 <tr>
 <td width="25%" align="center">
-简单选择排序（Simple Selection Sort）
+<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/SimpleSelectionSort.cs">简单选择排序（Simple Selection Sort）</a>
 </td>
 <td width="25%" align="center">
 堆排序（Heap Sort）
