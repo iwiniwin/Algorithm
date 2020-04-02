@@ -318,7 +318,7 @@
 <a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/MergeSort.cs">归并排序（Merge Sort）</a>
 </td>
 <td width="25%" align="center">
-<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/MergeSort.cs">基数排序（Radix Sort）</a>
+<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/RadixSort.cs">基数排序（Radix Sort）</a>
 </td>
 </tr>
 
