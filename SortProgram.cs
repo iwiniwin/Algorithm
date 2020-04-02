@@ -16,7 +16,8 @@ namespace Algorithm
             // new ShellSort.Solution().Test();                                   // 希尔排序
             // new SimpleSelectionSort.Solution().Test();                         // 简单选择排序
             // new HeapSort.Solution().Test();                                    // 堆排序
-            new MergeSort.Solution().Test();                                   // 归并排序
+            // new MergeSort.Solution().Test();                                   // 归并排序
+            new RadixSort.Solution().Test();                                   // 基数排序
         }
     }
 }
