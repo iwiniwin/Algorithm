@@ -2,77 +2,76 @@
 算法名称：
 基数排序
 
-时间复杂度：todo
+时间复杂度：O(d(n + r))
 
-空间复杂度：todo
+空间复杂度：O(n + r)
 
 最好情况：
-todo
+O(d(n + r))
 
 最坏情况：
-todo
+O(d(n + r))
 
-稳定性：todo
+稳定性：稳定
 
-优点：todo
+优点：稳定，时间复杂度可以突破基于比较的排序法的下界
 
-缺点：todo
+缺点：需要额外的辅助空间
 */
 using System;
-using System.Collections.Generic;
 namespace RadixSort {
 
     class Solution {
 
+        /// <summary>
+        /// 基本思想：
+        /// 首先设立r个队列，对列编号分别为0～r-1，r为待排序列中元素的基数（例如10进制数，则r=10）
+        /// 然后按照下面的规则对元素进行分配收集
+        /// 1，先按最低有效位的值，把n个元素分配到上述的r个队列中，然后从小到大将个队列中的元素依次收集起来
+        /// 2，再按次低有效位的值把刚收集起来的关键字分配到r个队列中，重复收集工作
+        /// 3，重复地进行上述分配和收集，直到最高有效位。
+        /// （也就是说，如果位数为d，则需要重复进行d次，d由所有元素中最长的一个元素的位数计量）
+        /// </summary>
+
         public void RadixSort(int[] array){
 
-            int bit = GetMaxBit(array);
+            int max = GetMaxValue(array);
 
-            // 构建 r = 10 个队列
-            Queue<int>[] buffer = new Queue<int>[10];
-            for(int i = 0; i < buffer.Length; i ++){
-                buffer[i] = new Queue<int>();
-            }
+            int[] buckets = new int[10];
+            int[] buffer = new int[array.Length];
 
-            for(int i = 0; i < bit; i ++){
-                Distribute(array, buffer, i);
-                Collect(array, buffer);
-            }
-        }
-
-        // 获得待排序列中元素的最大位数
-        public int GetMaxBit(int[] array){
-            int bit = 0, len = 0;
-            for(int i = 0; i < array.Length; i ++){
-                len = array[i].ToString().Length;
-                if(len > bit) bit = len;
-            }
-            return bit;
-        }
-
-        // 分配
-        public void Distribute(int[] array, Queue<int>[] buffer, int bit){
-            int value = 0;
-            string str = "";
-            for(int i = 0; i < array.Length; i ++){
-                str = array[i].ToString();
-                if(bit < str.Length){
-                    value = (int)(str[str.Length - bit - 1] - '0');
-                }else{
-                    value = 0;
+            for(int i = 1; max / i > 0; i = i * 10){
+                // 统计每个桶中的元素个数
+                for(int j = 0; j < array.Length; j ++){
+                    buckets[array[j] / i % 10] ++;
                 }
-                buffer[value].Enqueue(array[i]);
-            }
-        }
-
-        // 收集
-        public void Collect(int[] array, Queue<int>[] buffer){
-            int index = 0;
-            for(int i = 0; i < buffer.Length; i ++){
-                while(buffer[i].Count > 0){
-                    array[index ++] = buffer[i].Dequeue(); 
+                // 使每个桶记录的数表示在buffer数组中的位置
+                for(int j = 1; j < buckets.Length; j ++){
+                    buckets[j] += buckets[j - 1];
+                }
+                // 收集，将桶中的数据收集到buffer数组中
+                for(int j = array.Length - 1; j >= 0; j --){
+                    buffer[-- buckets[array[j] / i % 10]] = array[j];
+                }
+                for(int j = 0; j < array.Length; j ++){
+                    array[j] = buffer[j];
+                }
+                // 清空桶
+                for(int j = 0; j < buckets.Length; j ++){
+                    buckets[j] = 0;
                 }
             }
+        }
+
+        // 获得待排序列中的最大元素
+        public int GetMaxValue(int[] array){
+            int max = array[0];
+            for(int i = 1; i < array.Length; i ++){
+                if(array[i] > max){
+                    max = array[i];
+                }
+            }
+            return max;
         }
 
         public void Test() {
