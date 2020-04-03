@@ -318,7 +318,7 @@
 <a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/MergeSort.cs">归并排序（Merge Sort）</a>
 </td>
 <td width="25%" align="center">
-桶排序（Bucket Sort）
+<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/BucketSort.cs">桶排序（Bucket Sort）</a>
 </td>
 </tr>
 
