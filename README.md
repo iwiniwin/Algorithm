@@ -324,7 +324,7 @@
 
 <tr>
 <td width="25%" align="center">
-计数排序（Count Sort）
+<a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/RadixSort.cs">计数排序（Count Sort）</a>
 </td>
 <td width="25%" align="center">
 <a href="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/RadixSort.cs">基数排序（Radix Sort）</a>
