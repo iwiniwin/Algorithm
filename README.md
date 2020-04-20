@@ -56,7 +56,7 @@
 <a href="%E5%89%91%E6%8C%87offer/JumpFloorII.cs">变态跳台阶</a>
 </td>
 <td width="25%" align="center">
-矩形覆盖
+<a href="%E5%89%91%E6%8C%87offer/RectCover.cs">矩形覆盖</a>
 </td>
 <td width="25%" align="center">
 二进制中1的个数
