@@ -16,7 +16,8 @@ namespace Algorithm
             // new SimulateQueueWithStack.Solution().Test();                      // 用两个栈实现队列       
             // new MinNumberInRotateArray.Solution().Test();                      // 旋转数组的最小数字      
             // new Fibonacci.Solution().Test();                                   // 斐波那契数列
-            new JumpFloor.Solution().Test();                                   // 跳台阶
+            // new JumpFloor.Solution().Test();                                   // 跳台阶
+            new JumpFloorII.Solution().Test();                                   // 变态跳台阶
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数
