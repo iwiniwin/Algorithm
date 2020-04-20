@@ -65,15 +65,38 @@ namespace JumpFloorII {
             return number > 0 ? 1 << (number - 1) : 0;
         }
 
+        /// <summary>
+        /// 解法3，递归
+        /// 基本思路：
+        /// 先来看F(n)，对于一个n级台阶来说
+        /// 青蛙第一次可以跳1级，则还剩n - 1级台阶，即F(n - 1)
+        /// 青蛙第一次可以跳2级，则还剩n - 2级台阶，即F(n - 2)
+        /// ...
+        /// 青蛙第一次可以跳n - 1级，则还剩1级台阶，即F(1)
+        /// 青蛙第一次可以跳n级，即1种跳法
+        /// 则F(n) = F(n - 1) + F(n - 2) + F(n - 3) + F(n - 4) + ... + F(1) + 1
+        /// 很显然F(1）= 1，在已知F(1)的情况下，我们可以利用递归解这道题
+        /// </summary>
+
+        public int JumpFloorII3(int number)
+        {
+            int count = number > 0 ? 1 : 0;
+            for(int i = number - 1; i > 0; i --){
+                count += JumpFloorII3(i);
+            }
+            return count;
+        }
+
         public void Test() {
 
             int number = 3;
-            // number = 5;
+            number = 5;
             // number = 1;
             // number = 0;
 
             // Console.WriteLine(JumpFloorII(number));
             Console.WriteLine(JumpFloorII2(number));
+            // Console.WriteLine(JumpFloorII3(number));
         }
     }
 }
