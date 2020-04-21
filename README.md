@@ -59,7 +59,7 @@
 <a href="%E5%89%91%E6%8C%87offer/RectCover.cs">矩形覆盖</a>
 </td>
 <td width="25%" align="center">
-二进制中1的个数
+<a href="%E5%89%91%E6%8C%87offer/NumberOf1.cs">二进制中1的个数</a>
 </td>
 <td width="25%" align="center">
 数值的整数次方
