@@ -44,6 +44,24 @@ namespace NumberOf1 {
             return count;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 上面解法1的时间复杂度是O(n的位数)，n有所少位就要循环多少次。可以利用一个小技巧，降低算法的时间复杂度。
+        /// 对于数值n，将n - 1后再和n相与，得到的值相当于将n从右边数的第一个1变成0。
+        /// n的二进制表示中有多少个1，就能变多少次。时间复杂度可以优化为O(n中1的个数)
+        /// 详细介绍 https://www.cnblogs.com/iwiniwin/p/11058255.html
+        /// </summary>
+
+        public int NumberOf12(int n){
+            int count = 0;
+            while(n != 0){
+                count ++;
+                n &= (n - 1);
+            }
+            return count;
+        }
+
         public void Test() {
 
             int n = 6;
@@ -52,7 +70,8 @@ namespace NumberOf1 {
             n = -1;
             n = -20;
 
-            Console.WriteLine(NumberOf1(n));
+            // Console.WriteLine(NumberOf1(n));
+            Console.WriteLine(NumberOf12(n));
         }
     }
 }
