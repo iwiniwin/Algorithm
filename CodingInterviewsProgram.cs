@@ -21,7 +21,8 @@ namespace Algorithm
             // new RectCover.Solution().Test();                                   // 矩形覆盖
             // new NumberOf1.Solution().Test();                                   // 二进制中1的个数
             // new Power.Solution().Test();                                       // 数值的整数次方
-            new ReOrderArray.Solution().Test();                                // 调整数组顺序使奇数位于偶数前面
+            // new ReOrderArray.Solution().Test();                                // 调整数组顺序使奇数位于偶数前面
+            new FindKthToTail.Solution().Test();                               // 链表中倒数第k个结点
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数
