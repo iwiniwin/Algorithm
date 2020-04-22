@@ -45,6 +45,30 @@ namespace ReOrderArray {
             return temp;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 解法1用到了临时数组，空间复杂度是O(n)，某些情况下可能希望空间复杂度越低越好。
+        /// 解法2虽然时间复杂度提高了，但降低了空间复杂度，不再需要额外的空间。
+        /// 基本思路是遍历原数组，如果遇到了奇数元素，就将该元素向前移动，该元素前面的偶数元素都依次向后移动。
+        /// 可以这样理解，每发现一个奇数时，就将这个奇数移动到了它最终应该在的位置上。
+        /// </summary>
+
+        public int[] ReOrderArray2(int[] array)
+        {
+            for(int i = 0; i < array.Length; i ++){
+                if(array[i] % 2 != 0){
+                    int j = i, target = array[i];
+                    while(j > 0 && array[j - 1] % 2 == 0){
+                        array[j] = array[j - 1];
+                        j --;
+                    }
+                    array[j] = target;
+                }
+            }
+            return array;
+        }
+
         public void Print(int[] array){
             foreach(int item in array){
                 Console.WriteLine(item);
@@ -57,7 +81,8 @@ namespace ReOrderArray {
             array = new int[]{4, 4, 4, 2, 5, 3, 6, 2};
             array = new int[]{-4, 4, -4, 2, -5, 3, 6, 2, -1};
 
-            Print(ReOrderArray(array));
+            // Print(ReOrderArray(array));
+            Print(ReOrderArray2(array));
         }
     }
 }
