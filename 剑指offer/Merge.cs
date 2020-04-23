@@ -59,6 +59,28 @@ namespace Merge {
             return pHead.next;
         }
 
+        /// <summary>
+        /// 解法2，递归
+        /// 基本思路：
+        /// 首先算法合并两个链表头节点中较小的节点，即将较小的节点作为新链表的头结点
+        /// 然后通过递归寻找新链表头结点的下一个节点，过程如下
+        /// 如果链表1的头结点较小，则链表1向下走一步，链表1指向下一个节点，找到链表1与链表2中较小的头结点
+        /// 如果链表2的头结点较小，则链表2向下走一步，链表2指向下一个节点，找到链表1与链表2中较小的头结点
+        /// </summary>
+
+        public ListNode Merge2(ListNode pHead1, ListNode pHead2)
+        {
+            if(pHead1 == null) return pHead2;
+            if(pHead2 == null) return pHead1;
+            if(pHead2.val < pHead1.val){
+                pHead2.next = Merge2(pHead1, pHead2.next);
+                return pHead2;
+            }else{
+                pHead1.next = Merge2(pHead1.next, pHead2);
+                return pHead1;
+            }
+        }
+
         public void Print(ListNode head){
             while(head != null){
                 Console.WriteLine(head.val);
@@ -80,7 +102,8 @@ namespace Merge {
             pHead2.next.next.next = new ListNode(5);
             // pHead2 = null;
 
-            Print(Merge(pHead1, pHead2));
+            // Print(Merge(pHead1, pHead2));
+            Print(Merge2(pHead1, pHead2));
         }
     }
 }
