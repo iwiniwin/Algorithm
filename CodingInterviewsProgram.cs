@@ -23,7 +23,8 @@ namespace Algorithm
             // new Power.Solution().Test();                                       // 数值的整数次方
             // new ReOrderArray.Solution().Test();                                // 调整数组顺序使奇数位于偶数前面
             // new FindKthToTail.Solution().Test();                               // 链表中倒数第k个结点
-            new ReverseList.Solution().Test();                                 // 反转链表
+            // new ReverseList.Solution().Test();                                 // 反转链表
+            new Merge.Solution().Test();                                       // 合并两个排序的链表
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数
