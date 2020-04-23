@@ -77,7 +77,7 @@
 <a href="%E5%89%91%E6%8C%87offer/ReverseList.cs">反转链表</a>
 </td>
 <td width="25%" align="center">
-合并两个排序的链表
+<a href="%E5%89%91%E6%8C%87offer/Merge.cs">合并两个排序的链表</a>
 </td>
 </tr>
 
