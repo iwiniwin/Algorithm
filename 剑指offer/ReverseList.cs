@@ -29,9 +29,28 @@ namespace ReverseList {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 使用三个指针pHead， last, next
+        /// pHead记录当前节点，last记录上一个节点，next记录下一个节点
+        /// 首先使用next保存当前节点的下一个节点，然后将当前节点的下一个节点指向last，实现反转
+        /// </summary>
+
         public ListNode ReverseList(ListNode pHead)
         {
-            return pHead;
+            ListNode last = null, next = null;
+            while(pHead != null){
+
+                next = pHead.next;
+
+                pHead.next = last;
+
+                last = pHead;
+
+                pHead = next;
+            }
+            return last;
         }
 
         public void Print(ListNode head){
@@ -44,6 +63,10 @@ namespace ReverseList {
         public void Test() {
 
             ListNode pHead = new ListNode(1);
+            pHead.next = new ListNode(2);
+            // pHead.next.next = new ListNode(3);
+            // pHead.next.next.next = new ListNode(4);
+            // pHead = null;
 
             Print(ReverseList(pHead));
         }

@@ -74,7 +74,7 @@
 <a href="%E5%89%91%E6%8C%87offer/FindKthToTail.cs">链表中倒数第k个结点</a>
 </td>
 <td width="25%" align="center">
-反转链表
+<a href="%E5%89%91%E6%8C%87offer/ReverseList.cs">反转链表</a>
 </td>
 <td width="25%" align="center">
 合并两个排序的链表
