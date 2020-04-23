@@ -53,6 +53,22 @@ namespace ReverseList {
             return last;
         }
 
+        /// <summary>
+        /// 解法2，递归
+        /// 基本思路：
+        /// 通过不断递归，先从链表的尾节点开始反转
+        /// 然后利用递归的回溯实现按照从尾到头的顺序反转每个节点
+        /// </summary>
+
+        public ListNode ReverseList2(ListNode pHead)
+        {
+            if(pHead == null || pHead.next == null) return pHead;
+            ListNode node = ReverseList2(pHead.next);
+            pHead.next.next = pHead;
+            pHead.next = null;
+            return node;
+        }
+
         public void Print(ListNode head){
             while(head != null){
                 Console.WriteLine(head.val);
@@ -64,11 +80,12 @@ namespace ReverseList {
 
             ListNode pHead = new ListNode(1);
             pHead.next = new ListNode(2);
-            // pHead.next.next = new ListNode(3);
-            // pHead.next.next.next = new ListNode(4);
+            pHead.next.next = new ListNode(3);
+            pHead.next.next.next = new ListNode(4);
             // pHead = null;
 
-            Print(ReverseList(pHead));
+            // Print(ReverseList(pHead));
+            Print(ReverseList2(pHead));
         }
     }
 }
