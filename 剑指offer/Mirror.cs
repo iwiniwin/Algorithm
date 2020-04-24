@@ -45,8 +45,21 @@ namespace Mirror {
 
     class Solution {
 
+        /// <summary>
+        /// 解法，递归
+        /// 基本思路：
+        /// 先翻转根节点的左右子节点，然后通过递归再分别翻转左右子节点的子节点
+        /// </summary>
+
         public TreeNode Mirror(TreeNode root)
         {
+            if(root != null){
+                TreeNode node = root.left;
+                root.left = root.right;
+                root.right = node;
+                Mirror(root.left);
+                Mirror(root.right);
+            }
             return root;
         }
 
@@ -56,9 +69,9 @@ namespace Mirror {
             while(queue.Count > 0){
                 TreeNode node = queue.Dequeue();
                 if(node == null){
-                    Console.Write("#");
+                    Console.Write("# ");
                 } else{
-                    Console.Write(node.val);
+                    Console.Write(node.val + " ");
                     queue.Enqueue(node.left);
                     queue.Enqueue(node.right);
                 }
@@ -67,9 +80,13 @@ namespace Mirror {
 
         public void Test() {
 
-            TreeNode root = new TreeNode(2);
-            root.right = new TreeNode(3);
-            root.right.right = new TreeNode(4);
+            TreeNode root = new TreeNode(8);
+            root.left = new TreeNode(6);
+            root.right = new TreeNode(10);
+            // root.left.left = new TreeNode(5);
+            // root.left.right = new TreeNode(7);
+            root.right.left = new TreeNode(9);
+            // root.right.right = new TreeNode(11);
             // root = null;
            
             Print(Mirror(root));
