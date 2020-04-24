@@ -30,16 +30,40 @@ namespace HasSubtree {
 
     class Solution {
 
+        /// <summary>
+        /// 解法，递归
+        /// 基本思路：
+        /// IsSubTree方法，判断仅从两棵二叉树的根节点开始，树2是否是树1的子结构
+        /// HasSubtree通过IsSubTree方法判断从两棵二叉树的根节点开始，树2是否是树1的子结构。
+        /// 如果是的话直接返回true，如果不是则递归判断树2是否是树1左子节点的子结构或树2是否是树1右子节点的子结构
+        /// </summary>
+
         public bool HasSubtree(TreeNode pRoot1, TreeNode pRoot2)
         {
+            if(pRoot1 == null || pRoot2 == null) return false;
+            if(IsSubTree(pRoot1, pRoot2))
+                return true;
+            return HasSubtree(pRoot1.left, pRoot2) || HasSubtree(pRoot1.right, pRoot2);
+        }
+
+        public bool IsSubTree(TreeNode pRoot1, TreeNode pRoot2){
+            if(pRoot2 == null) return true;
+            if(pRoot1 == null) return false;
+            if(pRoot1.val == pRoot2.val)
+                return IsSubTree(pRoot1.left, pRoot2.left) && IsSubTree(pRoot1.right, pRoot2.right);
             return false;
         }
 
         public void Test() {
 
             TreeNode pRoot1 = new TreeNode(1);
+            // pRoot1.left = new TreeNode(2);
+            pRoot1.right = new TreeNode(1);
+            pRoot1.right.left = new TreeNode(1);
+            pRoot1.right.left.left = new TreeNode(2);
 
-            TreeNode pRoot2 = new TreeNode(2);
+            TreeNode pRoot2 = new TreeNode(1);
+            pRoot2.left = new TreeNode(2);
            
             Console.WriteLine(HasSubtree(pRoot1, pRoot2));
         }
