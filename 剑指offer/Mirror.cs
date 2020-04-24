@@ -46,7 +46,7 @@ namespace Mirror {
     class Solution {
 
         /// <summary>
-        /// 解法，递归
+        /// 解法1，递归
         /// 基本思路：
         /// 先翻转根节点的左右子节点，然后通过递归再分别翻转左右子节点的子节点
         /// </summary>
@@ -59,6 +59,28 @@ namespace Mirror {
                 root.right = node;
                 Mirror(root.left);
                 Mirror(root.right);
+            }
+            return root;
+        }
+
+        /// <summary>
+        /// 解法2，非递归
+        /// 利用栈结构遍历每一个节点，替换该节点的左右子节点
+        /// </summary>
+
+        public TreeNode Mirror2(TreeNode root)
+        {
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.Push(root);
+            while(stack.Count > 0){
+                TreeNode node = stack.Pop();
+                if(node != null){
+                    TreeNode temp = node.left;
+                    node.left = node.right;
+                    node.right = temp;
+                    stack.Push(node.left);
+                    stack.Push(node.right);
+                }
             }
             return root;
         }
@@ -89,7 +111,8 @@ namespace Mirror {
             // root.right.right = new TreeNode(11);
             // root = null;
            
-            Print(Mirror(root));
+            // Print(Mirror(root));
+            Print(Mirror2(root));
         }
     }
 }
