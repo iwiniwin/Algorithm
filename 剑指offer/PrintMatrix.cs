@@ -23,7 +23,7 @@ namespace PrintMatrix {
     class Solution {
 
         /// <summary>
-        /// 解法1
+        /// 解法
         /// 基本思路：
         /// 1  2  3  4
         /// 5  6  7  8
