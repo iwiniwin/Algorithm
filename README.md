@@ -89,7 +89,7 @@
 <a href="%E5%89%91%E6%8C%87offer/Mirror.cs">二叉树的镜像</a>
 </td>
 <td width="25%" align="center">
-顺时针打印矩阵
+<a href="%E5%89%91%E6%8C%87offer/PrintMatrix.cs">顺时针打印矩阵</a>
 </td>
 <td width="25%" align="center">
 包含min函数的栈
