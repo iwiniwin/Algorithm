@@ -26,7 +26,8 @@ namespace Algorithm
             // new ReverseList.Solution().Test();                                 // 反转链表
             // new Merge.Solution().Test();                                       // 合并两个排序的链表
             // new HasSubtree.Solution().Test();                                  // 树的子结构
-            new Mirror.Solution().Test();                                      // 二叉树的镜像
+            // new Mirror.Solution().Test();                                      // 二叉树的镜像
+            new PrintMatrix.Solution().Test();                                 // 顺时针打印矩阵
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数
