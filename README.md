@@ -92,7 +92,7 @@
 <a href="%E5%89%91%E6%8C%87offer/PrintMatrix.cs">顺时针打印矩阵</a>
 </td>
 <td width="25%" align="center">
-包含min函数的栈
+<a href="%E5%89%91%E6%8C%87offer/StackWithMin.cs">包含min函数的栈</a>
 </td>
 </tr>
 
