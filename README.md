@@ -98,7 +98,7 @@
 
 <tr>
 <td width="25%" align="center">
-栈的压入、弹出序列
+<a href="%E5%89%91%E6%8C%87offer/IsPopOrder.cs">栈的压入、弹出序列</a>
 </td>
 <td width="25%" align="center">
 从上往下打印二叉树

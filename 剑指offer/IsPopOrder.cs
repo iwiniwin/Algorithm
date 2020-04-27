@@ -18,21 +18,39 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace IsPopOrder {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 使用一个辅助栈根据pushV来模拟入栈，同时通过popV模拟出栈
+        /// 当辅助栈最后为空，则表示popV是pushV的弹出序列
+        /// </summary>
+
         public bool IsPopOrder(int[] pushV, int[] popV)
         {
-            return false;
+            Stack<int> stack = new Stack<int>();
+            for(int i = 0, j = 0; i < pushV.Length; i ++){
+                stack.Push(pushV[i]);
+                while(stack.Count > 0 && stack.Peek() == popV[j]){
+                    stack.Pop();
+                    j ++;
+                }
+            }
+            return stack.Count == 0;
         }
 
         public void Test() {
             
             int[] pushV = new int[]{1, 2, 3, 4, 5};
+            // pushV = new int[]{1, 2};
 
             int[] popV = new int[]{4, 5, 3, 2, 1};
-            popV = new int[]{4, 3, 5, 1, 2};
+            // popV = new int[]{4, 3, 5, 1, 2};
+            // popV = new int[]{1, 2};
 
             Console.WriteLine(IsPopOrder(pushV, popV));
         }
