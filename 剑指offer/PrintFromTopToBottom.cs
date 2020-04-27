@@ -31,9 +31,27 @@ namespace PrintFromTopToBottom {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 层次遍历，利用一个辅助队列，队列中依次保存二叉树的根节点，左节点，右节点
+        /// 当出列一个节点的同时，入列该节点的左右子节点，根据队列的先进先出特性，实现从上到下，从左到右的顺序
+        /// </summary>
+
         public List<int> PrintFromTopToBottom(TreeNode root)
         {
-            return null;
+            List<int> list = new List<int>();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            while(queue.Count > 0){
+                TreeNode node = queue.Dequeue();
+                if(node != null){
+                    list.Add(node.val);
+                    queue.Enqueue(node.left);
+                    queue.Enqueue(node.right);
+                }
+            }
+            return list;
         }
 
         public void Print(List<int> list){
@@ -48,6 +66,10 @@ namespace PrintFromTopToBottom {
         public void Test() {
             
             TreeNode root = new TreeNode(1);
+            // root.left = new TreeNode(2);
+            root.right = new TreeNode(3);
+            root.right.left = new TreeNode(4);
+            root.right.left.right = new TreeNode(4);
 
             Print(PrintFromTopToBottom(root));
         }
