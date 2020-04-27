@@ -32,7 +32,7 @@ namespace PrintFromTopToBottom {
     class Solution {
 
         /// <summary>
-        /// 解法1
+        /// 解法
         /// 基本思路：
         /// 层次遍历，利用一个辅助队列，队列中依次保存二叉树的根节点，左节点，右节点
         /// 当出列一个节点的同时，入列该节点的左右子节点，根据队列的先进先出特性，实现从上到下，从左到右的顺序
@@ -66,7 +66,9 @@ namespace PrintFromTopToBottom {
         public void Test() {
             
             TreeNode root = new TreeNode(1);
-            // root.left = new TreeNode(2);
+            root.left = new TreeNode(2);
+            root.left.left = new TreeNode(2);
+            root.left.left.left = new TreeNode(5);
             root.right = new TreeNode(3);
             root.right.left = new TreeNode(4);
             root.right.left.right = new TreeNode(4);
