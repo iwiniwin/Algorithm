@@ -30,7 +30,8 @@ namespace Algorithm
             // new PrintMatrix.Solution().Test();                                 // 顺时针打印矩阵
             // new StackWithMin.Solution().Test();                                // 包含min函数的栈
             // new IsPopOrder.Solution().Test();                                  // 栈的压入、弹出序列
-            new PrintFromTopToBottom.Solution().Test();                        // 从上往下打印二叉树
+            // new PrintFromTopToBottom.Solution().Test();                        // 从上往下打印二叉树
+            new VerifySquenceOfBST.Solution().Test();                          // 二叉搜索树的后序遍历序列
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数
