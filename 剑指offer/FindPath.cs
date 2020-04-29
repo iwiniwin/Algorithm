@@ -31,10 +31,32 @@ namespace FindPath {
     }
 
     class Solution {
+        
+        /// <summary>
+        /// 解法，递归
+        /// 基本思路：
+        /// 通过定义成员变量list记录在递归过程中经过的每一个节点
+        /// 当找到根节点时，且路径上的节点和值等于目标值时，则找到一条路径
+        /// 算法的重点在于当递归经过一个节点将其加入到list中后
+        /// 递归回溯以后再使用RemoveAt方法将其移除进行回退
+        /// </summary>
+
+        private List<List<int>> pathList = new List<List<int>>();
+        private List<int> list = new List<int>();
 
         public List<List<int>> FindPath(TreeNode root, int expectNumber)
         {
-            return null;
+            if(root != null && root.val <= expectNumber){
+                list.Add(root.val);
+                expectNumber -= root.val;
+                if(expectNumber == 0 && root.left == null && root.right == null){
+                    pathList.Add(new List<int>(list));
+                }
+                FindPath(root.left, expectNumber);
+                FindPath(root.right, expectNumber);
+                list.RemoveAt(list.Count - 1);
+            }
+            return pathList;
         }
 
         public void Print(List<List<int>> lists){
@@ -55,6 +77,12 @@ namespace FindPath {
         public void Test() {
             
             TreeNode root = new TreeNode(1);
+            root.left = new TreeNode(0);
+            root.left.right = new TreeNode(1);
+            root.left.left = new TreeNode(0);
+            root.right = new TreeNode(1);
+            root.right.right = new TreeNode(0);
+            // root = null;
 
             int expectNumber = 2;
 

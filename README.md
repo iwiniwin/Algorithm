@@ -107,7 +107,7 @@
 <a href="%E5%89%91%E6%8C%87offer/VerifySquenceOfBST.cs">二叉搜索树的后序遍历序列</a>
 </td>
 <td width="25%" align="center">
-二叉树中和为某一值的路径
+<a href="%E5%89%91%E6%8C%87offer/FindPath.cs">二叉树中和为某一值的路径</a>
 </td>
 </tr>
 
