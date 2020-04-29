@@ -52,16 +52,48 @@ namespace RandomListNode {
             return head;
         }
 
+        /// <summary>
+        /// 解法2，三步法
+        /// 基本思路：
+        /// 1. 复制链表每个节点，如：复制节点A得到A1，并将A1插入节点A后面
+        /// 2. 重新遍历链表，为每个复制的节点设置random，如A1.random = A.random.next;
+        /// 3、将链表拆分成原链表和复制后的链表
+        /// 第2步是第1步将复制节点插入到原节点后面的原因，这样复制节点的random就是原节点random的下一个节点
+        /// 可以查看docs/RandomListNode_solution2.png三步法的图示
+        /// </summary>
+
+        public RandomListNode Clone2(RandomListNode pHead){
+            if(pHead == null) return null;
+            RandomListNode cur = pHead;
+            while(cur != null){
+                RandomListNode next = new RandomListNode(cur.label);
+                next.next = cur.next;
+                cur.next = next;
+                cur = next.next;
+            }
+            cur = pHead;
+            while(cur != null){
+                if(cur.random != null)
+                    cur.next.random = cur.random.next;
+                cur = cur.next.next;
+            }
+            cur = pHead;
+            RandomListNode head = pHead.next, temp;
+            while(cur != null && cur.next != null){
+                temp = cur.next;
+                cur.next = temp.next;
+                cur = temp;
+            }
+            return head;
+        }
+
         public void Print(RandomListNode pHead){
             if(pHead == null){
                 Console.WriteLine("null");
                 return;
             }
             while(pHead != null){
-                Console.WriteLine(pHead.label);
-                if(pHead.random != null){
-                    Print(pHead.random);
-                }
+                Console.WriteLine(pHead.label + " " + pHead.random?.label);
                 pHead = pHead.next;
             }
         }
@@ -69,14 +101,14 @@ namespace RandomListNode {
         public void Test() {
             
             RandomListNode pHead = new RandomListNode(1);
-            pHead.random = new RandomListNode(4);
-            pHead.next = new RandomListNode(5);
-            pHead.next.random = new RandomListNode(6);
-            pHead.next.random.next = new RandomListNode(7);
-            pHead.next.next = new RandomListNode(5);
-            // pHead.next.next.next = pHead;  // 小心，会导致print死循环
+            pHead.next = new RandomListNode(2);
+            pHead.next.next = new RandomListNode(3);
+            pHead.next.next.next = new RandomListNode(4);
+            pHead.random = pHead.next.next;
+            pHead.next.random =  pHead.next.next.next;
 
-            Print(Clone(pHead));
+            // Print(Clone(pHead));
+            Print(Clone2(pHead));
         }
     }
 }
