@@ -17,6 +17,7 @@ class Solution
 }
 */
 using System;
+using System.Collections.Generic;
 namespace RandomListNode {
 
     public class RandomListNode
@@ -30,10 +31,25 @@ namespace RandomListNode {
     }
 
     class Solution {
+
+        /// <summary>
+        /// 解法1，递归
+        /// 基本思路：
+        /// 通过递归拷贝每一个节点
+        /// 利用Dictionary处理循环链表的问题，避免死循环
+        /// </summary>
+
+        Dictionary<RandomListNode, RandomListNode> dic = new Dictionary<RandomListNode, RandomListNode>();
         
         public RandomListNode Clone(RandomListNode pHead)
         {
-            return pHead;
+            if(pHead == null) return null;
+            if(dic.ContainsKey(pHead)) return dic[pHead];
+            RandomListNode head = new RandomListNode(pHead.label);
+            dic[pHead] = head;
+            head.next = Clone(pHead.next);
+            head.random = Clone(pHead.random);
+            return head;
         }
 
         public void Print(RandomListNode pHead){
@@ -42,7 +58,10 @@ namespace RandomListNode {
                 return;
             }
             while(pHead != null){
-                Console.WriteLine(pHead.label + " " + pHead.random?.label);
+                Console.WriteLine(pHead.label);
+                if(pHead.random != null){
+                    Print(pHead.random);
+                }
                 pHead = pHead.next;
             }
         }
@@ -52,6 +71,10 @@ namespace RandomListNode {
             RandomListNode pHead = new RandomListNode(1);
             pHead.random = new RandomListNode(4);
             pHead.next = new RandomListNode(5);
+            pHead.next.random = new RandomListNode(6);
+            pHead.next.random.next = new RandomListNode(7);
+            pHead.next.next = new RandomListNode(5);
+            // pHead.next.next.next = pHead;  // 小心，会导致print死循环
 
             Print(Clone(pHead));
         }
