@@ -39,32 +39,6 @@ namespace Convert {
 
     class Solution {
 
-        // public TreeNode Convert(TreeNode pRootOfTree)
-        // {
-        //     return ConvertImpl(pRootOfTree, false);
-        // }
-
-        // public TreeNode ConvertImpl(TreeNode pRootOfTree, bool leftTree){
-        //     if(pRootOfTree == null) return null;
-        //     if(pRootOfTree.left != null && (pRootOfTree.left.left != null || pRootOfTree.left.right != null))
-        //         pRootOfTree.left = ConvertImpl(pRootOfTree.left, true);
-        //     if(pRootOfTree.right != null && (pRootOfTree.right.left != null || pRootOfTree.right.right != null))
-        //         pRootOfTree.right = ConvertImpl(pRootOfTree.right, false);
-        //     if(pRootOfTree.left != null){
-        //         pRootOfTree.left.right = pRootOfTree;
-        //     }
-        //     if(pRootOfTree.right != null){
-        //         pRootOfTree.right.left = pRootOfTree;
-        //     }
-        //     if(leftTree)
-        //         while(pRootOfTree.right != null)
-        //             pRootOfTree = pRootOfTree.right;
-        //     else
-        //         while(pRootOfTree.left != null)
-        //             pRootOfTree = pRootOfTree.left;
-        //     return pRootOfTree;
-        // }
-
         /// <summary>
         /// 解法1，递归
         /// 基本思路：
@@ -84,6 +58,26 @@ namespace Convert {
             pLast = pRootOfTree;
             Convert(pRootOfTree.right);
             return head == null ? pRootOfTree : head;
+        }
+
+        /// <summary>
+        /// 解法2，递归
+        /// 基本思路：
+        /// 和解法1类似，但采用中序遍历的变体，右，中，左
+        /// 转换过程是一直使用pHead记录当前链表的头部
+        /// </summary>
+
+        private TreeNode pHead;
+        public TreeNode Convert2(TreeNode pRootOfTree)
+        {
+            if(pRootOfTree == null) return null;
+            Convert2(pRootOfTree.right);
+            pRootOfTree.right = pHead;
+            if(pHead != null)
+                pHead.left = pRootOfTree;
+            pHead = pRootOfTree;
+            Convert2(pRootOfTree.left);
+            return pHead;
         }
 
         public void Print(TreeNode root){
@@ -118,7 +112,8 @@ namespace Convert {
             pRootOfTree.right.left.left = new TreeNode(9);
             // pRootOfTree = null;
            
-            Print(Convert(pRootOfTree));
+            // Print(Convert(pRootOfTree));
+            Print(Convert2(pRootOfTree));
         }
     }
 }
