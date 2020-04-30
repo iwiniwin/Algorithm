@@ -24,6 +24,7 @@ class Solution
     它的左，右子树也分别为二叉搜索树   
 */
 using System;
+using System.Collections.Generic;
 namespace Convert {
 
     public class TreeNode
@@ -80,6 +81,35 @@ namespace Convert {
             return pHead;
         }
 
+        /// <summary>
+        /// 解法3，非递归
+        /// 基本思路：
+        /// 中序遍历的非递归实现
+        /// 转换过程是一直使用last记录当前链表的末尾
+        /// </summary>
+
+        public TreeNode Convert3(TreeNode pRootOfTree)
+        {
+            if(pRootOfTree == null) return null;
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            TreeNode root = pRootOfTree, head = null, last = null;
+            while(root != null || stack.Count > 0){
+                while(root != null){
+                    stack.Push(root);
+                    root = root.left;
+                }
+                root = stack.Pop();
+                if(head == null) 
+                    head = root;
+                root.left = last;
+                if(last != null)
+                    last.right = root;
+                last = root;
+                root = root.right;
+            }
+            return head;
+        }
+
         public void Print(TreeNode root){
             TreeNode node = null;
             while(root != null){
@@ -113,7 +143,8 @@ namespace Convert {
             // pRootOfTree = null;
            
             // Print(Convert(pRootOfTree));
-            Print(Convert2(pRootOfTree));
+            // Print(Convert2(pRootOfTree));
+            Print(Convert3(pRootOfTree));
         }
     }
 }
