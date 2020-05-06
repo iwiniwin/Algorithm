@@ -351,15 +351,27 @@
 <td width="25%" align="center">
 <a href="%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BB%A3%E7%A0%81%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/PrintMinString.cs">拼接所有的字符串产生字典序最小的字符串</a>
 </td>
-
 <td width="25%" align="center">
-
+斐波那契数列问题的递归和动态规划
 </td>
-
 <td width="25%" align="center">
-
+斐波那契数列问题的递归和动态规划2
 </td>
+</tr>
 
+<tr>
+<td width="25%" align="center">
+斐波那契数列问题的递归和动态规划3
+</td>
+<td width="25%" align="center">
+矩阵的最小路径和
+</td>
+<td width="25%" align="center">
+派对的最大快乐值
+</td>
+<td width="25%" align="center">
+单调栈结构(进阶)
+</td>
 </tr>
 
 </tbody></table>
