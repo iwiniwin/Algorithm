@@ -32,14 +32,14 @@ namespace Permutation {
 
         对于字符串abc，递归过程如下所示
         选取a为第一个字符（剩下字符串bc）
-            选取b为第一个字符（剩下字符串c，长度为1，结束低估，得到字符串abc）
-            选取c为第一个字符（剩下字符串b，长度为1，结束低估，得到字符串acb）
+            选取b为第一个字符（剩下字符串c，长度为1，结束递归，得到字符串abc）
+            选取c为第一个字符（剩下字符串b，长度为1，结束递归，得到字符串acb）
         选取b为第一个字符（剩下字符串ac）
-            选取a为第一个字符（剩下字符串c，长度为1，结束低估，得到字符串bac）
-            选取c为第一个字符（剩下字符串b，长度为1，结束低估，得到字符串bca）
+            选取a为第一个字符（剩下字符串c，长度为1，结束递归，得到字符串bac）
+            选取c为第一个字符（剩下字符串b，长度为1，结束递归，得到字符串bca）
         选取c为第一个字符（剩下字符串ab）
-            选取a为第一个字符（剩下字符串c，长度为1，结束低估，得到字符串cab）
-            选取b为第一个字符（剩下字符串b，长度为1，结束低估，得到字符串cba）
+            选取a为第一个字符（剩下字符串c，长度为1，结束递归，得到字符串cab）
+            选取b为第一个字符（剩下字符串b，长度为1，结束递归，得到字符串cba）
         */
         public void PermutationImpl(string pre, string str, HashSet<string> set)
         {
@@ -69,7 +69,7 @@ namespace Permutation {
         解法2是通过char数组，swap方法依次将选取的字符和index位置的元素互换，然后index+1及之后的就是剩余字符串
 
         对重复字符串的处理，解法1是通过HashSet的特性自动过滤重复字符串（即使往HashSet中Add重复字符串也会被自动忽略）
-        解法2是通过算法判断是重复字符串则不再Add
+        解法2是通过算法判断是重复字符串则不再Add，如果选取的首字符相同，则剩下的元素的全排列结果必然是重复的，可以过滤
         */
         public void Swap(char[] chars, int i, int j){
             char temp = chars[i];
@@ -161,7 +161,7 @@ namespace Permutation {
 
         public void Test() {
             // Print(Permutation("abc"));
-            // Print(Permutation2("aba"));
+            Print(Permutation2("aba"));
             // Print(Permutation3("abac"));
         }
     }
