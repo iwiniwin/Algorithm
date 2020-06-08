@@ -349,13 +349,193 @@
 两数之和
 </td>
 <td width="25%" align="center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;寻找两个正序数组的中位数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+寻找两个正序数组的中位数
 </td>
 <td width="25%" align="center">
 最长回文子串
 </td>
 <td width="25%" align="center">
 字符串转换整数 (atoi)
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+最长公共前缀
+</td>
+<td width="25%" align="center">
+三数之和
+</td>
+<td width="25%" align="center">
+最接近的三数之和
+</td>
+<td width="25%" align="center">
+有效的括号
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+删除排序数组中的重复项
+</td>
+<td width="25%" align="center">
+盛最多水的容器
+</td>
+<td width="25%" align="center">
+字符串相乘
+</td>
+<td width="25%" align="center">
+反转字符串
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+反转字符串中的单词 III
+</td>
+<td width="25%" align="center">
+除自身以外数组的乘积
+</td>
+<td width="25%" align="center">
+存在重复元素
+</td>
+<td width="25%" align="center">
+螺旋矩阵
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+螺旋矩阵 II
+</td>
+<td width="25%" align="center">
+合并两个有序数组
+</td>
+<td width="25%" align="center">
+反转链表
+</td>
+<td width="25%" align="center">
+两数相加
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+合并两个有序链表
+</td>
+<td width="25%" align="center">
+合并K个排序链表
+</td>
+<td width="25%" align="center">
+旋转链表
+</td>
+<td width="25%" align="center">
+环形链表
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+环形链表 II
+</td>
+<td width="25%" align="center">
+相交链表
+</td>
+<td width="25%" align="center">
+删除链表中的节点
+</td>
+<td width="25%" align="center">
+整数反转
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+回文数
+</td>
+<td width="25%" align="center">
+只出现一次的数字
+</td>
+<td width="25%" align="center">
+多数元素
+</td>
+<td width="25%" align="center">
+2的幂
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+排序链表
+</td>
+<td width="25%" align="center">
+搜索旋转排序数组
+</td>
+<td width="25%" align="center">
+数组中的第K个最大元素
+</td>
+<td width="25%" align="center">
+二叉搜索树中第K小的元素
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+二叉树的最大深度
+</td>
+<td width="25%" align="center">
+二叉树中的最大路径和
+</td>
+<td width="25%" align="center">
+二叉搜索树的最近公共祖先
+</td>
+<td width="25%" align="center">
+二叉树的最近公共祖先
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+括号生成
+</td>
+<td width="25%" align="center">
+子集
+</td>
+<td width="25%" align="center">
+全排列
+</td>
+<td width="25%" align="center">
+格雷编码
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+爬楼梯
+</td>
+<td width="25%" align="center">
+最大子序和
+</td>
+<td width="25%" align="center">
+买卖股票的最佳时机
+</td>
+<td width="25%" align="center">
+买卖股票的最佳时机 II
+</td>
+</tr>
+
+<tr>
+<td width="25%" align="center">
+不同路径
+</td>
+<td width="25%" align="center">
+LRU缓存机制
+</td>
+<td width="25%" align="center">
+最小栈
+</td>
+<td width="25%" align="center">
+Nim 游戏
 </td>
 </tr>
 
