@@ -46,26 +46,29 @@ namespace LongestPalindrome {
 
         public string LongestPalindrome(string s) {
             int len = s.Length;
-            string sub = "";
+            int start = 0, end = 0;
             bool[,] dp = new bool[len, len];
             for(int n = 0; n < len; n ++){
                 for(int i = 0, j = i + n; j < len; i ++, j ++){
                     if(n == 0) dp[i, j] = true;
                     else if(n == 1) dp[i, j] = s[i] == s[j];
                     else dp[i, j] = s[i] == s[j] && dp[i + 1, j - 1];
-                    if(dp[i, j] && j - i + 1 > sub.Length) sub = s.Substring(i, j - i + 1);
+                    if(dp[i, j] && j - i > end - start) {
+                        start = i; end = j;
+                    }
                 }
             }
-            return sub;
+            return len == 0 ? "" : s.Substring(start, end - start + 1);
         }
 
         public void Test() {
             string s = "babad";
-            s = "cbbd";
-            s = "aaaf";
-            s = "aaaa";
-            s = "a";
-            s = "abacaba";
+            s = "";
+            // s = "cbbd";
+            // s = "aaaf";
+            // s = "aaaa";
+            // s = "a";
+            // s = "abacaba";
 
             Console.WriteLine(LongestPalindrome(s));
         }
