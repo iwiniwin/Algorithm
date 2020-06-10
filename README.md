@@ -349,7 +349,7 @@
 <a href="Leetcode/TwoSum.cs">两数之和</a>
 </td>
 <td width="25%" align="center">
-寻找两个正序数组的中位数
+<a href="Leetcode/FindMedianSortedArrays.cs">寻找两个正序数组的中位数</a>
 </td>
 <td width="25%" align="center">
 最长回文子串
