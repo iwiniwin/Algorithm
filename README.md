@@ -352,7 +352,7 @@
 <a href="Leetcode/FindMedianSortedArrays.cs">寻找两个正序数组的中位数</a>
 </td>
 <td width="25%" align="center">
-最长回文子串
+<a href="Leetcode/LongestPalindrome.cs">最长回文子串</a>
 </td>
 <td width="25%" align="center">
 字符串转换整数 (atoi)
