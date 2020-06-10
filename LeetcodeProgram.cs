@@ -11,7 +11,9 @@ namespace Algorithm
         {
             
             // new TwoSum.Solution().Test();                           // 两数之和
-            new FindMedianSortedArrays.Solution().Test();       // 寻找两个正序数组的中位数
+            // new FindMedianSortedArrays.Solution().Test();           // 寻找两个正序数组的中位数
+            new LongestPalindrome.Solution().Test();                // 最长回文子串
+            
         }
     }
 }
