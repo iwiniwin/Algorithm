@@ -77,6 +77,7 @@ namespace LongestPalindrome {
                 i --;
                 j ++;
             }
+            // 回文串的长度 j - i + 1 - 2 
             return j - i - 1;
         }
 
