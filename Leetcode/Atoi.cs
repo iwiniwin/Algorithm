@@ -51,6 +51,9 @@ public class Solution {
 
 题目链接：
 https://leetcode-cn.com/problems/string-to-integer-atoi/
+
+官方题解：
+https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/
 */
 using System;
 using System.Collections.Generic;
@@ -58,14 +61,52 @@ namespace Atoi {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 直观解法,遍历字符串每个字符
+        /// 1. 过滤前面的空格字符
+        /// 2. 处理可能出现的+，-号
+        /// 3. 处理数字部分，注意越界情况的处理，采用逆处理，与(int.MaxValue - d) / 10进行比较
+        /// </summary>
+
         public int MyAtoi(string str) {
+            int res = 0, start = -1;
+            for(int i = 0; i < str.Length; i ++){
+                if(str[i] == ' ')
+                    if(start == -1) continue; else break;
+                else if(str[i] == '-' || str[i] == '+')
+                    if(start == -1) start = i; else break;
+                else if(str[i] >= '0' && str[i] <= '9'){
+                    if(start == -1) start = i;
+                    int d = str[i] - '0';
+                    if(res > (int.MaxValue - d) / 10)
+                        return str[start] == '-' ? int.MinValue : int.MaxValue;
+                    res = res * 10 + d;
+                }
+                else break;
+            }
+            if(start != -1) return str[start] == '-' ? -res : res;
             return 0;
         }
 
         public void Test() {
-            string str = "42";
+            string str = "-42";
+            // str = "    426s s  ";
+            // str = "25526465134156516146165515";
+            // str = " -34 ";
+            // str = " -91283472332 ";
+            // str = " -abddd ";
+            // str = "words and 987";
+            // str = "";
+            // str = "   +0 123";
+            // str = "2147483647";
+            // str = "2147483648";
+            // str = "-2147483647";
+            // str = "-2147483648";
+            // str = "-2147483649";
 
-            Console.WriteLine(MyAtoi(str));
+            Console.Write(MyAtoi(str));
         }
     }
 }
