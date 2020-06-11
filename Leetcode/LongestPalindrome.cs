@@ -61,16 +61,47 @@ namespace LongestPalindrome {
             return len == 0 ? "" : s.Substring(start, end - start + 1);
         }
 
+        /// <summary>
+        /// 解法2，中心扩展
+        /// 基本思路：
+        /// 以最小的回文字符串作为回文中心，向两边扩散得到以该回文中心为中心的最长回文串
+        /// 然后再比较所有得到的回文串，找到最长子回文串
+        /// 回文中心的选取
+        /// 1，以单一字母为中心，因为是左右两边同时扩展，所以可以涵盖bab型的回文串
+        /// 2. 以两个字母为中心，可以涵盖aa型的回文串
+        /// 所有的回文串都可以都过上述的两个中心扩展得到
+        /// </summary>
+
+        public int ExpandArroundCenter(string s, int i, int j){
+            while(i >= 0 && j < s.Length && s[i] == s[j]){
+                i --;
+                j ++;
+            }
+            return j - i - 1;
+        }
+
+        public string LongestPalindrome2(string s) {
+            int start = 0, end = 0, len = s.Length;
+            for(int i = 0; i < len; i ++){
+                int n = Math.Max(ExpandArroundCenter(s, i, i), ExpandArroundCenter(s, i, i + 1));
+                if(n > end - start){
+                    start = i - (n - 1) / 2; end = i + n / 2;
+                }
+            }
+            return len <= 1 ? s : s.Substring(start, end - start + 1);
+        }
+
         public void Test() {
             string s = "babad";
-            s = "";
+            // s = "";
             // s = "cbbd";
             // s = "aaaf";
             // s = "aaaa";
             // s = "a";
             // s = "abacaba";
 
-            Console.WriteLine(LongestPalindrome(s));
+            // Console.WriteLine(LongestPalindrome(s));
+            Console.WriteLine(LongestPalindrome2(s));
         }
     }
 }
