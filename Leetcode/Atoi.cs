@@ -90,6 +90,27 @@ namespace Atoi {
             return 0;
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 与解法1思路相同，只是代码更加精简
+        /// </summary>
+
+        public int MyAtoi2(string str) {
+            int res = 0, flag = 1;
+            int i = 0, n = str.Length;
+            while(i < n && str[i] == ' ') i ++;
+            if(i < n && str[i] == '-') flag = -1;
+            if(i < n && (str[i] == '-' || str[i] == '+')) i ++;
+            while(i < n && str[i] >= '0' && str[i] <= '9'){
+                int d = str[i] - '0';
+                if(res > (int.MaxValue - d) / 10) return flag == 1 ? int.MaxValue : int.MinValue;
+                res = res * 10 + d;
+                i ++;
+            }
+            return flag * res;
+        }
+
         public void Test() {
             string str = "-42";
             // str = "    426s s  ";
@@ -99,6 +120,7 @@ namespace Atoi {
             // str = " -abddd ";
             // str = "words and 987";
             // str = "";
+            // str = " ";
             // str = "   +0 123";
             // str = "2147483647";
             // str = "2147483648";
@@ -106,7 +128,8 @@ namespace Atoi {
             // str = "-2147483648";
             // str = "-2147483649";
 
-            Console.Write(MyAtoi(str));
+            Console.WriteLine(MyAtoi(str));
+            Console.WriteLine(MyAtoi2(str));
         }
     }
 }

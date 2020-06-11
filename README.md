@@ -355,7 +355,7 @@
 <a href="Leetcode/LongestPalindrome.cs">最长回文子串</a>
 </td>
 <td width="25%" align="center">
-字符串转换整数 (atoi)
+<a href="Leetcode/Atoi.cs">字符串转换整数 (atoi)</a>
 </td>
 </tr>
 
