@@ -59,6 +59,39 @@ using System;
 using System.Collections.Generic;
 namespace Atoi {
 
+    public enum State{
+        Start, Signed, In_Number, End,
+    }
+
+    class Automaton {
+        private State state = State.Start;
+        private State[,] stateTable = new State[,]{
+            {State.Start, State.Signed, State.In_Number, State.End},
+            {State.End, State.End, State.In_Number, State.End},
+            {State.End, State.End, State.In_Number, State.End},
+            {State.End, State.End, State.End, State.End},
+        };
+        public int sign = 1;
+        public int ans = 0;
+        private int GetCol(char c) {
+            if(c == ' ') return 0;
+            if(c == '+' || c == '-') return 1;
+            if(c >= '0' && c <= '9') return 2;
+            return 3;
+        } 
+        public bool Get(char c){
+            state = stateTable[(int)state, GetCol(c)];
+            if(state == State.In_Number){
+                int d = c - '0';
+                if(ans > (int.MaxValue - d) / 10)
+                    return false;
+                ans = ans * 10 + d;
+            }else if(state == State.Signed)
+                if(c == '-') sign = - 1;
+            return true;
+        }
+    }
+
     class Solution {
 
         /// <summary>
@@ -111,6 +144,29 @@ namespace Atoi {
             return flag * res;
         }
 
+        /// <summary>
+        /// 解法3，有限状态机
+        /// 基本思路：
+        /// 为了有条理地分析每个输入字符的处理方法，可以使用自动机这个概念，如下面所示
+        ///                 空格        +/-         number         other
+        /// start          start       signed      in_number        end
+        /// signed          end         end        in_number        end
+        /// in_number       end         end        in_number        end
+        /// end             end         end         end             end
+        /// 大致状态流动为，初始为start状态
+        /// 第一行，start状态遇到空格仍是start状态，遇到+/-进入signed状态，遇到number进入in_number状态，遇到其他进入end状态
+        /// 第二行，signed状态遇到空格进入end状态（比如+/-后又出现了空格），遇到+/-进入end状态，遇到number进入in_number状态，遇到其他进入end状态
+        /// 第三，四行类似，不再赘述
+        /// </summary>
+
+        public int MyAtoi3(string str) {
+            Automaton automaton = new Automaton();
+            for(int i = 0; i < str.Length; i ++)
+                if(!automaton.Get(str[i]))
+                    return automaton.sign == 1 ? int.MaxValue : int.MinValue;
+            return automaton.sign * automaton.ans;
+        }
+
         public void Test() {
             string str = "-42";
             // str = "    426s s  ";
@@ -128,8 +184,9 @@ namespace Atoi {
             // str = "-2147483648";
             // str = "-2147483649";
 
-            Console.WriteLine(MyAtoi(str));
-            Console.WriteLine(MyAtoi2(str));
+            // Console.WriteLine(MyAtoi(str));
+            // Console.WriteLine(MyAtoi2(str));
+            Console.WriteLine(MyAtoi3(str));
         }
     }
 }
