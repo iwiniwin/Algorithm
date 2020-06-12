@@ -27,6 +27,9 @@ public class Solution {
 
 题目链接：
 https://leetcode-cn.com/problems/longest-common-prefix/
+
+官方题解：
+https://leetcode-cn.com/problems/longest-common-prefix/solution/zui-chang-gong-gong-qian-zhui-by-leetcode/
 */
 using System;
 using System.Collections.Generic;
@@ -34,12 +37,31 @@ namespace LongestCommonPrefix {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 从前往后枚举字符串的每一列
+        /// 比较字符串数组中每个字符串对应列是否相等
+        /// </summary>
+
         public string LongestCommonPrefix(string[] strs) {
-            return "test";
+            if(strs == null || strs.Length == 0) return "";
+            for(int i = 0; i < strs[0].Length; i ++){
+                for(int j = 1; j < strs.Length; j ++){
+                    if(i >= strs[j].Length || strs[j][i] != strs[0][i])
+                        return strs[0].Substring(0, i);
+                }
+            }
+            return strs[0];
         }
 
         public void Test() {
             string[] strs = new string[]{"flower", "flow", "flight"};
+            // strs = new string[]{"dog", "racecar", "car"};
+            // strs = null;
+            // strs = new string[]{};
+            // strs = new string[]{""};
+            // strs = new string[]{"flower", "flower", "flower"};
             
             Console.WriteLine(LongestCommonPrefix(strs));
         }
