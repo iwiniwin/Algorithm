@@ -361,7 +361,7 @@
 
 <tr>
 <td width="25%" align="center">
-最长公共前缀
+<a href="Leetcode/LongestCommonPrefix.cs">最长公共前缀</a>
 </td>
 <td width="25%" align="center">
 三数之和
