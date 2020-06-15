@@ -85,6 +85,44 @@ namespace LongestCommonPrefix {
             return LongestCommonPrefixImpl(strs, 0, strs.Length - 1);
         }
 
+        /// <summary>
+        /// 解法3，二分查找
+        /// 基本思路：
+        /// 首先获取字符串数组中最短字符串的长度
+        /// 每次查找长度的一半，判断该一半字符串是否是公共前缀
+        /// 如果是，则往后找
+        /// 如果不是，则往前找
+        /// 通过上述方式，每次都会将查找范围缩小一半，直到找到最长公共前缀的长度
+        /// </summary>
+
+        public bool IsCommonPrefix(string[] strs, int len) {
+            string prefix = strs[0].Substring(0, len);
+            for(int i = 1; i < strs.Length; i ++){
+                if(!strs[i].StartsWith(prefix)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public string LongestCommonPrefix3(string[] strs) {
+            if(strs == null || strs.Length == 0) return "";
+            int len = int.MaxValue;
+            for(int i = 0; i < strs.Length; i ++){
+                if(strs[i].Length < len)
+                    len = strs[i].Length;
+            }
+            int left = 0, right = len;
+            while(left < right){
+                int mid = (left + right + 1) / 2;
+                if(IsCommonPrefix(strs, mid))
+                    left = mid;
+                else
+                    right = mid - 1;
+            }
+            return strs[0].Substring(0, left);
+        }
+
         public void Test() {
             string[] strs = new string[]{"flower", "flow", "flight"};
             // strs = new string[]{"dog", "racecar", "car"};
@@ -93,8 +131,9 @@ namespace LongestCommonPrefix {
             // strs = new string[]{""};
             // strs = new string[]{"flower", "flower", "flower"};
             
-            Console.WriteLine(LongestCommonPrefix(strs));
-            Console.WriteLine(LongestCommonPrefix2(strs));
+            // Console.WriteLine(LongestCommonPrefix(strs));
+            // Console.WriteLine(LongestCommonPrefix2(strs));
+            Console.WriteLine(LongestCommonPrefix3(strs));
         }
     }
 }
