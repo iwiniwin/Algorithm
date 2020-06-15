@@ -55,6 +55,36 @@ namespace LongestCommonPrefix {
             return strs[0];
         }
 
+        /// <summary>
+        /// 解法2，分治
+        /// 基本思路：
+        /// 将求解字符串数组中的最长公共前缀分解成两个子问题
+        /// 如求解字符串数组中左边一半字符串的最长公共前缀 和 求解字符串数组中右边一半字符串的最长公共前缀
+        /// 再对两个子问题进行分解，直到最终的子问题可以直接求解
+        /// 比如直接求解两个字符串的最长公共前缀
+        /// </summary>
+
+        public string CommonPrefix(string a, string b){
+            int len = Math.Min(a.Length, b.Length);
+            for(int i = 0; i < len; i ++){
+                if(a[i] != b[i]){
+                    return a.Substring(0, i);
+                }
+            } 
+            return a.Substring(0, len);
+        }
+
+        public string LongestCommonPrefixImpl(string[] strs, int left, int right) {
+            if(left == right) return strs[left];
+            int mid = (left + right) / 2;
+            return CommonPrefix(LongestCommonPrefixImpl(strs, left, mid), LongestCommonPrefixImpl(strs, mid + 1, right));
+        }
+
+        public string LongestCommonPrefix2(string[] strs) {
+            if(strs == null || strs.Length == 0) return "";
+            return LongestCommonPrefixImpl(strs, 0, strs.Length - 1);
+        }
+
         public void Test() {
             string[] strs = new string[]{"flower", "flow", "flight"};
             // strs = new string[]{"dog", "racecar", "car"};
@@ -64,6 +94,7 @@ namespace LongestCommonPrefix {
             // strs = new string[]{"flower", "flower", "flower"};
             
             Console.WriteLine(LongestCommonPrefix(strs));
+            Console.WriteLine(LongestCommonPrefix2(strs));
         }
     }
 }
