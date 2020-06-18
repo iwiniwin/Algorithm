@@ -364,7 +364,7 @@
 <a href="Leetcode/LongestCommonPrefix.cs">最长公共前缀</a>
 </td>
 <td width="25%" align="center">
-三数之和
+<a href="Leetcode/ThreeSum.cs">三数之和</a>
 </td>
 <td width="25%" align="center">
 最接近的三数之和
