@@ -25,6 +25,9 @@ public class Solution {
 
 题目链接：
 https://leetcode-cn.com/problems/3sum-closest/
+
+官方题解：
+https://leetcode-cn.com/problems/3sum-closest/solution/zui-jie-jin-de-san-shu-zhi-he-by-leetcode-solution/
 */
 using System;
 using System.Collections.Generic;
