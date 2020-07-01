@@ -370,7 +370,7 @@
 <a href="Leetcode/ThreeSumClosest.cs">最接近的三数之和</a>
 </td>
 <td width="25%" align="center">
-有效的括号
+<a href="Leetcode/IsValidParentheses.cs">有效的括号</a>
 </td>
 </tr>
 
