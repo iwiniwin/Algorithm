@@ -376,7 +376,7 @@
 
 <tr>
 <td width="25%" align="center">
-删除排序数组中的重复项
+<a href="Leetcode/RemoveDuplicates.cs">删除排序数组中的重复项</a>
 </td>
 <td width="25%" align="center">
 盛最多水的容器

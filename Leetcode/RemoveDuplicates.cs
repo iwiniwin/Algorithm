@@ -65,6 +65,28 @@ namespace RemoveDuplicates {
             return len;
         }
 
+        /// <summary>
+        /// 解法2，双指针
+        /// 基本思路：
+        /// 定义i慢指针，j快指针
+        /// 如果nums[i] == nums[j]则一直 ++ j，通过j跳过重复项
+        /// 直到nums[i] != nums[j]的时候，就可以把 i + 1然后，把nums[j]赋值给nums[i]
+        /// i可以理解为一直指向的是找到的最后一个未重复元素
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+
+        public int RemoveDuplicates2(int[] nums) {
+            if(nums == null || nums.Length <= 0) return 0;
+            int i = 0, j = 0;
+            while(++ j < nums.Length){
+                if(nums[i] != nums[j]){
+                    nums[++ i] = nums[j];
+                }
+            }
+            return i + 1;
+        }
+
         public void Print(int[] nums, int len){
             Console.WriteLine(len);
             for(int i = 0; i < len; i ++){
@@ -78,7 +100,8 @@ namespace RemoveDuplicates {
             // nums = new int[]{2};
             // nums = new int[]{};
             
-            Print(nums, RemoveDuplicates(nums));
+            // Print(nums, RemoveDuplicates(nums));
+            Print(nums, RemoveDuplicates2(nums));
         }
     }
 }
