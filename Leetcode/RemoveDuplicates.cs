@@ -44,14 +44,41 @@ namespace RemoveDuplicates {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 依次枚举每个元素，当出现重复元素时，将此重复元素移动到数组末尾，后面依次向前移动一位
+        /// </summary>
+
         public int RemoveDuplicates(int[] nums) {
-            return 2;
+            int index = 1, len = nums.Length;
+            while(index < len){
+                if(nums[index] == nums[index - 1]){
+                    for(int i = index + 1; i < len; i ++){
+                        nums[i - 1] = nums[i];
+                    }
+                    nums[-- len] = nums[index];
+                }else{
+                    index ++;
+                }
+            }
+            return len;
+        }
+
+        public void Print(int[] nums, int len){
+            Console.WriteLine(len);
+            for(int i = 0; i < len; i ++){
+                Console.Write(nums[i] + " ");
+            }
         }
 
         public void Test() {
             int[] nums = new int[]{1, 1, 2};
+            // nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+            // nums = new int[]{2};
+            // nums = new int[]{};
             
-            Console.WriteLine(RemoveDuplicates(nums));
+            Print(nums, RemoveDuplicates(nums));
         }
     }
 }
