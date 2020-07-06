@@ -17,7 +17,8 @@ namespace Algorithm
             // new LongestCommonPrefix.Solution().Test();              // 最长公共前缀
             // new ThreeSum.Solution().Test();                         // 三数之和
             // new ThreeSumClosest.Solution().Test();                  // 最接近的三数之和
-            new IsValidParentheses.Solution().Test();               // 有效的括号
+            // new IsValidParentheses.Solution().Test();               // 有效的括号
+            new RemoveDuplicates.Solution().Test();                 // 删除排序数组中的重复项
         }
     }
 }
