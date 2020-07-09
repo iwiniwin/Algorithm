@@ -379,7 +379,7 @@
 <a href="Leetcode/RemoveDuplicates.cs">删除排序数组中的重复项</a>
 </td>
 <td width="25%" align="center">
-盛最多水的容器
+<a href="Leetcode/MaxArea.cs">盛最多水的容器</a>
 </td>
 <td width="25%" align="center">
 字符串相乘
