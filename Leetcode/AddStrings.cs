@@ -27,14 +27,40 @@ namespace AddStrings {
 
     class Solution {
 
+        /// <summary>
+        /// 解法，模拟竖式加法
+        /// 基本思路：
+        /// 使用i, j两个指针指向两个字符串的末尾
+        /// 从字符串末尾开始向前依次相加i，j所指向的元素
+        /// 将两数之和对10求余，获取该位上的数值
+        /// 将两数之和除以10，获取是否有进位
+        /// 当较短的字符串先走完时，均以0代替
+        /// </summary>
+
         public string AddStrings(string num1, string num2) {
-            return "579";
+            string res = "";
+            int i = num1.Length - 1, j = num2.Length - 1;
+            int carry = 0;
+            while(i >= 0 || j >= 0){
+                int n1 = i >= 0 ? num1[i] - '0' : 0;
+                int n2 = j >= 0 ? num2[j] - '0' : 0;
+                int sum = n1 + n2 + carry;
+                res = (sum % 10) + res;
+                carry = sum / 10;
+                i --;
+                j --;
+            }
+            if(carry == 1) res = 1 + res;
+            return res;
         }
 
         public void Test() {
-            string num1 = "123";
+            string num1 = "129";
+            // num1 = "0";
+            // num1 = "1";
 
-            string num2 = "456";
+            string num2 = "459";
+            // num2 = "9";
             
             Console.WriteLine(AddStrings(num1, num2));
         }

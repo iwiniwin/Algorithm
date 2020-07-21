@@ -539,6 +539,18 @@ Nim 游戏
 </td>
 </tr>
 
+<tr>
+<td width="25%" align="center">
+<a href="Leetcode/AddStrings.cs">字符串相加</a>
+</td>
+<td width="25%" align="center">
+</td>
+<td width="25%" align="center">
+</td>
+<td width="25%" align="center">
+</td>
+</tr>
+
 </tbody></table>
 
 ## 程序员代码面试指南
