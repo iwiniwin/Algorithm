@@ -20,7 +20,9 @@ namespace Algorithm
             // new IsValidParentheses.Solution().Test();               // 有效的括号
             // new RemoveDuplicates.Solution().Test();                 // 删除排序数组中的重复项
             // new MaxArea.Solution().Test();                          // 盛最多水的容器
-            new StringMultiply.Solution().Test();                         // 字符串相乘
+            // new StringMultiply.Solution().Test();                   // 字符串相乘（待完成）
+
+            new AddStrings.Solution().Test();                       // 字符串相加
         }
     }
 }
