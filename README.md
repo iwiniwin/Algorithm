@@ -382,7 +382,7 @@
 <a href="Leetcode/MaxArea.cs">盛最多水的容器</a>
 </td>
 <td width="25%" align="center">
-字符串相乘
+<a href="Leetcode/StringMultiply.cs">字符串相乘</a>
 </td>
 <td width="25%" align="center">
 反转字符串
