@@ -30,6 +30,7 @@ public class Solution {
 https://leetcode-cn.com/problems/multiply-strings/
 */
 using System;
+using System.Text;
 using System.Collections.Generic;
 namespace StringMultiply {
 
@@ -86,9 +87,35 @@ namespace StringMultiply {
             return res;
         }
 
+        /// <summary>
+        /// 解法2，竖式乘法优化
+        /// 基本思路：
+        /// 优化的依据如下：
+        /// 对于字符串num1，长度为M，字符串num2，长度为N
+        /// num1与num2乘积的结果字符串res，最长是 M + N 位
+        /// 比如 "99" * "99" ，结果是 "9801"，长度最长是4位
+        /// 对于num1的第i位与num2的第j位 （位数即下标，从0开始，从左到右依次递增）
+        /// num1[i]与num2[j]相乘结果的个位一定位于res[i + j + 1]，十位一定位于res[i + j]  （两个个位数相乘最多是两位数）
+        /// 比如 "98" * "76" 中的 第0位 '9' 与 第1位 '6' 相乘，是 "54"
+        /// 个位 '4' 一定是位于最终结果的第 0 + 1 + 1 = 2 位，十位 '5' 一定是位于最终结果的第 0 + 1 = 1位
+        /// </summary>
+
+        public string Multiply2(string num1, string num2){
+            StringBuilder sum = new StringBuilder(new String('0', num1.Length + num2.Length));
+            for(int i = num1.Length - 1; i >= 0; i --){
+                for(int j = num2.Length - 1; j >= 0; j --){
+                    int product = (sum[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0');
+                    sum[i + j + 1] = (char)(product % 10 + '0');
+                    sum[i + j] += (char)(product / 10);
+                }
+            }
+            string res = sum.ToString().TrimStart('0');
+            return res.Length == 0 ? "0" : res;
+        }
+
         public void Test() {
             string num1 = "123";
-            // num1 = "0";
+            num1 = "0";
             // num1 = "1";
             // num1 = "956";
             // num1 = "956100";
@@ -96,7 +123,8 @@ namespace StringMultiply {
             string num2 = "956";
             num2 = "0";
             
-            Console.WriteLine(Multiply(num1, num2));
+            // Console.WriteLine(Multiply(num1, num2));
+            Console.WriteLine(Multiply2(num1, num2));
         }
     }
 }
