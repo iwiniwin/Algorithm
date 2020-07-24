@@ -385,7 +385,7 @@
 <a href="Leetcode/StringMultiply.cs">字符串相乘</a>
 </td>
 <td width="25%" align="center">
-反转字符串
+<a href="Leetcode/ReverseString.cs">反转字符串</a>
 </td>
 </tr>
 
