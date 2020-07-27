@@ -28,12 +28,36 @@ namespace ReverseWords {
 
     class Solution {
 
+        /// <summary>
+        /// 解法1
+        /// 基本思路：
+        /// 利用Split函数将字符串根据" "拆分成多个子字符串
+        /// 依次翻转子字符串的顺序，然后再用Join函数通过" "连接起来
+        /// </summary>
+
+        public string Reverse(string str){
+            char[] s = str.ToCharArray();
+            int left = 0, right = s.Length - 1;
+            while(left < right){
+                char temp = s[left];
+                s[left ++] = s[right];
+                s[right --] = temp;
+            }
+            return new string(s);
+        }
+
         public string ReverseWords(string s) {
-            return s;
+            string[] strs = s.Split(" ");
+            for(int i = 0; i < strs.Length; i ++){
+                strs[i] = Reverse(strs[i]);
+            }
+            return string.Join(" ", strs);
         }
 
         public void Test() {
             string s = "Let's take LeetCode contest";
+            // s = "";
+            // s = " a ";
             
             Console.WriteLine(ReverseWords(s));
         }
