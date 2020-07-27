@@ -21,7 +21,9 @@ namespace Algorithm
             // new RemoveDuplicates.Solution().Test();                 // 删除排序数组中的重复项
             // new MaxArea.Solution().Test();                          // 盛最多水的容器
             // new StringMultiply.Solution().Test();                   // 字符串相乘
-            new ReverseString.Solution().Test();                    // 反转字符串
+            // new ReverseString.Solution().Test();                    // 反转字符串
+            new ReverseWords.Solution().Test();                     // 反转字符串中的单词 III
+
 
             // new AddStrings.Solution().Test();                       // 字符串相加
         }
