@@ -54,12 +54,39 @@ namespace ReverseWords {
             return string.Join(" ", strs);
         }
 
+        /// <summary>
+        /// 解法2
+        /// 基本思路：
+        /// 循环遍历，通过' '找到每一个单词，然后反转该单词
+        /// </summary>
+        
+        public void Reverse(char[] cs, int i, int j){
+            while(i < j){
+                char temp = cs[i];
+                cs[i ++] = cs[j];
+                cs[j --] = temp;
+            }
+        }
+
+        public string ReverseWords2(string s) {
+            char[] cs = s.ToCharArray();
+            int i = 0, j = 0;
+            while(i < cs.Length){
+                while(j < cs.Length && cs[j] != ' ')
+                    j ++;
+                Reverse(cs, i, j - 1);
+                i = ++j;
+            }
+            return new string(cs);
+        }
+
         public void Test() {
             string s = "Let's take LeetCode contest";
             // s = "";
             // s = " a ";
             
-            Console.WriteLine(ReverseWords(s));
+            // Console.WriteLine(ReverseWords(s));
+            Console.WriteLine(ReverseWords2(s));
         }
     }
 }
