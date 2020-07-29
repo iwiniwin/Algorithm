@@ -34,8 +34,25 @@ namespace ProductExceptSelf {
 
     class Solution {
 
+        /// <summary>
+        /// 解法
+        /// 基本思路：
+        /// 对于每个元素nums[i]
+        /// 先计算i左边的元素乘积 nums[i] = nums[0] * nums[1] * nums[2] * ... * nums[i - 1]
+        /// 再计算i右边的元素乘积 nums[i] = nums[i + 1] * nums[i + 2] * ... * nums[n - 1]
+        /// 再把两边的乘积相乘
+        /// </summary>
+
         public int[] ProductExceptSelf(int[] nums) {
-            return nums;
+            int len = nums.Length;
+            int[] res = new int[len];
+            int ret = 1;
+            for(int i = 0; i < len; ret *= nums[i ++])
+                res[i] = ret;
+            ret = 1;
+            for(int i = len - 1; i >= 0; ret *= nums[i --])
+                res[i] *= ret;
+            return res;
         }
 
         public void Print(int[] nums) {
@@ -48,6 +65,7 @@ namespace ProductExceptSelf {
 
         public void Test() {
             int[] nums = new int[]{1, 2, 3, 4};
+            // nums = new int[]{2, 3};
             
             Print(ProductExceptSelf(nums));
         }
