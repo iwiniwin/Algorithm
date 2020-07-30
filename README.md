@@ -397,7 +397,7 @@
 <a href="Leetcode/ProductExceptSelf.cs">除自身以外数组的乘积</a>
 </td>
 <td width="25%" align="center">
-存在重复元素
+<a href="Leetcode/ContainsDuplicate.cs">存在重复元素</a>
 </td>
 <td width="25%" align="center">
 螺旋矩阵
