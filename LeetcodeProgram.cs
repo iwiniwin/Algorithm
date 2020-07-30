@@ -23,7 +23,8 @@ namespace Algorithm
             // new StringMultiply.Solution().Test();                   // 字符串相乘
             // new ReverseString.Solution().Test();                    // 反转字符串
             // new ReverseWords.Solution().Test();                     // 反转字符串中的单词 III
-            new ProductExceptSelf.Solution().Test();                // 除自身以外数组的乘积
+            // new ProductExceptSelf.Solution().Test();                // 除自身以外数组的乘积
+            new ContainsDuplicate.Solution().Test();                // 存在重复元素
 
 
             // new AddStrings.Solution().Test();                       // 字符串相加
