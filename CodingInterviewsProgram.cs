@@ -11,8 +11,8 @@ namespace Algorithm
         {
             // new Find.Solution().Test();                                        // 二维数组中的查找                                  
             // new ReplaceSpace.Solution().Test();                                // 替换空格
-            new PrintListFromTailToHead.Solution().Test();                     // 从尾到头打印链表       
-            // new ReConstructBinaryTree.Solution().Test();                       // 重建二叉树  
+            // new PrintListFromTailToHead.Solution().Test();                     // 从尾到头打印链表       
+            new ReConstructBinaryTree.Solution().Test();                       // 重建二叉树  
             // new SimulateQueueWithStack.Solution().Test();                      // 用两个栈实现队列       
             // new MinNumberInRotateArray.Solution().Test();                      // 旋转数组的最小数字      
             // new Fibonacci.Solution().Test();                                   // 斐波那契数列

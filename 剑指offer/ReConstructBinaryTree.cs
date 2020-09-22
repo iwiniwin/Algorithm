@@ -80,9 +80,13 @@ namespace ReConstructBinaryTree {
                 int count = queue.Count;
                 for(int i = 0; i < count; i++){
                     TreeNode node = queue.Dequeue();
-                    Console.Write(node.val + " ");;
-                    if(node.left != null) queue.Enqueue(node.left);
-                    if(node.right != null) queue.Enqueue(node.right);
+                    if(node == null)
+                        Console.Write("* ");
+                    else{
+                        Console.Write(node.val + " ");
+                        queue.Enqueue(node.left);
+                        queue.Enqueue(node.right);
+                    }
                 }
                 Console.WriteLine();
             }
