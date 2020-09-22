@@ -11,7 +11,7 @@ namespace Algorithm
         {
             // new Find.Solution().Test();                                        // 二维数组中的查找                                  
             // new ReplaceSpace.Solution().Test();                                // 替换空格
-            // new PrintListFromTailToHead.Solution().Test();                     // 从尾到头打印链表       
+            new PrintListFromTailToHead.Solution().Test();                     // 从尾到头打印链表       
             // new ReConstructBinaryTree.Solution().Test();                       // 重建二叉树  
             // new SimulateQueueWithStack.Solution().Test();                      // 用两个栈实现队列       
             // new MinNumberInRotateArray.Solution().Test();                      // 旋转数组的最小数字      
@@ -34,7 +34,7 @@ namespace Algorithm
             // new VerifySquenceOfBST.Solution().Test();                          // 二叉搜索树的后序遍历序列
             // new FindPath.Solution().Test();                                    // 二叉树中和为某一值的路径
             // new RandomListNode.Solution().Test();                              // 复杂链表的复制
-            new Convert.Solution().Test();                                     // 二叉搜索树与双向链表
+            // new Convert.Solution().Test();                                     // 二叉搜索树与双向链表
             // new Permutation.Solution().Test();                                 // 字符串的排列
             // new MoreThanHalfNum.Solution().Test();                             // 数组中出现次数超过一半的数字
             // new GetLeastNumbers.Solution().Test();                             // 最小的K个数

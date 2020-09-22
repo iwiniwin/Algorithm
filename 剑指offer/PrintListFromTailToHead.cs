@@ -62,6 +62,25 @@ namespace PrintListFromTailToHead {
             list.Reverse();
             return list;
         }
+        
+        /// <summary>
+        /// 解法3
+        /// 基本思路：
+        /// 利用递归，不断的查找链表的下一个节点，直到尾结点。然后在回溯过程中将每个节点的值加入到List中
+        /// </summary>
+        public List<int> PrintListFromTailToHead3(ListNode listNode)
+        {
+            List<int> list = new List<int>();
+            PrintListFromTailToHead3Impl(list, listNode);
+            return list;
+        }
+
+        public void PrintListFromTailToHead3Impl(List<int> list, ListNode listNode)
+        {
+            if(listNode == null) return;
+            PrintListFromTailToHead3Impl(list, listNode.next);
+            list.Add(listNode.val);
+        }
 
         public void Print(List<int> list){
             if(list == null){
@@ -82,7 +101,8 @@ namespace PrintListFromTailToHead {
             node.next.next = new ListNode(1);
 
             // Print(PrintListFromTailToHead(node));
-            Print(PrintListFromTailToHead2(node));
+            // Print(PrintListFromTailToHead2(node));
+            Print(PrintListFromTailToHead3(node));
         }
     }
 }
