@@ -12,7 +12,7 @@ namespace Algorithm
             // new Find.Solution().Test();                                        // 二维数组中的查找                                  
             // new ReplaceSpace.Solution().Test();                                // 替换空格
             // new PrintListFromTailToHead.Solution().Test();                     // 从尾到头打印链表       
-            new ReConstructBinaryTree.Solution().Test();                       // 重建二叉树  
+            // new ReConstructBinaryTree.Solution().Test();                       // 重建二叉树  
             // new SimulateQueueWithStack.Solution().Test();                      // 用两个栈实现队列       
             // new MinNumberInRotateArray.Solution().Test();                      // 旋转数组的最小数字      
             // new Fibonacci.Solution().Test();                                   // 斐波那契数列
@@ -25,7 +25,7 @@ namespace Algorithm
             // new FindKthToTail.Solution().Test();                               // 链表中倒数第k个结点
             // new ReverseList.Solution().Test();                                 // 反转链表
             // new Merge.Solution().Test();                                       // 合并两个排序的链表
-            // new HasSubtree.Solution().Test();                                  // 树的子结构
+            new HasSubtree.Solution().Test();                                  // 树的子结构
             // new Mirror.Solution().Test();                                      // 二叉树的镜像
             // new PrintMatrix.Solution().Test();                                 // 顺时针打印矩阵
             // new StackWithMin.Solution().Test();                                // 包含min函数的栈

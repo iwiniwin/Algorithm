@@ -33,25 +33,20 @@ namespace HasSubtree {
         /// <summary>
         /// 解法，递归
         /// 基本思路：
-        /// IsSubTree方法，判断仅从两棵二叉树的根节点开始，树2是否是树1的子结构
-        /// HasSubtree通过IsSubTree方法判断从两棵二叉树的根节点开始，树2是否是树1的子结构。
-        /// 如果是的话直接返回true，如果不是则递归判断树2是否是树1左子节点的子结构或树2是否是树1右子节点的子结构
+        /// 如果两颗树的根节点相同，则接着判断两颗树的左右子树是否是子树关系
+        ///     如果也是的话直接返回true
+        ///     如果不是的话，就什么也不做，因为目前仍不能判断B是不是A的子树
+        /// 接着判断B是否是A的左子树的子树，如果是的直接返回true
+        /// 接着判断B是否是A的右子树的子树，如果是的直接返回true
         /// </summary>
 
         public bool HasSubtree(TreeNode pRoot1, TreeNode pRoot2)
         {
             if(pRoot1 == null || pRoot2 == null) return false;
-            if(IsSubTree(pRoot1, pRoot2))
-                return true;
-            return HasSubtree(pRoot1.left, pRoot2) || HasSubtree(pRoot1.right, pRoot2);
-        }
-
-        public bool IsSubTree(TreeNode pRoot1, TreeNode pRoot2){
-            if(pRoot2 == null) return true;
-            if(pRoot1 == null) return false;
             if(pRoot1.val == pRoot2.val)
-                return IsSubTree(pRoot1.left, pRoot2.left) && IsSubTree(pRoot1.right, pRoot2.right);
-            return false;
+                if((pRoot2.left == null || HasSubtree(pRoot1.left, pRoot2.left)) && (pRoot2.right == null || HasSubtree(pRoot1.right, pRoot2.right)))
+                    return true;
+            return HasSubtree(pRoot1.left, pRoot2) || HasSubtree(pRoot1.right, pRoot2);
         }
 
         public void Test() {
