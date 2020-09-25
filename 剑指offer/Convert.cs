@@ -46,6 +46,7 @@ namespace Convert {
         /// 采用中序遍历，左，中，右
         /// 先将左子树转换为双向链表，再将右子树转换为双向链表
         /// 转换过程是一直使用pLast记录当前链表的末尾
+        /// 其中Convert函数返回的节点一直是链表的首端
         /// </summary>
 
         private TreeNode pLast;
