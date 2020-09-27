@@ -52,7 +52,7 @@ namespace GetLeastNumbers {
         /// 解法2
         /// 利用堆排序（小顶堆），首先构建堆，然后每次依次取堆顶的元素（最小值），并将其交换到尾部
         /// 然后重新构建堆，重复上述过程。取出k个数即可。
-        /// 堆排序介绍 https://blog.csdn.net/FightLei/article/details/52586776
+        /// 堆排序介绍 https://www.cnblogs.com/iwiniwin/p/12609549.html
         /// </summary>
         
         public void HeapAdjust(int[] input, int start, int end){
