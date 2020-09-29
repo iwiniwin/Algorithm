@@ -34,7 +34,7 @@ namespace InversePairs {
         /// 再进行合并两个子数组，利用一个临时数组，不断从两个子数组中选出最大值放到临时数组中。
         /// 在比较时，由于每个子数组都是有序递减的，所以只需要比较子数组的首元素即可（此时进行逆序对的数量统计，如果
         /// 该元素已经大于右边子数组的首元素，则右边子数组的所有元素都小于该元素，即都可以和该元素构成逆序对）。
-        /// 归并排序介绍 https://blog.csdn.net/FightLei/article/details/52586776
+        /// 归并排序介绍 https://www.cnblogs.com/iwiniwin/p/12609549.html
         /// </summary>
 
         public int Merge(int[] data, int start, int mid, int end){
