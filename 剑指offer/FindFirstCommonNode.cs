@@ -114,6 +114,35 @@ namespace FindFirstCommonNode {
             return null;
         }
 
+        /// <summary>
+        /// 解法4
+        /// 基本思路：
+        /// 思路与解法3基本相同，也是让较长的链表先走长度差个元素
+        /// 区别在于不用单独计算每个链表的长度，是一种更优雅的代码实现
+        /// </summary>
+
+        public ListNode FindFirstCommonNode4(ListNode pHead1, ListNode pHead2)
+        {
+            ListNode p1 = pHead1, p2 = pHead2;
+            while(p1 != null && p2 != null){
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+            while(p1 != null){
+                p1 = p1.next;
+                pHead1 = pHead1.next;
+            }
+            while(p2 != null){
+                p1 = p1.next;
+                pHead2 = pHead2.next;
+            }
+            while(pHead1 != pHead2){
+                pHead1 = pHead1.next;
+                pHead2 = pHead2.next;
+            }
+            return pHead1;
+        }
+
         public void Test() {
             ListNode p1 = new ListNode(1);
             p1.next = new ListNode(2);
@@ -126,8 +155,9 @@ namespace FindFirstCommonNode {
             p1.next.next = p2.next;
 
             // ListNode ret = FindFirstCommonNode(p1, p2);
-            ListNode ret = FindFirstCommonNode2(p1, p2);
+            // ListNode ret = FindFirstCommonNode2(p1, p2);
             // ListNode ret = FindFirstCommonNode3(p1, p2);
+            ListNode ret = FindFirstCommonNode4(p1, p2);
             if(ret != null){
                 Console.WriteLine(ret.val);
             }else{
