@@ -73,6 +73,38 @@ namespace ReverseSentence {
             return ret;
         }
 
+        /// <summary>
+        /// 解法3
+        /// 基本思路：
+        /// 先遍历字符数组找到每个单词，然后对每个单词进行翻转
+        /// 最后再整体将整个字符数组进行翻转
+        /// </summary>
+
+        public string ReverseSentence3(string str)
+        {
+            if(str == null || str.Length == 0) return str;
+            char[] array = str.ToCharArray();
+            int i = 0, j = 0;
+            while(i < array.Length){
+                if(array[i] == ' '){
+                    Reverse(array, j, i - 1);
+                    j = i + 1;
+                }
+                i ++;
+            }
+            Reverse(array, j, i - 1);
+            Reverse(array, 0, array.Length - 1);
+            return new string(array);
+        }
+
+        public void Reverse(char[] array, int i, int j){
+            while(i < j){
+                char temp = array[i];
+                array[i ++] = array[j];
+                array[j --] = temp;
+            }
+        }
+
         public void Test() {
 
             string str = "student. a am I";
@@ -80,9 +112,11 @@ namespace ReverseSentence {
             // str = "am I";
             // str = "am ";
             // str = null;
+            str = "student. a  am   I";
 
             // Console.WriteLine(ReverseSentence(str));
-            Console.WriteLine(ReverseSentence2(str));
+            // Console.WriteLine(ReverseSentence2(str));
+            Console.WriteLine(ReverseSentence3(str));
         }
     }
 }
