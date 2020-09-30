@@ -42,7 +42,7 @@ namespace LeftRotateString {
         /// 解法2
         /// 基本思路：
         /// 同样利用对字符串的长度求余，处理左移位数大于字符串长度的情况
-        /// 对于小于字符串长度的左移，利用 XY的翻转 = YX = （Y的翻转 + X的翻转）的翻转 得到
+        /// 对于小于字符串长度的左移，利用 XY的翻转 = YX = （X的翻转 + Y的翻转）的翻转 得到
         /// </summary>
 
         public void Reverse(char[] array, int i, int j){
