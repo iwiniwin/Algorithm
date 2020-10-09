@@ -28,7 +28,7 @@ namespace LastRemaining {
     class Solution {
 
         /// <summary>
-        /// 解法1
+        /// 解法
         /// 基本思路：
         /// 约瑟夫环问题，遍历到数组末尾时再从头开始遍历，模拟环
         /// 使用array数组记录每个编号是否被移除 0表示未移除 -1表示移除
