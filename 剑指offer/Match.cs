@@ -23,7 +23,7 @@ namespace Match {
     class Solution {
 
         /// <summary>
-        /// 解法
+        /// 解法1
         /// 基本思路：
         /// 当出现x*时，即任意一个字符加上'*'
         /// 1. x*消耗0个字符，模式串后移两位，字符串不动
@@ -61,13 +61,51 @@ namespace Match {
         }
 
         /// <summary>
-        /// TODO 动态规划解法
+        /// 解法2，动态规划
+        /// 基本思路：
+        /// 构建动态规划转移方程f[i,j]，表示字符串的前i个字符与模式串的前j个字符是否匹配
+        /// 对于不包含"*"的情况
+        ///     f[i, j] = f[i - 1, j - 1] && (str[i - 1] == pattern[j - 1] || pattern[j - 1] == '.');
+        ///     表示前i个字符与模式串的前j个字符匹配的前提是，前i - 1个字符与前j - 1个字符匹配且第i个字符与第j个字符相等或第j个字符是"."
+        /// 对于包含"*"的情况
+        ///     "*"表示出现0次时
+        ///         f[i, j] |= f[i, j - 2];
+        ///         表示前i个字符与模式串的前j个字符匹配的前提是，前i个字符与前j - 2个字符匹配即可（相当于把x*忽略掉）
+        ///     "*"表示出现1次或多次时
+        ///         f[i, j] |= f[i - 1, j] && (str[i - 1] == pattern[j - 2] || pattern[j - 2] == '.');
+        ///         表示前i个字符与模式串的前j个字符匹配的前提是，前i - 1个字符与前j个字符匹配且第i个字符与"*"前的字符相等或"*"前的字符是"."
+        /// 补充说明
+        /// f[0, 0]就表示空字符串与空模式串是否匹配
+        /// f[1, 1]就表示字符串第一个字符与模式串第一个字符是否匹配
+        /// f[str.Length, pattern.Length]就表示字符串str与模式串pattern是否匹配
         /// </summary>
+
+        public bool Match2(char[] str, char[] pattern)
+        {
+            bool[,] f = new bool[str.Length + 1, pattern.Length + 1];
+            for(int i = 0; i <= str.Length; i ++){
+                for(int j = 0; j <= pattern.Length; j ++){
+                    if(j == 0)
+                        f[i, j] = i == 0;
+                    else{
+                        if(pattern[j - 1] == '*'){
+                            if(j >= 2)
+                                f[i, j] |= f[i, j - 2];
+                                if(i > 0)
+                                    f[i, j] |= f[i - 1, j] && (str[i - 1] == pattern[j - 2] || pattern[j - 2] == '.');
+                        }else if(i > 0){
+                            f[i, j] = f[i - 1, j - 1] && (str[i - 1] == pattern[j - 1] || pattern[j - 1] == '.');
+                        }
+                    }
+                }
+            }
+            return f[str.Length, pattern.Length];
+        }
 
         public void Test() {
 
             char[] str = new char[]{'a', 'a', 'a'};
-            str = new char[]{};
+            // str = new char[]{};
             // str = new char[]{'a', 'b', 'b', 'b', '*'};
             // str = new char[]{'a', 'b', 'b', 'b'};
             // str = new char[]{'a', 'b', 'c', '.', '*', 'f', '*', 's'};
@@ -81,11 +119,12 @@ namespace Match {
             // pattern = new char[]{'a', 'b', '*'};
             // pattern = new char[]{'a', 'b', '*', '*'};
             // pattern = new char[]{'.', '*'};
-            pattern = new char[]{'*', '*'};
+            // pattern = new char[]{'*', '*'};
             // pattern = new char[]{};
             // pattern = new char[]{'.'};
 
-            Console.WriteLine(Match(str, pattern));
+            // Console.WriteLine(Match(str, pattern));
+            Console.WriteLine(Match2(str, pattern));
         }
     }
 }
