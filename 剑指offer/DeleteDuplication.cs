@@ -50,13 +50,11 @@ namespace DeleteDuplication {
                 while(right.next != null && right.next.val == right.val){
                     right = right.next;
                 }
-                if(left.next == right){
+                if(left.next == right)
                     left = left.next;
-                    right = right.next;
-                }else{
+                else
                     left.next = right.next;
-                    right = left == null ? null : left.next;
-                }
+                right = right.next;
             }
             return head.next; 
         }
