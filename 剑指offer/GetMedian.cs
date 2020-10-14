@@ -56,14 +56,18 @@ namespace GetMedian {
             TreeNode node = root;
             while(true){
                 if(num < node.val){
-                    if(node.left == null){
+                    if(node.left == null || node.left.val < num){
+                        TreeNode temp = node.left;
                         node.left = new TreeNode(num);
+                        node.left.left = temp;
                         return;
                     }
                     node = node.left;
                 }else{
-                    if(node.right == null){
+                    if(node.right == null || node.right.val > num){
+                        TreeNode temp = node.right;
                         node.right = new TreeNode(num);
+                        node.right.right = temp;
                         return;
                     }
                     node = node.right;
