@@ -81,6 +81,7 @@ namespace HasPath {
             int cols = 4;
             string path = "bcced";
             // path = "abcb";
+            // path = "bfb";
 
             Console.WriteLine(HasPath(matrix, rows, cols, path));
         }
