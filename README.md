@@ -12,6 +12,7 @@
 #### 目录
 * [剑指offer](#剑指offer)  
 * [排序算法](#排序算法)  
+* [常用算法](#常用算法)  
 * [Leetcode](#Leetcode)  
 * [程序员代码面试指南](#程序员代码面试指南)  
 
@@ -334,6 +335,27 @@
 
 </td>
 <td width="25%" align="center">
+
+</td>
+</tr>
+
+</tbody></table>
+
+## 常用算法
+
+<table style="width:100%; display:table"><tbody>
+
+<tr>
+<td width="25%" align="center">
+KMP模式匹配算法
+</td>
+<td width="25%" align="center">
+A*寻路算法
+</td>
+<td width="25%" align="center">
+
+</td>
+<td align="center">
 
 </td>
 </tr>
