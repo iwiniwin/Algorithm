@@ -343,7 +343,7 @@
 
 ## 常用算法
 
-<table style="width:100%; display:table"><tbody>
+<table style="width:100%"><tbody>
 
 <tr>
 <td width="25%" align="center">
@@ -353,10 +353,10 @@ KMP模式匹配算法
 A*寻路算法
 </td>
 <td width="25%" align="center">
-
+ <img width="400" />
 </td>
 <td align="center">
-
+<img width="400" />
 </td>
 </tr>
 
