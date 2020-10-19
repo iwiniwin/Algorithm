@@ -343,24 +343,8 @@
 
 ## 常用算法
 
-<table style="width:100%"><tbody>
-
-<tr>
-<td width="25%" align="center">
-KMP模式匹配算法
-</td>
-<td width="25%" align="center">
-A*寻路算法
-</td>
-<td width="25%" align="center">
- <img width="400" />
-</td>
-<td align="center">
-<img width="400" />
-</td>
-</tr>
-
-</tbody></table>
+* [KMP模式匹配算法](%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/KMP.cs)
+* A*寻路算法
 
 ## Leetcode
 
