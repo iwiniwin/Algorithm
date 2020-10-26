@@ -19,6 +19,7 @@ O(d(n + r))
 缺点：需要额外的辅助空间
 */
 using System;
+using System.Collections.Generic;
 namespace RadixSort {
 
     class Solution {
@@ -34,6 +35,48 @@ namespace RadixSort {
         /// </summary>
 
         public void RadixSort(int[] array){
+            Queue<int>[] queues = new Queue<int>[10];
+            for(int i = 0; i < queues.Length; i ++)
+                queues[i] = new Queue<int>();
+            int max = GetMaxValue(array);
+            for(int i = 1; max / i > 0; i = i * 10){
+                Distribute(array, queues, i);
+                Collect(array, queues);
+            }
+        }
+
+        // 分配过程
+        public void Distribute(int[] array, Queue<int>[] queues, int factor){
+            for(int i = 0; i < array.Length; i ++)
+                queues[array[i] / factor % 10].Enqueue(array[i]);
+        }
+
+        // 收集过程
+        public void Collect(int[] array, Queue<int>[] queues){
+            for(int i = 0, j = 0; i < queues.Length; i ++){
+                while(queues[i].Count > 0)
+                    array[j ++] = queues[i].Dequeue();
+            }
+        }
+
+
+        // 获得待排序列中的最大元素
+        public int GetMaxValue(int[] array){
+            int max = array[0];
+            for(int i = 1; i < array.Length; i ++){
+                if(array[i] > max){
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// 基数排序的另一种实现，基本思想是相同的
+        /// 区别在于使用了int数组代替泛型Queue数组
+        /// </summary>
+
+        public void RadixSort2(int[] array){
 
             int max = GetMaxValue(array);
 
@@ -63,26 +106,15 @@ namespace RadixSort {
             }
         }
 
-        // 获得待排序列中的最大元素
-        public int GetMaxValue(int[] array){
-            int max = array[0];
-            for(int i = 1; i < array.Length; i ++){
-                if(array[i] > max){
-                    max = array[i];
-                }
-            }
-            return max;
-        }
-
         public void Test() {
 
             int[] array = new int[]{5, 4, 1, 2, 3};
 
-            // array = new int[]{5, 40, 10, 2, 365, 72, 6459, 781, 66666, 999, 92, 95, 85, 0, 1};
+            array = new int[]{5, 40, 10, 2, 365, 72, 6459, 781, 66666, 999, 92, 95, 85, 0, 1};
 
-            array = new int[]{5, 400, 400, 400, 365, 781, 66666, 0, 0, 0, 85, 11, 11};
+            // array = new int[]{5, 400, 400, 400, 365, 781, 66666, 0, 0, 0, 85, 11, 11};
 
-            RadixSort(array);
+            RadixSort2(array);
 
             Print(array);
         }
