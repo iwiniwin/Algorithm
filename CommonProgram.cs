@@ -10,7 +10,8 @@ namespace Algorithm
         public static void Test()
         {
             
-            new KMP.Solution().Test();                           // KMP模式匹配算法
+            // new KMP.Solution().Test();                           // KMP模式匹配算法
+            new AStar.Solution().Test();                         // A*寻路算法
         }
     }
 }
