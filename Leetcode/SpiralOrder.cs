@@ -48,6 +48,7 @@ namespace SpiralOrder {
             {
                 Console.Write(item + " ");
             }
+            Console.WriteLine();
         }
 
         public void Test() {

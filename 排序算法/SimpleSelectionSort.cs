@@ -66,6 +66,7 @@ namespace SimpleSelectionSort {
             {
                 Console.Write(item + "  ");
             }
+            Console.WriteLine();
         }
     }
 }

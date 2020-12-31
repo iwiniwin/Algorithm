@@ -82,6 +82,7 @@ namespace BubbleSort {
             {
                 Console.Write(item + "  ");
             }
+            Console.WriteLine();
         }
     }
 }

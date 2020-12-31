@@ -98,6 +98,7 @@ namespace Mirror {
                     queue.Enqueue(node.right);
                 }
             }
+            Console.WriteLine();
         }
 
         public void Test() {

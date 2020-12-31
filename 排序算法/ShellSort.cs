@@ -64,6 +64,7 @@ namespace ShellSort {
             {
                 Console.Write(item + "  ");
             }
+            Console.WriteLine();
         }
     }
 }

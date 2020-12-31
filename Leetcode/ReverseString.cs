@@ -69,6 +69,7 @@ namespace ReverseString {
             {
                 Console.Write(c + " ");
             }
+            Console.WriteLine();
         }
 
         public void Test() {

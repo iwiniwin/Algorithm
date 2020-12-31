@@ -58,6 +58,7 @@ namespace SimpleInsertionSort {
             {
                 Console.Write(item + "  ");
             }
+            Console.WriteLine();
         }
     }
 }

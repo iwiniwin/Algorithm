@@ -92,6 +92,7 @@ namespace RemoveDuplicates {
             for(int i = 0; i < len; i ++){
                 Console.Write(nums[i] + " ");
             }
+            Console.WriteLine();
         }
 
         public void Test() {

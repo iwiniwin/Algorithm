@@ -123,6 +123,7 @@ namespace Convert {
                 Console.Write(node.val + " ");
                 node = node.left;
             }
+            Console.WriteLine();
         }
 
         public void Test() {
