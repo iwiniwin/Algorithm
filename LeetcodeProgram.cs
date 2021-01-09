@@ -25,7 +25,8 @@ namespace Algorithm
             // new ReverseWords.Solution().Test();                     // 反转字符串中的单词 III
             // new ProductExceptSelf.Solution().Test();                // 除自身以外数组的乘积
             // new ContainsDuplicate.Solution().Test();                // 存在重复元素
-            new SpiralOrder.Solution().Test();                      // 螺旋矩阵
+            // new SpiralOrder.Solution().Test();                      // 螺旋矩阵
+            new ConstructQuadTree.Solution().Test();                // 建立四叉树
 
 
             // new AddStrings.Solution().Test();                       // 字符串相加
