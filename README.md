@@ -550,6 +550,7 @@ Nim 游戏
 <a href="Leetcode/AddStrings.cs">字符串相加</a>
 </td>
 <td width="25%" align="center">
+<a href="Leetcode/ConstructQuadTree.cs">建立四叉树</a>
 </td>
 <td width="25%" align="center">
 </td>
