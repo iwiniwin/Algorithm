@@ -11,7 +11,8 @@ namespace Algorithm
         {
             
             // new KMP.Solution().Test();                           // KMP模式匹配算法
-            new AStar.Solution().Test();                         // A*寻路算法
+            // new AStar.Solution().Test();                         // A*寻路算法
+            new Huffman.Solution().Test();                       // 哈夫曼算法
         }
     }
 }
