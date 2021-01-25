@@ -14,6 +14,31 @@ namespace KMP {
     class Solution {
 
         /// <summary>
+        /// 暴力匹配算法 Brute-Force
+        /// 基本思路：
+        /// 朴素的模式匹配算法，从目标串s的第一个字符开始和模式串p的第一个字符开始比较，
+        /// 如果相等，则进一步比较二者的后继字符
+        /// 如果不相等，则从目标串s的第二个字符开始再重新与模式串p的第一个字符进行比较
+        /// 暴力匹配就在于当发生失配时，目标串直接回溯到开始匹配字符的下一个字符，模式串直接回溯到第一个字符
+        /// </summary>
+        public int BF(string s, string p){
+            int i = 0, j = 0;
+            while(i < s.Length && j < p.Length) {
+                if(s[i] == p[j]) {
+                    i ++;
+                    j ++;
+                }else{
+                    i = i - j + 1;
+                    j = 0;
+                }
+            }
+            if(j == p.Length) {
+                return i - j;
+            }
+            return -1;
+        }
+
+        /// <summary>
         /// 求解next数组
         /// 基本思路：
         /// next[j] = i就表示对于p[j]前面的子串（不包含p[j]）有长度为i的前缀序列与后缀序列相等
@@ -74,6 +99,8 @@ namespace KMP {
             p = "abc";
             p = "abcac";
             // p = "aaaaax";
+
+            // Console.WriteLine(BF(s, p));
 
             Console.WriteLine(KMP(s, p));
         }
