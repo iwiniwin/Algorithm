@@ -25,7 +25,7 @@ namespace Algorithm
             // new FindKthToTail.Solution().Test();                               // 链表中倒数第k个结点
             // new ReverseList.Solution().Test();                                 // 反转链表
             // new Merge.Solution().Test();                                       // 合并两个排序的链表
-            new HasSubtree.Solution().Test();                                  // 树的子结构
+            // new HasSubtree.Solution().Test();                                  // 树的子结构
             // new Mirror.Solution().Test();                                      // 二叉树的镜像
             // new PrintMatrix.Solution().Test();                                 // 顺时针打印矩阵
             // new StackWithMin.Solution().Test();                                // 包含min函数的栈
@@ -76,6 +76,7 @@ namespace Algorithm
             // new HasPath.Solution().Test();                                     // 矩阵中的路径
             // new MovingCount.Solution().Test();                                 // 机器人的运动范围
             // new CutRope.Solution().Test();                                     // 剪绳子  
+            new PrintNumbers.Solution().Test();                                   // 打印从1到最大的n位数
         }
     }
 }
