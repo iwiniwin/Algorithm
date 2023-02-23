@@ -76,7 +76,8 @@ namespace Algorithm
             // new HasPath.Solution().Test();                                     // 矩阵中的路径
             // new MovingCount.Solution().Test();                                 // 机器人的运动范围
             // new CutRope.Solution().Test();                                     // 剪绳子  
-            new PrintNumbers.Solution().Test();                                   // 打印从1到最大的n位数
+            // new PrintNumbers.Solution().Test();                                // 打印从1到最大的n位数
+            new DeleteNode.Solution().Test();                                  // 删除链表的节点
         }
     }
 }
