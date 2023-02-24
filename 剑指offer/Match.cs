@@ -9,10 +9,8 @@
 例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配
 
 代码结构：
-class Solution
-{
-    public bool match(char[] str, char[] pattern)
-    {
+class Solution {
+    public bool match (string str, string pattern) {
         // write code here
     }
 }
@@ -35,7 +33,7 @@ namespace Match {
         /// 2. 若不相等，直接返回匹配失败
         /// </summary>
 
-        public bool MatchImpl(char[] str, int sIndex, char[] pattern, int pIndex) {
+        public bool MatchImpl(string str, int sIndex, string pattern, int pIndex) {
             if(sIndex == str.Length && pIndex == pattern.Length) return true;
             if(pIndex < pattern.Length - 1 && pattern[pIndex + 1] == '*'){
                 if (sIndex < str.Length && (str[sIndex] == pattern[pIndex]
@@ -55,7 +53,7 @@ namespace Match {
             }
         }
 
-        public bool Match(char[] str, char[] pattern)
+        public bool Match (string str, string pattern)
         {
             return MatchImpl(str, 0, pattern, 0);
         }
@@ -80,7 +78,7 @@ namespace Match {
         /// f[str.Length, pattern.Length]就表示字符串str与模式串pattern是否匹配
         /// </summary>
 
-        public bool Match2(char[] str, char[] pattern)
+        public bool Match2 (string str, string pattern)
         {
             bool[,] f = new bool[str.Length + 1, pattern.Length + 1];
             for(int i = 0; i <= str.Length; i ++){
@@ -104,27 +102,14 @@ namespace Match {
 
         public void Test() {
 
-            char[] str = new char[]{'a', 'a', 'a'};
-            // str = new char[]{};
-            // str = new char[]{'a', 'b', 'b', 'b', '*'};
-            // str = new char[]{'a', 'b', 'b', 'b'};
-            // str = new char[]{'a', 'b', 'c', '.', '*', 'f', '*', 's'};
-            // str = new char[]{'a'};
-            // str = new char[]{'a', 'a'};
+            string str = "aaa";
+            str = "aaaaaaaaaaaaab";
 
-            char[] pattern = new char[]{'a', '.', 'a'};
-            // pattern = new char[]{'a', '*', 'a', 'a'};
-            // pattern = new char[]{'b', '*', 'a', 'a', 'a'};
-            // pattern = new char[]{'b', '*'};
-            // pattern = new char[]{'a', 'b', '*'};
-            // pattern = new char[]{'a', 'b', '*', '*'};
-            // pattern = new char[]{'.', '*'};
-            // pattern = new char[]{'*', '*'};
-            // pattern = new char[]{};
-            // pattern = new char[]{'.'};
+            string pattern = "a.a";
+            pattern = "a*a*a*a*a*a*a*a*a*a*c";
 
-            // Console.WriteLine(Match(str, pattern));
-            Console.WriteLine(Match2(str, pattern));
+            Console.WriteLine(Match(str, pattern));
+            // Console.WriteLine(Match2(str, pattern));
         }
     }
 }
