@@ -25,22 +25,24 @@ namespace Match {
         /// 基本思路：
         /// 当出现x*时，即任意一个字符加上'*'
         /// 1. x*消耗0个字符，模式串后移两位，字符串不动
-        /// 2. x*消耗1个字符，模式串后移两位，字符串后移一位
+        /// 2. x*消耗1个字符，模式串后移两位，字符串后移一位。这种情况可以被1和3组合完成，代码中省略了这步，用于减少递归深度，避免超时
         /// 3. x*消耗多个字符，即匹配下一个字符，模式串不动，字符串后移一位
         /// （注意，当这个'x'和字符串对应位的字符不相等时，x*只能等于消耗0个字符）
         /// 未出现时
         /// 1. 若模式串与字符串对应位字符相等，则都后移一位，匹配剩余的
         /// 2. 若不相等，直接返回匹配失败
+        /// 注意特殊情况，当字符串已经走完，但模式串还未遍历时，需要支持这种情况下模式串继续遍历
+        /// 因为模式串可能还剩下x*这种，可以匹配0字符
         /// </summary>
 
         public bool MatchImpl(string str, int sIndex, string pattern, int pIndex) {
             if(sIndex == str.Length && pIndex == pattern.Length) return true;
             if(pIndex < pattern.Length - 1 && pattern[pIndex + 1] == '*'){
                 if (sIndex < str.Length && (str[sIndex] == pattern[pIndex]
-                    || pattern[pIndex] == '.')) {
-                    return MatchImpl(str, sIndex, pattern, pIndex + 2) 
-                        || MatchImpl(str, sIndex + 1, pattern, pIndex) 
-                        || MatchImpl(str, sIndex + 1, pattern, pIndex + 2);
+                    || pattern[pIndex] == '.'))
+                {
+                    return MatchImpl(str, sIndex, pattern, pIndex + 2)
+                           || MatchImpl(str, sIndex + 1, pattern, pIndex);
                 }else{
                     return MatchImpl(str, sIndex, pattern, pIndex + 2);
                 }
