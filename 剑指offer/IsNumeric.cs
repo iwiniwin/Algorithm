@@ -32,9 +32,9 @@ namespace IsNumeric {
         /// 4. 字符是'.'，只能出现一次，且不能在首位（可以在尾部），且不能在'e'/'E'之后出现
         /// </summary>
 
-        public bool IsNumeric(char[] str)
+        public bool IsNumeric(string str)
         {
-            if(str == null || str.Length == 0) return false;
+            if(string.IsNullOrEmpty(str)) return false;
             int dotCount = 0, eCount = 0;
             for(int i = 0; i < str.Length; i ++){
                 if(str[i] >= '0' && str[i] <= '9') continue;
@@ -60,7 +60,7 @@ namespace IsNumeric {
         /// 使用正则表达式进行匹配
         /// </summary>
 
-        public bool IsNumeric2(char[] str)
+        public bool IsNumeric2(string str)
         {
             return Regex.IsMatch(new string(str), @"^[+-]?\d*(\.\d+)?([eE][+-]?\d+)?$");
         }
@@ -70,19 +70,10 @@ namespace IsNumeric {
         /// </summary>
 
         public void Test() {
+            string str = "  -.12";
 
-            char[] str = new char[]{'1', '.', '2', '.', '3'};
-            // str = new char[]{'+', '1', '2'};
-            // str = new char[]{'5', 'e', '2'};
-            // str = new char[]{'3', '.', '1', '4'};
-            // str = new char[]{'-', '1', 'E', '-', '5'};
-            // str = new char[]{'1', '2', 'e'};
-            // str = new char[]{'1', '2', 'e', '+', '4', '.', '3'};
-            // str = new char[]{'1', 'a', '3', '.', '4'};
-            // str = new char[]{'-', '.', '1', '2'};
-
-            // Console.WriteLine(IsNumeric(str));
-            Console.WriteLine(IsNumeric2(str));
+            Console.WriteLine(IsNumeric(str));
+            // Console.WriteLine(IsNumeric2(str));
         }
     }
 }
